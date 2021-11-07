@@ -15,7 +15,36 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
+from pages.views import (
+    home_view,
+)
+
+from account.views import (
+    registration_view,
+    login_view,
+    logout_view,
+    profile_view,
+    activate_account_view,
+    metas_view,
+    change_password_view,
+    del_user_view,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('5t3llw0rk0ut4dm1n15tr4c40/', admin.site.urls, name='admin'),
+    path('', home_view, name='home'),
+    path('register/', registration_view, name="register"),
+    path('logout/', logout_view, name="logout"),
+    path('login/', login_view, name="login"),
+    path('perfil/', profile_view, name="profile"),
+    path('metas/', metas_view, name='metas'),
+    path('excluir-conta/', del_user_view, name='del_user'),
+    path('activate/<uidb64>/<token>', activate_account_view, name='activate'),
+    path('alterar-senha/', change_password_view, name='change_password'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

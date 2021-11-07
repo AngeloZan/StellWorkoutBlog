@@ -1,0 +1,386 @@
+.content-over-bg-image {
+    position: relative;
+    background-attachment: fixed;
+    height: 39em;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+}
+
+#cadastro_container {
+    background-image: url('../img/background-cadastro.jpg');
+    height: 100vh;
+    padding-top: 60px;
+}
+
+#login_container {
+    background-image: url('../img/background-cadastro.jpg');
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.glass-container {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+}
+
+.glass-container:before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(10px);
+    margin: -20px;
+}
+
+#form_cadastro,
+#form_login {
+    width: 500px;
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+}
+  
+#form_cadastro h1,
+#form_login h1 {
+    color: rgb(190, 7, 7);
+    font-size: 50px;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 30px;
+    font-family: Raleway, sans-serif;
+}
+
+.helper-link {
+    margin-top: 1em;
+    font-size: 15px;
+}
+
+.helper-link a {
+    text-decoration: underline;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+.submit-button {
+    background-color: rgb(190, 7, 7);
+    color: white;
+    text-transform: uppercase;
+    border: solid 3px rgb(158, 5, 5);
+    padding: 5px 10px 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-size: 16px;
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.input input,
+.input input:focus {
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: rgb(73, 73, 73);
+    border-bottom: solid 1px rgb(190, 7, 7);
+    width: 350px;
+    height: 1.1em;
+    background-color: rgba(0,0,0,0);
+    margin-bottom: 2px;
+    padding: 0px 0px 0px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: rgb(73, 73, 73) !important;
+}
+
+.label-tag {
+    text-align: left;
+    margin: auto;
+    width: 350px;
+}
+
+.erro {
+    width: 350px;
+    margin: auto;
+    margin-top: 4px;
+    font-size: 14px;
+    text-align: left;
+    color: #cc0000;
+}
+
+.user-profile {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.user-profile .cabecalho {
+    display: flex;
+}
+
+.user-profile .image-cropper {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid rgb(190, 7, 7) 1px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-clip: padding-box;
+}
+
+.user-basic-info {
+    margin-left: 40px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.user-basic-info #username {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.user-basic-info #email {
+    font-size: 22px;
+}
+
+.user-profile #form_editar_perfil {
+    width: 100%;
+    display: flex;
+    border-radius: 8px;
+    border: solid gray 1px;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#form_editar_perfil .navegar {
+    position: relative;
+    width: 30%;
+    border-right: solid rgb(190, 7, 7) 1px;
+}
+
+#form_editar_perfil .navegar ul {
+    font-size: 20px;
+    position: absolute;
+    margin: auto;
+    white-space: nowrap;
+    width: min-content;
+    height: min-content;
+    line-height: 70px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#form_editar_perfil .navegar a {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#form_editar_perfil h2 {
+    color: rgb(190, 7, 7);
+    font-size: 50px;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 30px;
+    font-family: Raleway, sans-serif;
+}
+
+#form_editar_perfil .formulario {
+    margin: auto;
+    padding: 35px;
+    padding-top: 35px;
+    padding-bottom: 15px;
+}
+
+#form_editar_perfil .campo {
+    margin: 0px;
+    background-color: green;
+    margin-bottom: 35px;
+    padding-top: 0;
+}
+
+#form_editar_perfil .label-tag {
+    text-align: left;
+    margin: 0;
+    width: 350px;
+    color: rgb(190, 7, 7);
+}
+
+#form_editar_perfil .p-field {
+    display: none;
+}
+
+#form_editar_perfil #escolher_arquivo_wraper {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#form_editar_perfil #escolher_arquivo_wraper span {
+    color: rgb(190, 7, 7);
+    display: block;
+    cursor: default;
+}
+
+#form_editar_perfil #uploadFile {
+    padding: 2px 5px 2px;
+    font-size: 14px;
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+}
+
+#form_editar_perfil #image_label {
+    white-space: nowrap;
+    width: min-content;
+    background-color: rgb(190, 7, 7);
+    color: white;
+    text-transform: uppercase;
+    border: solid 3px rgb(158, 5, 5);
+    padding: 2px 5px 2px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+}
+
+#form_editar_perfil button {
+    margin-top: 0;
+}
+
+.user-profile form {
+    display: inline-block;
+    margin: auto;
+    line-height: 1.7em;
+}
+
+.user-profile form a {
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.user-metas {
+    position: relative;
+    background-color: #1a1919;
+    width: 100%;
+    padding: 0px;
+    padding-top: 50px;
+}
+
+.user-metas #grafico_peso {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.user-metas #myChart {
+    margin: auto;
+}
+
+.simple-form-container {
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.simple-form {
+    width: 500px;
+    padding: 30px;
+    margin: auto;
+    text-align: center;
+}
+
+.simple-form h1 {
+    color: rgb(190, 7, 7);
+    font-size: 50px;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 30px;
+    font-family: Raleway, sans-serif;
+}
+
+#del_user_form h2 {
+    color: rgb(190, 7, 7);
+    font-size: 30px;
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#del_user_form p {
+    text-align: left;
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin: auto;
+    margin-bottom: 30px;
+    max-width: 350px;
+}
+
+
+@media screen and (max-width: 600px) {
+    #form_cadastro,
+    #form_login,
+    .simple-form {
+        width: 400px;
+    }
+    .label-tag {
+        width: 300px;
+    }
+    .erro {
+        width: 300px;
+    }
+    .input input,
+    .input input:focus {
+        width: 300px;
+    }
+    #del_user_form p {
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #form_cadastro,
+    #form_login,
+    .simple-form {
+        width: 350px;
+    }
+    .label-tag {
+        width: 280px;
+    }
+    .erro {
+        width: 280px;
+    }
+    .input input,
+    .input input:focus {
+        width: 280px;
+    }
+    #del_user_form p {
+        max-width: 280px;
+    }
+}

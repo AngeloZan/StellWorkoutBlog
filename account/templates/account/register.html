@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+<style>
+    #nav_bar {
+        position: relative;
+    }
+</style>
+
+<div class="content-over-bg-image" id="cadastro_container">
+    <form action="" method="post" id="form_cadastro" class="glass-container">
+        {% csrf_token %}
+
+        <h1>Cadastre-se</h1>
+
+        {% for field in registration_form %}
+        <p class="campo">
+            <div class="input">
+                {{ field }}
+            </div>
+
+            <div class="label-tag">
+                {{ field.label_tag }}
+            </div>
+
+            {% for error in field.errors %}
+            <div class="erro">
+                <p>{{ error }}</p>
+            </div>
+            {% endfor %}
+        </p>
+        {% endfor %}
+
+        <button type="submit" class="submit-button">Confirmar</button>
+
+        <p class='helper-link'>Já possui uma conta? <a href="{% url 'login' %}">Entrar</a></p>
+    </form>
+</div>
+
+    
+{% endblock content %}

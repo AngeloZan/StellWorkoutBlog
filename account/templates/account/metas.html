@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="user-metas">
+        <div class="grafico" id="grafico_peso">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="{% static 'account/js/script.js' %}"></script>
+{% endblock content %}

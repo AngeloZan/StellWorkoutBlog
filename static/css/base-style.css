@@ -1,0 +1,219 @@
+body {
+    font-family: Poppins, sans-serif;
+    font-size: 17px;
+}
+
+.site {
+    position: relative;
+}
+
+#nav_bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 4em;
+	box-shadow: rgba(0, 0, 0, 0.247) 4px 4px 2px !important;
+    z-index: 2;
+    background-color: white;
+}
+
+#nav_bar .logo img {
+    width: 50px;
+    border-radius: 50px;
+    border: solid black 1px;
+}
+
+#nav_bar a {
+    text-decoration: none;
+}
+
+#nav_bar .nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    text-transform: uppercase;
+}
+
+#nav_bar .nav-links li {
+    list-style: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#nav_bar .burger {
+    cursor: pointer;
+    display: none;
+}
+
+#nav_bar .burger div {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    transition: all 0.5s ease;
+}
+
+.nav-links a:visited,
+.nav-links a:hover,
+.nav-links a:active,
+.nav-links a:link{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 1em;
+}
+
+.nav-links a:hover{
+    color: #e21c21;
+}
+
+.profile-icon {
+    margin-top: auto;
+    width: 20px;
+}
+
+#messages_div {
+    position: absolute;
+    display: flex;
+    top: 20px;
+    left: 50%;
+    width: 90%;
+    max-width: 1200px;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    box-shadow: 3px 3px 5px #888888;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.messages {
+    width: 100%;
+    background-color: white;
+    border: solid 2px gray;
+    border-right: none;
+}
+
+.messages .success {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px;
+    margin-right: 0;
+    color: #298a22;
+    background-color: rgb(161, 255, 161);
+    border: solid 1px #298a22;
+}
+
+.messages .error {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px;
+    margin-right: 0;
+    color: rgb(219, 3, 3);
+    background-color: rgb(255, 167, 167);
+    border: solid 1px rgb(219, 3, 3);
+}
+
+#x_messages_div {
+    position: relative;
+    display: block;
+    width: 40px;
+    margin-right: 0;
+    margin-left: auto;
+    border: solid 2px gray;
+    border-left: none;
+    background-color: white;
+}
+
+.x-burger {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.barra-x {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+}
+
+#x_barra_1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+#x_barra_2 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+#x_barra_meio {
+    opacity: 0;
+}
+
+
+@media screen and (max-width: 1100px) {
+    #nav_bar .nav-links {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .site {
+        overflow-x: hidden;
+    }
+
+    #nav_bar .nav-links {
+        width: 50%;
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        display: flex;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    #nav_bar .burger {
+        display: block;
+    }
+}
+
+#nav_bar .nav-active {
+	transform: translateX(0%);
+    position: fixed;
+    z-index: 2;
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+

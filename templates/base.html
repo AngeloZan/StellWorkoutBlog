@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!--<link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>-->
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base-style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>StellWorkout</title>
+    {% block head %}
+
+    {% endblock head %}
+</head>
+<body>
+    <div class="site">
+        {% include 'snippets/header.html' %}
+
+        {% if messages %}
+            <div id="messages_div">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                <div id="x_messages_div">
+                    <div class="x-burger" onclick="closeMessages()">
+                        <div class="barra-x" id="x_barra_1"></div>
+                        <div class="barra-x" id="x_barra_meio"></div>
+                        <div class="barra-x" id="x_barra_2"></div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="content">
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+
+        {% include 'snippets/footer.html' %}
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <!--<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>-->
+
+</body>
+</html>
