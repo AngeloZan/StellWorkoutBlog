@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="container">
+        <h2>Formulário para criar post</h2>
+
+        <div class="row">
+            <form method="POST" enctype="multipart/form-data" class="col s12">
+                {% csrf_token %}
+
+                {% for field in form_novo_post %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ field }}
+                            {{ field.label_tag }}
+                        </div>
+                    </div>
+
+                    {% for error in field.errors %}
+                        <div>
+                            <p>{{ error }}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

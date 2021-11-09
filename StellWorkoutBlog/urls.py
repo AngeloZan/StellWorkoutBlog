@@ -35,6 +35,7 @@ from account.views import (
 
 from blog.views import (
     posts_view,
+    create_post_view,
 )
 
 urlpatterns = [
@@ -49,6 +50,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>', activate_account_view, name='activate'),
     path('alterar-senha/', change_password_view, name='change_password'),
     path('posts/', posts_view, name='posts'),
+    path('novo-post/', create_post_view, name='posts'),
 ]
 
 if settings.DEBUG:
