@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+def posts_view(request):
+    context = {}
+
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('home')
+    else:
+        return render(request, 'blog/posts.html', context)

@@ -8,80 +8,8 @@
 
 {% block content %}
 
-<style>
-    #nav_bar {
-        position: fixed;
-    }
-    .content {
-        padding-top: 4em;
-    }
-</style>
-
 <main>
-
-    <div class="content-over-bg-image" id="be_the_best">
-        <h1>BE THE BEST</h1>
-        <div class="botoes-cadastro-login">
-            <a href="{% url 'register' %}">
-                <div class="bt-div" id="bt_div_cadastro">
-                    <div class="child">Cadastre-se</div>
-                </div>
-            </a>
-            <a href="{% url 'login' %}">
-                <div class="bt-div" id="bt_div_login">
-                    <div class="child">Login</div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <div class="quadros">
-        <figure id="quadros_figure">
-            <img src="{% static 'pages/img/home/quadros-image.jpg' %}" id="quadros_image">
-        </figure>
-
-        <div id="quadros_text">
-            <h2>Sobre Nós</h2>
-
-            <p><strong>Stell Workout</strong> é um site com o objetivo de ajudar as pessoas a melhorarem sua saúde física através da Calistenia.</p>
-            
-            <h3>Mas o que é Calistenia?</h3>
-
-            <p>É um tipo de treino, que utiliza o peso do próprio corpo para a execução dos exercícios, que pode ser realizado em qualquer ambiente sem a necessidade de equipamentos.</p>
-
-            <h3>Sabemos que existem outros serviços parecidos... afinal, o que temos de vantagens?</h3>
-
-            <p>Oferecemos um serviço de qualidade excepcional, com treinos personalizados de acordo com seus objetivos, tempo e nível físico. Um serviço gratuito e acessível a todos. </p>
-        </div>
-    </div>
-
-    <div class="content-over-bg-image" id=quadro_treinos_movimentos>
-        <div id="texto-treinos">
-            <h2>Treinos</h2>
-            <p>Diferentes tipos de treinos, para resultados mais rápidos:</p>​
-            <ul>
-                <li>Seriado</li>
-                <li>Cíclico</li>
-                <li>HIIT</li>
-                <li>Treinos prontos</li>
-            </ul><br>
-            <p>Todos personalizáveis, para alcançar um corpo saudável e um abdômen trincado.</p>      
-        </div>
-
-        <div id="texto-movimentos">
-            <h2>Movimentos</h2>
-            <p>A parte mais desafiadora da Calistenia.</p><br>
-            <p>Os Movimentos te dão força, equilíbrio, mobilidade e vão impressionar seus amigos.</p><br>
-            <p>Aqui na Stell Workout você tem cada movimento explicado passo a passo, com progressões eficientes que aceleram sua evolução, sendo você um iniciante, intermediário ou avançado.</p><br>
-        </div>
-    </div>
-
-    <div class="content-over-bg-image" id="quadro_premium">
-        <div class="logo">
-            <img src="{% static 'pages/img/logo.png' %}" alt="Logo StellWorkout">
-        </div>
-    </div>
-
+    <h1>Aqui vai a página home para quem ainda não fez cadastro.</h1>
 </main>
 
 {% endblock content %}

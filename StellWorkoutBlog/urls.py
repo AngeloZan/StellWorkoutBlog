@@ -33,6 +33,10 @@ from account.views import (
     del_user_view,
 )
 
+from blog.views import (
+    posts_view,
+)
+
 urlpatterns = [
     path('5t3llw0rk0ut4dm1n15tr4c40/', admin.site.urls, name='admin'),
     path('', home_view, name='home'),
@@ -44,6 +48,7 @@ urlpatterns = [
     path('excluir-conta/', del_user_view, name='del_user'),
     path('activate/<uidb64>/<token>', activate_account_view, name='activate'),
     path('alterar-senha/', change_password_view, name='change_password'),
+    path('posts/', posts_view, name='posts'),
 ]
 
 if settings.DEBUG:

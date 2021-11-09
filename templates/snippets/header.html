@@ -1,59 +1,34 @@
 {% load static %}
-<nav id="nav_bar">
-    <a href="{% url 'home' %}">
-        <div class="logo">
-            <img src="{% static 'img/logo.png' %}" alt="Logo StellWorkout">
+
+<script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+    });
+</script>
+
+<nav>
+    <div class="nav-wrapper white">
+        <div class="container">
+            <a href="#" class="brand-logo"><img src="{% static 'img/logo.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                <i class="material-icons black-text">menu</i>
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{% url 'home' %}" class="black-text">Home</a></li>
+                <li><a href="{% url 'register' %}" class="black-text">Cadastro</a></li>
+                <li><a href="{% url 'login' %}" class="black-text">Login</a></li>
+            </ul>
         </div>
-    </a>
-
-    {% if request.user.is_authenticated %}
-
-        <ul class='nav-links'>
-            <li>
-                <a href="#">Meu treino</a>
-            </li>
-            <li>
-                <a href="#">Treinos</a>
-            </li>
-            <li>
-                <a href="#">Movimentos</a>
-            </li>
-            <li>
-                <a href="#">Metas</a>
-            </li>
-            <li>
-                <a href="{% url 'profile' %}"><img src="{% static 'img/profile.png' %}" alt="Perfil" class="profile-icon"></a>
-            </li>
-        </ul>
-
-    {% else %}
-
-        <ul class='nav-links'>
-            <li>
-                <a href="{% url 'home' %}">Home</a>
-            </li>
-            <li>
-                <a href="#">Treinos</a>
-            </li>
-            <li>
-                <a href="#">Movimentos</a>
-            </li>
-            <li>
-                <a href="{% url 'register' %}">Cadastre-se</a>
-            </li>
-            <li>
-                <a href="{% url 'login' %}">Login</a>
-            </li>
-        </ul>
-
-    {% endif %}
-    
-    <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
     </div>
 </nav>
+
+<ul class="sidenav" id="mobile-nav">
+    <li><a href="{% url 'home' %}" class="black-text">Home</a></li>
+    <li><a href="{% url 'register' %}" class="black-text">Cadastro</a></li>
+    <li><a href="{% url 'login' %}" class="black-text">Login</a></li>
+</ul>
+
+
 
 
 
