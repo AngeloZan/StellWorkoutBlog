@@ -3,30 +3,66 @@
 <script>
     $(document).ready(function(){
         $('.sidenav').sidenav();
+        $(".dropdown-trigger").dropdown();
     });
 </script>
+
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="{% url 'change_password' %}" class="black-text">Alterar Senha</a></li>
+    <li><a href="{% url 'my_data' %}" class="black-text">Meus Dados</a></li>
+    <li><a href="{% url 'logout' %}" class="black-text">Sair</a></li>
+    <li><a href="{% url 'del_user' %}" class="black-text">Excluir Conta</a></li>
+</ul>
+
+<ul id="dropdown2" class="dropdown-content">
+    <li><a href="{% url 'change_password' %}" class="black-text">Alterar Senha</a></li>
+    <li><a href="{% url 'my_data' %}" class="black-text">Meus Dados</a></li>
+    <li><a href="{% url 'logout' %}" class="black-text">Sair</a></li>
+    <li><a href="{% url 'del_user' %}" class="black-text">Excluir Conta</a></li>
+</ul>
 
 <nav>
     <div class="nav-wrapper white">
         <div class="container">
-            <a href="#" class="brand-logo"><img src="{% static 'img/logo.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+            <a href="{% url 'home' %}" class="brand-logo"><img src="{% static 'img/logo.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
             <a href="#" class="sidenav-trigger" data-target="mobile-nav">
                 <i class="material-icons black-text">menu</i>
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{% url 'home' %}" class="black-text">Home</a></li>
-                <li><a href="{% url 'register' %}" class="black-text">Cadastro</a></li>
-                <li><a href="{% url 'login' %}" class="black-text">Login</a></li>
+                {% if not user.is_authenticated %}
+                    <li><a href="{% url 'register' %}" class="black-text">Cadastro</a></li>
+                    <li><a href="{% url 'login' %}" class="black-text">Entrar</a></li>
+                    <li><a href="#" class="black-text">Sobre</a></li>
+                {% endif %}
+                {% if user.is_admin %}
+                    <li><a href="{% url 'admin:index' %}" class="black-text">Administração</a></li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons black-text">account_circle</i></a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
 </nav>
 
+
+
+
 <ul class="sidenav" id="mobile-nav">
-    <li><a href="{% url 'home' %}" class="black-text">Home</a></li>
-    <li><a href="{% url 'register' %}" class="black-text">Cadastro</a></li>
-    <li><a href="{% url 'login' %}" class="black-text">Login</a></li>
+    {% if not user.is_authenticated %}
+        <li><a href="{% url 'register' %}" class="black-text">Cadastro</a></li>
+        <li><a href="{% url 'login' %}" class="black-text">Entrar</a></li>
+        <li><a href="#" class="black-text">Sobre</a></li>
+    {% endif %}
+    {% if user.is_admin %}
+        <li><a href="{% url 'admin:index' %}" class="black-text">Administração</a></li>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown2"><i class="material-icons black-text">account_circle</i></a></li>
+    {% endif %}
 </ul>
+
+
 
 
 

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    
     <title>StellWorkout</title>
     {% block head %}
 
@@ -19,20 +20,17 @@
         {% include 'snippets/header.html' %}
 
         {% if messages %}
-            <div id="messages_div">
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                <div id="x_messages_div">
-                    <div class="x-burger" onclick="closeMessages()">
-                        <div class="barra-x" id="x_barra_1"></div>
-                        <div class="barra-x" id="x_barra_meio"></div>
-                        <div class="barra-x" id="x_barra_2"></div>
-                    </div>
-                </div>
-            </div>
+            {% for message in messages %}
+                {% if message.tags == 'success'%}
+                    <script>M.toast({html: "{{ message }}", classes: 'green rounded', displayLength:2000});</script>
+                {% elif message.tags == 'info'%}
+                    <script>M.toast({html: "{{ message }}", classes: 'blue rounded', displayLength:2000});</script>
+                {% elif message.tags == 'warning'%}
+                    <script>M.toast({html: "{{ message }}", classes: 'orange rounded', displayLength:10000});</script>
+                {% elif message.tags == 'error'%}
+                    <script>M.toast({html: "{{ message }}", classes: 'red rounded', displayLength:10000});</script>
+                {% endif %}
+            {% endfor %}
         {% endif %}
 
         <div class="content">
@@ -43,5 +41,6 @@
 
         {% include 'snippets/footer.html' %}
     </div>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

@@ -44,11 +44,6 @@ class AccountUpdateForm(forms.ModelForm):
         model = Account
         fields = ['username', 'email']
 
-class ProfileUpdateForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ['image']
-
 class PasswordChangeFormCustom(PasswordChangeForm):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')

@@ -4,7 +4,7 @@
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, ProfileUpdateForm, PasswordChangeFormCustom
+from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm, PasswordChangeFormCustom
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -109,40 +109,28 @@ def activate_account_view(request, uidb64, token):
     return render(request, 'account/activate_failed.html', status=401)
 
 
-def profile_view(request):
+def my_data_view(request):
     context = {}
 
     user = request.user
 
     if not user.is_authenticated:
         return redirect('login')
-
-    user_old_pic_file = user.profile.image.path
-    
-    
+     
     if request.POST:
         u_form = AccountUpdateForm(request.POST, instance=user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=user.profile)
     else:
         u_form = AccountUpdateForm(instance=user)
-        p_form = ProfileUpdateForm(instance=user.profile)
 
-    if u_form.is_valid() and p_form.is_valid():
-
-        if len(request.FILES) != 0:
-            if not user_old_pic_file.endswith('media/default.jpg'):
-                os.remove(user_old_pic_file)
-
+    if u_form.is_valid():
         u_form.save()
-        p_form.save()
         messages.success(request, f'Sua conta foi atualizada!')
-        return redirect('profile')
+        return redirect('home')
     
     context['user'] = user
     context['u_form'] = u_form
-    context['p_form'] = p_form
 
-    return render(request, 'account/profile.html', context)
+    return render(request, 'account/my_data.html', context)
 
 
 def metas_view(request):
@@ -171,7 +159,7 @@ def change_password_view(request):
             update_session_auth_hash(request, user)  # Important!
             list(messages.get_messages(request))
             messages.success(request, 'Sua senha foi atualizada com sucesso!')
-            return redirect('profile')
+            return redirect('home')
 
     else:
         form = PasswordChangeFormCustom(request.user)
