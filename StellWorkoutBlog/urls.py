@@ -50,7 +50,7 @@ urlpatterns = [
     path('activate/<uidb64>/<token>', activate_account_view, name='activate'),
     path('alterar-senha/', change_password_view, name='change_password'),
     path('posts/', posts_view, name='posts'),
-    path('novo-post/', create_post_view, name='posts'),
+    path('novo-post/', create_post_view, name='novo_post'),
 ]
 
 if settings.DEBUG:

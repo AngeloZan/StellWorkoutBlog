@@ -28,7 +28,9 @@ def create_post_view(request):
         form_novo_post = CreatePostForm()
 
     if form_novo_post.is_valid():
-        form_novo_post.save()
+        obj = form_novo_post.save(commit=False)
+        obj.user = user
+        obj.save()
         messages.success(request, f'O post foi enviado com sucesso!')
         return redirect('home')
 

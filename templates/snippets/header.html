@@ -36,9 +36,10 @@
                 {% endif %}
                 {% if user.is_admin %}
                     <li><a href="{% url 'admin:index' %}" class="black-text">Administração</a></li>
+                    <li><a href="{% url 'novo_post' %}" class="black-text">Novo Post</a></li>
                 {% endif %}
                 {% if user.is_authenticated %}
-                <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons black-text">account_circle</i></a></li>
+                    <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons black-text">account_circle</i></a></li>
                 {% endif %}
             </ul>
         </div>
@@ -56,9 +57,10 @@
     {% endif %}
     {% if user.is_admin %}
         <li><a href="{% url 'admin:index' %}" class="black-text">Administração</a></li>
+        <li><a href="{% url 'novo_post' %}" class="black-text">Novo Post</a></li>
     {% endif %}
     {% if user.is_authenticated %}
-    <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown2"><i class="material-icons black-text">account_circle</i></a></li>
+        <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown2"><i class="material-icons black-text">account_circle</i></a></li>
     {% endif %}
 </ul>
 

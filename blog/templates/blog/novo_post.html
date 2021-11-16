@@ -6,31 +6,59 @@
 {% endblock head %}
 
 {% block content %}
-    <div class="container">
-        <h2>Formulário para criar post</h2>
 
-        <div class="row">
-            <form method="POST" enctype="multipart/form-data" class="col s12">
-                {% csrf_token %}
+    <div class="row form-container">
+        <div class="col s12 m8 offset-m2">
+            <div class="card">
+                <div class="card-action teal lighten-1 white-text">
+                    <h3>Novo Post</h3>
+                </div>
+                <div class="card-content">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-                {% for field in form_novo_post %}
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {{ field }}
-                            {{ field.label_tag }}
-                        </div>
-                    </div>
-
-                    {% for error in field.errors %}
-                        <div>
-                            <p>{{ error }}</p>
-                        </div>
-                    {% endfor %}
-                {% endfor %}
-
-                <button type="submit">Enviar</button>
-            </form>
+                        {% for field in form_novo_post %}
+                            <div class="row">
+                                {% if not field.name == 'file' %}
+                                    <div class="input-field col s12">
+                                        {{ field }}
+                                        {{ field.label_tag }}
+                                        {% for error in field.errors %}
+                                            <p class="error-message-field">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    <div class="file-field input-field col s12">
+                                        <div class="btn">
+                                            <span><i class="left material-icons">attach_file</i>Arquivo</span>
+                                            {{ field }}
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input type="text" class="file-path validate">
+                                        </div>
+                                        {% for error in field.errors %}
+                                            <p class="error-message-field">{{ error }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        {% if form_novo_post.non_field_errors %}
+                            <div class="non-field-error">
+                                <p>{{ form_novo_post.non_field_errors }}</p>
+                            </div>
+                        {% endif %}
+                        <button class="btn-large waves-effect waves-dark" style="width:100%">Enviar</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        var intro = document.querySelector('#id_intro');
+        intro.classList.add('materialize-textarea')
+        
+    </script>
 
 {% endblock content %}

@@ -11,3 +11,9 @@ li .black-text {
     font-weight: 500;
 }
 
+.error-message-field {
+    color: #cc0000;
+    margin-top: -20px;
+    padding-top: 0px;
+}
+
