@@ -18,6 +18,9 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+# mudando o titulo da pagina admin
+admin.site.site_header = 'Administração StellWorkout'
+
 from pages.views import (
     home_view,
 )
