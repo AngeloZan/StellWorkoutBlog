@@ -10,6 +10,6 @@ def home_view(request):
     if not user.is_authenticated:
         return render(request, 'pages/home.html', context)
     else:
-        return render(request, 'blog/posts.html', context)
+        return redirect('posts')
 
         

@@ -10,3 +10,16 @@
     margin-top: 20pt;
 }
 
+.card-link {
+    display: block;
+}
+
+.post-link {
+    color: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+    .blog-grid-row {
+        margin-bottom: 0px;
+    }
+}

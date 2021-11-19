@@ -7,94 +7,26 @@
 
 {% block content %}
     <div class="container content-container">
-        <div class="row">
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="#" class="right">
-                            <i class="black-text material-icons post-card-icon">bookmark</i>
-                        </a>
-                        <span class="card-title">Treino de calistenia para iniciantes</span>
-                        <br><p>Algumas informações preliminares sobre o post vão aqui.</p>
+        {% for line in posts_mtx %}
+            <div class="row blog-grid-row">
+                {% for post in line %}
+                    <div class="col s12 m4 l4">
+                        <div class="card small">
+                            <div class="card-content">
+                                <a href="#" class="right">
+                                    <i class="black-text material-icons post-card-icon">bookmark</i>
+                                </a>
+                                <span class="card-title"><a href="{{ post.file.url }}" target="_blank" class="post-link">{{ post.title }}</a></span>
+                                <br><p>{{ post.intro }}</p>
+                            </div>
+                            <div class="card-action grey-text">
+                                Postado em {{ post.date_added|date:"d/m/Y" }}
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-action grey-text">
-                        Postado em 15/11/2021
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="#" class="right">
-                            <i class="black-text material-icons post-card-icon">bookmark</i>
-                        </a>
-                        <span class="card-title">Treino de calistenia para iniciantes</span>
-                        <br><p>Algumas informações preliminares sobre o post vão aqui.</p>
-                    </div>
-                    <div class="card-action grey-text">
-                        Postado em 15/11/2021
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="#" class="right">
-                            <i class="black-text material-icons post-card-icon">bookmark</i>
-                        </a>
-                        <span class="card-title">Treino de calistenia para iniciantes</span>
-                        <br><p>Algumas informações preliminares sobre o post vão aqui.</p>
-                    </div>
-                    <div class="card-action grey-text">
-                        Postado em 15/11/2021
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="#" class="right">
-                            <i class="black-text material-icons post-card-icon">bookmark</i>
-                        </a>
-                        <span class="card-title">Treino de calistenia para iniciantes</span>
-                        <br><p>Algumas informações preliminares sobre o post vão aqui.</p>
-                    </div>
-                    <div class="card-action grey-text">
-                        Postado em 15/11/2021
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="#" class="right">
-                            <i class="black-text material-icons post-card-icon">bookmark</i>
-                        </a>
-                        <span class="card-title">Treino de calistenia para iniciantes</span>
-                        <br><p>Algumas informações preliminares sobre o post vão aqui.</p>
-                    </div>
-                    <div class="card-action grey-text">
-                        Postado em 15/11/2021
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m4 l4">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="#" class="right">
-                            <i class="black-text material-icons post-card-icon">bookmark</i>
-                        </a>
-                        <span class="card-title">Treino de calistenia para iniciantes</span>
-                        <br><p>Algumas informações preliminares sobre o post vão aqui.</p>
-                    </div>
-                    <div class="card-action grey-text">
-                        Postado em 15/11/2021
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
 
