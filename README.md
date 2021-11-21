@@ -7,3 +7,4 @@ TO-DO List
 - [ ] Email verification
 - [ ] Password recovery system
 - [ ] Clickable cards
+- [ ] Footer

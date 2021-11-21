@@ -3,14 +3,9 @@ def posts_matrix(posts):
     mtx = [ [], ]
 
     for post in posts:
-        if len(mtx[0]) < 3:
-            mtx[0].insert(0, post)
+        if len(mtx[-1]) < 3:
+            mtx[-1].append(post)
         else:
-            mtx.insert(0, [post])
-
-    mtx.reverse()
-    
-    for line in mtx:
-        line.reverse()
+            mtx.append([post])
 
     return mtx

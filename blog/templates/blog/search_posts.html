@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container content-container">
+        {% if searched %}
+            {% if not num_posts > 0 %}
+                <h5>Não foram encontrados resultados para <strong>"{{ searched }}".</strong></h5>
+            {% else %}
+                <h5>{% if not num_posts == 1 %}Foram encontrados{% else %}Foi encontrado{% endif %} <i>{{ num_posts }}</i> resultado{% if not num_posts == 1 %}s{% endif %} para <strong>"{{ searched }}"</strong>:</h5><br>
+                {% for line in posts_mtx %}
+                    <div class="row blog-grid-row">
+                        {% for post in line %}
+                            <div class="col s12 m4 l4">
+                                <div class="card small">
+                                    <div class="card-content">
+                                        <a href="#" class="right">
+                                            <i class="black-text material-icons post-card-icon">bookmark</i>
+                                        </a>
+                                        <span class="card-title"><a href="{{ post.file.url }}" target="_blank" class="post-link">{{ post.title }}</a></span>
+                                        <br><p>{{ post.intro }}</p>
+                                    </div>
+                                    <div class="card-action grey-text">
+                                        Postado em {{ post.date_added|date:"d/m/Y" }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <h4>Insira um termo para pesquisar.</h4>
+        {% endif %}
+        
+    </div>
+
+{% endblock content %}
