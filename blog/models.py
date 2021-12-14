@@ -4,6 +4,14 @@ from account.models import Account
 import os
 import uuid
 
+CATEGORIAS_POSTS = (
+    ('nenhuma', 'Nenhuma'),
+    ('primeiros_passos', 'Primeiros Passos'),
+    ('movimentos', 'Movimentos'),
+    ('treinos', 'Treinos'),
+    ('alimentacao', 'Alimentação'),
+    ('descanso', 'Descanso'),
+)
 
 def wrapper(instance, filename):
     # Funcao utilizada por Post
@@ -18,10 +26,12 @@ class Post(models.Model):
     file = models.FileField(upload_to=wrapper, verbose_name='Arquivo')
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
+    category = models.CharField(max_length=25, default='nenhuma', choices=CATEGORIAS_POSTS, verbose_name='Categoria') 
 
     def __str__(self):
         return self.title
 
     class Meta:
         ordering = ['-date_added']
-        
+
+

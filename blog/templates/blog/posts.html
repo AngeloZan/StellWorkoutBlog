@@ -7,65 +7,31 @@
 
 {% block content %}
     <div class="container content-container">
-        {% for line in posts_mtx %}
-            <div class="row blog-grid-row">
-                {% for post in line %}
-                    <div class="col s12 m3 l3">
-                        <div class="card small post-card">
-                            <div class="card-content">
-                                <a href="#" class="right">
-                                    <i class="black-text material-icons post-card-icon">bookmark</i>
-                                </a>
-                                <span class="card-title"><a href="{{ post.file.url }}" target="_blank" class="post-link">{{ post.title }}</a></span>
-                                <br><p>{{ post.intro }}</p>
-                            </div>
+        <h3>Todos</h3>
+        <div class="owl-carousel posts-carousel">
+            {% for post in todos_posts %}
+                <div class="card hoverable post-card hover-reveal" data-merge="2">
+                    <div class="card-content">
+                        <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
+                        <br><p>{{ post.intro }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% for categoria, verbose_name, posts_categoria in categorias %}
+            <h3>{{ verbose_name }}</h3>
+            <div class="owl-carousel posts-carousel">
+                {% for post in posts_categoria %}
+                    <div class="card hoverable post-card hover-reveal" data-merge="2">
+                        <div class="card-content">
+                            <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
+                            <br><p>{{ post.intro }}</p>
                         </div>
                     </div>
                 {% endfor %}
             </div>
         {% endfor %}
-        <div class="owl-carousel posts-carousel">
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 1
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 2
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 3
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 4
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 5
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 6
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 7
-                </div>
-            </div>
-            <div class="card post-card" data-merge="2">
-                <div class="card-content">
-                    TESTANDO 8
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="{% static 'blog/js/script.js' %}"></script>

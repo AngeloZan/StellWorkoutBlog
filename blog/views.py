@@ -4,7 +4,7 @@ from django.contrib import messages
 from itertools import chain
 
 from .utils import posts_matrix
-from .models import Post
+from .models import Post, CATEGORIAS_POSTS
 from .forms import CreatePostForm
 
 def posts_view(request):
@@ -12,15 +12,21 @@ def posts_view(request):
 
     user = request.user
 
-    posts = Post.objects.order_by('-date_added')
-    posts_mtx = posts_matrix(posts)
-    context['posts_mtx'] = posts_mtx
-
     if not user.is_authenticated:
         return redirect('home')
     else:
-        print('teste', posts_mtx)
+        posts = Post.objects.order_by('-date_added')
+        context['todos_posts'] = posts
+        context['categorias'] = []
+
+        for categoria, verbose_name in CATEGORIAS_POSTS:
+            if categoria != 'nenhuma':
+                posts_categoria = posts.filter(category=categoria)
+                if posts_categoria:
+                    context['categorias'].append((categoria, verbose_name, posts_categoria))
+        
         return render(request, 'blog/posts.html', context)
+
 
 def create_post_view(request):
     context = {}
