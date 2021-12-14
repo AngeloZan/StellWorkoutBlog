@@ -7,14 +7,15 @@
 {% endblock head %}
 
 {% block content %}
+
     <div class="row form-container">
         <div class="col s12 m6 offset-m3">
-            <div class="card">
-                <div class="card-action teal lighten-1 white-text">
+            <div class="card form-card">
+                <div class="card-action">
                     <h3>Cadastro</h3>
                 </div>
                 <div class="card-content">
-                    <form action="" method="post">
+                    <form action="" method="post" class=form-card-form>
                         {% csrf_token %}
 
                         {% for field in registration_form %}
@@ -33,11 +34,20 @@
                                 <p>{{ registration_form.non_field_errors }}</p>
                             </div>
                         {% endif %}
-                        <button class="btn-large waves-effect waves-dark" style="width:100%">Enviar</button>
-                        <p class="helper-text">Já possui conta? <a href="{% url 'login' %}">Entrar</a></p>
+                        <button class="btn-large grey lighten-2 waves-effect waves-dark" style="width:100%">Enviar</button>
+                        <p class="helper-text"><b> Já possui conta? <a href="{% url 'login' %}">Entrar</a></b></p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        body {
+            /*background-image: url('../../static/account/img/form_background.jpg');*/
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
 {% endblock content %}

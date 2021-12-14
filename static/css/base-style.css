@@ -8,12 +8,14 @@ main {
     flex: 1 0 auto;
 }
 
+nav {
+    background-color: rgba(0, 0, 0, 0);
+}
+
 nav #logo {
-    height: 50px;
-    border-radius: 50px;
-    border: solid black 1px;
+    height: 35px;
     vertical-align: middle;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 li .black-text {
@@ -28,7 +30,7 @@ li .black-text {
 }
 
 .page-footer {
-    background-color: #f8f6f6;
+    background-color: rgba(0, 0, 0, 0);
     color: #8c8889;
     margin-top: 20pt;
 }
