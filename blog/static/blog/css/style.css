@@ -1,3 +1,7 @@
+body {
+    background-color: var(--bg-color);
+}
+
 .post-card-icon {
     font-size: 25px;
 }
@@ -18,8 +22,21 @@
     color: inherit;
 }
 
+.post-card {
+    background-color: var(--post-card-bg);
+    border-top-right-radius: 0.8em;
+    border-bottom-right-radius: 0.8em;
+    height: 250px;
+}
+
+
 @media only screen and (max-width: 600px) {
     .blog-grid-row {
         margin-bottom: 0px;
+    }
+
+    .owl-carousel .post-card {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
     }
 }
