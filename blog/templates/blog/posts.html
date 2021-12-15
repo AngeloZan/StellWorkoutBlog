@@ -10,7 +10,7 @@
         <h3>Todos</h3>
         <div class="owl-carousel owl-theme posts-carousel">
             {% for post in todos_posts %}
-                <div class="card hoverable post-card hover-reveal" data-merge="2">
+                <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">
                     <div class="card-content">
                         <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
                         <br><p>{{ post.intro }}</p>
@@ -21,9 +21,9 @@
 
         {% for categoria, verbose_name, posts_categoria in categorias %}
             <h3>{{ verbose_name }}</h3>
-            <div class="owl-carousel posts-carousel">
+            <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in posts_categoria %}
-                    <div class="card hoverable post-card hover-reveal" data-merge="2">
+                    <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">
                         <div class="card-content">
                             <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
                             <br><p>{{ post.intro }}</p>

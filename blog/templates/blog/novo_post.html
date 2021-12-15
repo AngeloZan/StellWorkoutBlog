@@ -19,7 +19,7 @@
 
                         {% for field in form_novo_post %}
                             <div class="row">
-                                {% if not field.name == 'file' %}
+                                {% if not field.name == 'file' and not field.name == 'image' %}
                                     <div class="input-field col s12">
                                         {{ field }}
                                         {{ field.label_tag }}
@@ -28,18 +28,33 @@
                                         {% endfor %}
                                     </div>
                                 {% else %}
-                                    <div class="file-field input-field col s12">
-                                        <div class="btn">
-                                            <span><i class="left material-icons">attach_file</i>Arquivo</span>
-                                            {{ field }}
+                                    {% if field.name == 'file' %}
+                                        <div class="file-field input-field col s12">
+                                            <div class="btn">
+                                                <span><i class="left material-icons">attach_file</i>Arquivo</span>
+                                                {{ field }}
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input type="text" class="file-path validate">
+                                            </div>
+                                            {% for error in field.errors %}
+                                                <p class="error-message-field">{{ error }}</p>
+                                            {% endfor %}
                                         </div>
-                                        <div class="file-path-wrapper">
-                                            <input type="text" class="file-path validate">
+                                    {% else %}
+                                        <div class="file-field input-field col s12">
+                                            <div class="btn">
+                                                <span><i class="left material-icons">image</i>Imagem</span>
+                                                {{ field }}
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input type="text" class="file-path validate">
+                                            </div>
+                                            {% for error in field.errors %}
+                                                <p class="error-message-field">{{ error }}</p>
+                                            {% endfor %}
                                         </div>
-                                        {% for error in field.errors %}
-                                            <p class="error-message-field">{{ error }}</p>
-                                        {% endfor %}
-                                    </div>
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         {% endfor %}
