@@ -82,6 +82,11 @@ li .black-text {
     letter-spacing: 1px;
 }
 
+.fadeout-gradient {
+    position: absolute;
+    background-color: red;
+}
+
 @media only screen and (max-width: 600px) {
     #menu-icon {
         display: block;

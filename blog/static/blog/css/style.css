@@ -27,6 +27,7 @@ body {
     border-top-right-radius: 0.8em;
     border-bottom-right-radius: 0.8em;
     height: 250px;
+    background-color: greenyellow;
 }
 
 .card-content {
@@ -37,28 +38,18 @@ body {
     font-size: 18px;
 }
 
-.card-reveal {
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.7) !important;
+.posts-carousel .post-card {
+
 }
 
-div.card-reveal span.card-title{
-    color: #ffffff !important;
+.owl-stage {
+    margin: 2em;
 }
 
-.tabs{
-    background-color: transparent;
-  }
-  td, th{
-    padding: 5px 5px !important;
-  }
-  table.highlight>tbody>tr:hover{
-    background-color: rgba(238,110,115,0.6);
-  }
-  input[type=search]:focus{
-    border-bottom: 1px solid #ee6e73 !important;
-    box-shadow: 0 1px 0 0 #ee6e73 !important;
-  }
+.posts-carousel {
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0));
+    -webkit-mask-size: 100%;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -70,4 +61,17 @@ div.card-reveal span.card-title{
         margin-left: 0.5em;
         margin-right: 0.5em;
     }
+
+    .posts-carousel {
+        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 95%, rgba(0,0,0,0));
+        -webkit-mask-size: 100%;
+    }
 }
+
+@media only screen and (max-width: 1000px) {
+    .posts-carousel {
+        -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 95%, rgba(0,0,0,0));
+        -webkit-mask-size: 100%;
+    }
+}
+
