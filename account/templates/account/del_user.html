@@ -16,21 +16,19 @@
                 <div class="card-content">
                     <h4>Tem certeza?</h4>
                     <p>Esta ação é irreversível! Após digitar a sua senha e clicar em "Excluir Conta", todos os dados da sua conta serão apagados.</p><br>
-                    <form action="" method="post" class="form-card-form">
+                    <form action="" method="post" class="form-card-form" autocomplete="off">
                         {% csrf_token %}
 
                         {% for field in del_user_form %}
-                            {% if not field.name == 'email' %}
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        {{ field }}
-                                        {{ field.label_tag }}
-                                        {% for error in field.errors %}
-                                            <p class="error-message-field">{{ error }}</p>
-                                        {% endfor %}
-                                    </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    {{ field }}
+                                    {{ field.label_tag }}
+                                    {% for error in field.errors %}
+                                        <p class="error-message-field">{{ error }}</p>
+                                    {% endfor %}
                                 </div>
-                            {% endif %}
+                            </div>
                         {% endfor %}
                         {% if del_user_form.non_field_errors %}
                             <div class="non-field-error">

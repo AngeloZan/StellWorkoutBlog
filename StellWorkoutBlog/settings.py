@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 import os
+import environ
+
+# iniciando variaveis de ambiente
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -139,3 +144,22 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# Email stuff
+TEST_EMAIL = True
+
+if TEST_EMAIL:
+    # informacoes armazenadas em variaveis de ambiente
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+
+    EMAIL_HOST = env('EMAIL_HOST')
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+    EMAIL_PORT = env('EMAIL_PORT')
+
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    CONFIRMATION_FROM_EMAIL = EMAIL_HOST_USER
+
+

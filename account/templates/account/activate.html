@@ -1,8 +1,9 @@
 {% autoescape off %}
 
 Olá {{ user.username }},
-Por favor clique nesse link para verificar a sua conta.
+Por favor confirme o seu endereço de E-mail clicando no link abaixo!
 
 http://{{ domain }}{% url 'activate'  uidb64=uid token=token %}
+
 
 {% endautoescape %}

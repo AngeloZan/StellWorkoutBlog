@@ -22,37 +22,35 @@ def registration_view(request):
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
 
-            user = Account.objects.get(email=email)
-
-            if not settings.DEBUG:
-                user.is_active = False
+            if settings.TEST_EMAIL:
+                # enviando email de confirmacao
                 user.save()
 
                 current_site = get_current_site(request)
-                email_subject = 'Ative a sua conta'
+                email_subject = 'Confirme o seu endereço de E-mail'
                 message = render_to_string('account/activate.html',
                 {
-                    'user': account,
+                    'user': user,
                     'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(account.pk)),
-                    'token': generate_token.make_token(account)
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': generate_token.make_token(user)
                 })
 
                 email_message = EmailMessage(
                     email_subject,
                     message,
-                    settings.EMAIL_HOST_USER,
+                    settings.CONFIRMATION_FROM_EMAIL,
                     [email]
                 )
 
                 email_message.send()
-            else:
-                login(request, account)
+
+            login(request, account)
 
             return redirect('home')
         else:
@@ -102,10 +100,14 @@ def activate_account_view(request, uidb64, token):
         user = None
     
     if user is not None and generate_token.check_token(user, token):
-        user.is_active = True
+        user.confirmed = True
         user.save()
-        return redirect('login')
+        return redirect('home')
 
+    if user is not None:
+        print('User is not None: {}'.format(user.username))
+    if not generate_token.check_token(user, token):
+        print('token: {}'.format(token))
     return render(request, 'account/activate_failed.html', status=401)
 
 
@@ -189,9 +191,13 @@ def del_user_view(request):
                 u.delete()
                 messages.success(request, 'Sua conta foi excluída, até a próxima!')
                 return redirect('home')
+        
+        else:
+            print('not valid')
+            print(form.errors)
 
     else:
-        form = AccountAuthenticationForm(initial={'email': user.email})
+        form = AccountAuthenticationForm()
 
     context['del_user_form'] = form
     return render(request, 'account/del_user.html', context)
