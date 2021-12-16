@@ -14,6 +14,14 @@ body {
     margin-top: 20pt;
 }
 
+.input-field {
+    margin: 0px;
+}
+
+#notification {
+    
+}
+
 .card-link {
     display: block;
 }

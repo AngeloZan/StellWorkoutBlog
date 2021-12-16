@@ -1,9 +1,9 @@
-from django.forms.widgets import PasswordInput
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from itertools import chain
+from django.contrib.sites.shortcuts import get_current_site
 
-from .utils import posts_matrix
+from .utils import posts_matrix, email_notification
 from .models import Post, CATEGORIAS_POSTS
 from .forms import CreatePostForm
 
@@ -46,6 +46,11 @@ def create_post_view(request):
         obj.user = user
         obj.save()
         messages.success(request, f'O post foi enviado com sucesso!')
+
+        if request.POST.get('notification') and ((not settings.DEBUG) or settings.TEST_EMAIL):
+            domain = get_current_site(request)
+            email_notification(obj, domain) # mandando email com notificação
+
         return redirect('home')
 
     context['form_novo_post'] = form_novo_post

@@ -9,12 +9,12 @@
 
     <div class="row form-container">
         <div class="col s12 m8 offset-m2">
-            <div class="card">
-                <div class="card-action teal lighten-1 white-text">
+            <div class="card form-card">
+                <div class="card-action grey lighten-2">
                     <h3>Novo Post</h3>
                 </div>
                 <div class="card-content">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data" class="form-card-form">
                         {% csrf_token %}
 
                         {% for field in form_novo_post %}
@@ -30,7 +30,7 @@
                                 {% else %}
                                     {% if field.name == 'file' %}
                                         <div class="file-field input-field col s12">
-                                            <div class="btn">
+                                            <div class="btn grey lighten-2 black-text">
                                                 <span><i class="left material-icons">attach_file</i>Arquivo</span>
                                                 {{ field }}
                                             </div>
@@ -43,7 +43,7 @@
                                         </div>
                                     {% else %}
                                         <div class="file-field input-field col s12">
-                                            <div class="btn">
+                                            <div class="btn grey lighten-2 black-text">
                                                 <span><i class="left material-icons">image</i>Imagem</span>
                                                 {{ field }}
                                             </div>
@@ -58,12 +58,20 @@
                                 {% endif %}
                             </div>
                         {% endfor %}
+                        <p>
+                            <label>
+                                <input type="checkbox" name="notification" id="notification" value="notification">
+                                <span>Notificar usuários?</span>
+                            </label>
+                        </p><br>
+                        
+
                         {% if form_novo_post.non_field_errors %}
                             <div class="non-field-error">
                                 <p>{{ form_novo_post.non_field_errors }}</p>
                             </div>
                         {% endif %}
-                        <button class="btn-large waves-effect waves-dark" style="width:100%">Enviar</button>
+                        <button class="btn-large grey lighten-2 black-text waves-effect waves-dark" style="width:100%">Enviar</button>
                     </form>
                 </div>
             </div>

@@ -27,7 +27,7 @@ def registration_view(request):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
 
-            if settings.TEST_EMAIL:
+            if (not settings.DEBUG) or settings.TEST_EMAIL:
                 # enviando email de confirmacao
                 user.save()
 
