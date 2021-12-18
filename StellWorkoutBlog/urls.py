@@ -40,6 +40,7 @@ from blog.views import (
     posts_view,
     create_post_view,
     search_posts_view,
+    unsubscribe_view,
 )
 
 urlpatterns = [
@@ -56,6 +57,7 @@ urlpatterns = [
     path('posts/', posts_view, name='posts'),
     path('novo-post/', create_post_view, name='novo_post'),
     path('search-posts/', search_posts_view, name='search_posts'),
+    path('unsubscribe/<uidb64>/<token>', unsubscribe_view, name='unsubscribe'),
 ]
 
 if settings.DEBUG:

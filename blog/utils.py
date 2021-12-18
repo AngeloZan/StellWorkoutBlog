@@ -1,8 +1,12 @@
+from decimal import Context
 from account.models import Account
 from django.core.mail import send_mass_mail, send_mail, get_connection, EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
+from account.utils import generate_token
+from django.utils.http import urlsafe_base64_encode
+from django.utils.encoding import force_bytes
 
 def posts_matrix(posts):
     # recebe uma lista de posts e organiza-os em uma matriz 3x3
@@ -44,16 +48,25 @@ def send_mass_html_mail(datatuple, fail_silently=False, user=None, password=None
 def email_notification(post, domain):
     # manda email com notificação de novo post para todas as pessoas com email verificado
     subject = 'Novo Post: {}'.format(post.title)
-    msg_plain = render_to_string('blog/novo_post_email.html', {'post': post, 'domain': domain})
-    destinatarios = [user.email for user in Account.objects.filter(confirmed=True)]
-    msg_html = render_to_string('blog/novo_post_email.html', {'post': post, 'domain': domain})
+    sender = settings.POST_NOTIFICATION_EMAIL
+    destinatarios = Account.objects.filter(subscriber=True)
 
-    email_message = (
-        subject,
-        msg_plain,
-        msg_html,
-        settings.POST_NOTIFICATION_EMAIL,
-        destinatarios,
-    )
+    mails = tuple()
+    
 
-    send_mass_html_mail((email_message,), fail_silently=True)
+    for user in destinatarios:
+        # criando uma mensagem para cada user subscriber
+        
+        context = {
+            'post': post,
+            'domain': domain,
+            'user': user,
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            'token': generate_token.make_token(user)
+        }
+
+        msg_plain = render_to_string('blog/novo_post_email.html', context)
+        msg_html = render_to_string('blog/novo_post_email.html', context)
+        mails += ((subject, msg_plain, msg_html, sender, [user.email]),)
+
+    send_mass_html_mail(mails, fail_silently=True)

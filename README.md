@@ -10,3 +10,6 @@ TO-DO List
 - [ ] Footer
 - [ ] Email template for new post notification
 - [ ] Email template for email verification
+- [ ] Unsubscribe failed template
+- [ ] Activate failed template
+- [ ] Overwrite error messages

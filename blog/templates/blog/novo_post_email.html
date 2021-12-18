@@ -1,6 +1,10 @@
 {% autoescape off %}
 
+<p>Olá {{ user.username }}!</p>
 <p>http://{{ domain }}{{ post.file.url }}</p>
 
+<br><p>Caso não queira mais receber emails, clique no link abaixo.</p>
+
+http://{{ domain }}{% url 'unsubscribe'  uidb64=uid token=token %}
 
 {% endautoescape %}

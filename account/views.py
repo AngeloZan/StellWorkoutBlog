@@ -93,6 +93,7 @@ def login_view(request):
 
 
 def activate_account_view(request, uidb64, token):
+    # apesar do nome, coloca o usuario na lista de emails
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = Account.objects.get(pk=uid)
@@ -101,13 +102,11 @@ def activate_account_view(request, uidb64, token):
     
     if user is not None and generate_token.check_token(user, token):
         user.confirmed = True
+        user.subscriber = True
         user.save()
+        messages.success(request, f'Email verificado com sucesso!')
         return redirect('home')
 
-    if user is not None:
-        print('User is not None: {}'.format(user.username))
-    if not generate_token.check_token(user, token):
-        print('token: {}'.format(token))
     return render(request, 'account/activate_failed.html', status=401)
 
 
@@ -189,12 +188,8 @@ def del_user_view(request):
                 if not user_old_pic_file.endswith('media/default.jpg'):
                     os.remove(user_old_pic_file)
                 u.delete()
-                messages.success(request, 'Sua conta foi excluída, até a próxima!')
+                messages.info(request, 'Sua conta foi excluída, até a próxima!')
                 return redirect('home')
-        
-        else:
-            print('not valid')
-            print(form.errors)
 
     else:
         form = AccountAuthenticationForm()
