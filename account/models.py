@@ -44,7 +44,7 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    email                   = models.EmailField(max_length=60, unique=True)
+    email                   = models.EmailField(max_length=60, unique=True, error_messages={'unique':"Já existe uma conta com este email."})
     username                = models.CharField(verbose_name="nome de usuário", max_length=30, unique=True)
     date_joined             = models.DateTimeField(verbose_name='date joined', auto_now_add=True)
     last_login              = models.DateTimeField(verbose_name='last login', auto_now=True)

@@ -18,6 +18,11 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model = Account
         fields = ('email', 'username', 'password1', 'password2')
+        error_messages = {
+            'username': {
+                'unique': 'Este nome de usuário não está disponível.',
+            },
+        }
 
 class AccountAuthenticationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
