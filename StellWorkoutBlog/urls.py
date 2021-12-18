@@ -26,6 +26,7 @@ from pages.views import (
 )
 
 from account.views import (
+    password_reset_form_view,
     registration_view,
     login_view,
     logout_view,
@@ -34,6 +35,8 @@ from account.views import (
     metas_view,
     change_password_view,
     del_user_view,
+    password_reset_form_view,
+    password_reset_new_pass_form,
 )
 
 from blog.views import (
@@ -58,6 +61,8 @@ urlpatterns = [
     path('novo-post/', create_post_view, name='novo_post'),
     path('search-posts/', search_posts_view, name='search_posts'),
     path('unsubscribe/<uidb64>/<token>', unsubscribe_view, name='unsubscribe'),
+    path('mudar-senha', password_reset_form_view, name='password_reset'),
+    path('mudar-senha-redefinir/<uidb64>/<token>', password_reset_new_pass_form, name='password_reset_new_pass'),
 ]
 
 if settings.DEBUG:

@@ -81,7 +81,10 @@ nav {
     letter-spacing: 2pt;
     border-radius: 1.2em/0.2em;
 }
+.helper-text-wrapper {
+    margin-top: 20px;
+}
 
-.form-card a {
+.helper-text-wrapper a {
     color: #b71c1c;
 }

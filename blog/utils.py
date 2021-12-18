@@ -7,6 +7,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from account.utils import generate_token
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
+from django.utils.html import strip_tags
 
 def posts_matrix(posts):
     # recebe uma lista de posts e organiza-os em uma matriz 3x3
@@ -65,8 +66,9 @@ def email_notification(post, domain):
             'token': generate_token.make_token(user)
         }
 
-        msg_plain = render_to_string('blog/novo_post_email.html', context)
         msg_html = render_to_string('blog/novo_post_email.html', context)
+        msg_plain = strip_tags(msg_html)
+        
         mails += ((subject, msg_plain, msg_html, sender, [user.email]),)
 
     send_mass_html_mail(mails, fail_silently=True)
