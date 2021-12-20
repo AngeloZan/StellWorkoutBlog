@@ -16,17 +16,22 @@
                 {% for line in posts_mtx %}
                     <div class="row blog-grid-row">
                         {% for post in line %}
-                            <div class="col s12 m4 l4">
-                                <div class="card small">
-                                    <div class="card-content">
-                                        <a href="#" class="right">
-                                            <i class="black-text material-icons post-card-icon">bookmark</i>
+                            <div class="col s6 m3 l3">
+                                <div class="card hoverable post-card hover-reveal" style="background-image: url({{ post.image.url }});">
+                                    <div class="right top favourite-button">
+                                        <a href="{% url 'favourite_post' id=post.id %}" class="fill-div">
+                                            {% if  post in favourite_posts %}
+                                                <i class="material-icons pink-text">bookmark</i>
+                                            {% else %}
+                                                <i class="material-icons grey-text">bookmark</i>
+                                            {% endif %}
                                         </a>
-                                        <span class="card-title"><a href="{{ post.file.url }}" target="_blank" class="post-link">{{ post.title }}</a></span>
-                                        <br><p>{{ post.intro }}</p>
                                     </div>
-                                    <div class="card-action grey-text">
-                                        Postado em {{ post.date_added|date:"d/m/Y" }}
+                                    <div class="card-content">
+                                        <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
+                                    </div>
+                                    <div class="card-reveal" style="background-color: rgba(0, 0, 0, 0.6); color: white;">
+                                        <p>{{ post.intro }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -39,5 +44,7 @@
         {% endif %}
         
     </div>
+
+    <script src="{% static 'blog/js/script.js' %}"></script>
 
 {% endblock content %}

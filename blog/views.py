@@ -82,8 +82,10 @@ def search_posts_view(request):
         posts = posts_title | posts_intro
         num_posts = len(posts)
         posts_mtx = posts_matrix(posts)
+        favourite_posts = user.favourite.all()
         context['posts_mtx'] = posts_mtx
         context['num_posts'] = num_posts
+        context['favourite_posts'] = favourite_posts
 
         return render(request, 'blog/search_posts.html', context)
     else:
@@ -129,6 +131,8 @@ def favourite_posts_view(request):
     posts = user.favourite.all()
     posts_mtx = posts_matrix(posts)
     num_posts = len(posts)
+    favourite_posts = user.favourite.all()
+    context['favourite_posts'] = favourite_posts
     context['num_posts'] = num_posts
     context['posts_mtx'] = posts_mtx
 

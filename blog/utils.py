@@ -10,11 +10,11 @@ from django.utils.encoding import force_bytes
 from django.utils.html import strip_tags
 
 def posts_matrix(posts):
-    # recebe uma lista de posts e organiza-os em uma matriz 3x3
+    # recebe uma lista de posts e organiza-os em uma matriz de 4 colunas
     mtx = [ [], ]
 
     for post in posts:
-        if len(mtx[-1]) < 3:
+        if len(mtx[-1]) < 4:
             mtx[-1].append(post)
         else:
             mtx.append([post])
