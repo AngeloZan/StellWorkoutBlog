@@ -6,7 +6,7 @@ TO-DO List
 - [ ] Remove file from DB when the post is deleted
 - [x] Email verification
 - [x] Password recovery system
-- [ ] Clickable cards
+- [x] Clickable cards
 - [ ] Footer
 - [ ] Email template for new post notification
 - [ ] Email template for email verification

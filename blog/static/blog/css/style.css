@@ -27,13 +27,13 @@ body {
 }
 
 .post-card {
-    background-image: url('../../../../media/post_images/default.png');
     background-size: cover;
     border-top-right-radius: 0.8em;
     border-bottom-right-radius: 0.8em;
     width: 100%;
     padding-top: 144.79%;
     position: relative;
+    cursor: pointer;
 }
 
 .post-card .card-content {
