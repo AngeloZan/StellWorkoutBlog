@@ -52,6 +52,9 @@
 </script>
 
 <ul id="dropdown1" class="dropdown-content">
+    <li><a href="{% url 'favourite_posts' %}" class="black-text">
+        <i class="material-icons black-text">bookmark</i> Favoritos
+    </a></li>
     <li><a href="{% url 'change_password' %}" class="black-text">Alterar Senha</a></li>
     <li><a href="{% url 'my_data' %}" class="black-text">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}" class="black-text">Sair</a></li>
@@ -59,6 +62,9 @@
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
+    <li><a href="{% url 'favourite_posts' %}" class="black-text">
+        <i class="material-icons black-text">bookmark</i> Favoritos
+    </a></li>
     <li><a href="{% url 'change_password' %}" class="black-text">Alterar Senha</a></li>
     <li><a href="{% url 'my_data' %}" class="black-text">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}" class="black-text">Sair</a></li>

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container content-container">
+
+        {% if not num_posts > 0 %}
+            <h5>Você ainda não possui nenhum post favorito!</h5>
+        {% else %}
+            {% for line in posts_mtx %}
+                <div class="row blog-grid-row">
+                    {% for post in line %}
+                        <div class="col s12 m4 l4">
+                            <div class="card small">
+                                <div class="card-content">
+                                    <a href="#" class="right">
+                                        <i class="black-text material-icons post-card-icon">bookmark</i>
+                                    </a>
+                                    <span class="card-title"><a href="{{ post.file.url }}" target="_blank" class="post-link">{{ post.title }}</a></span>
+                                    <br><p>{{ post.intro }}</p>
+                                </div>
+                                <div class="card-action grey-text">
+                                    Postado em {{ post.date_added|date:"d/m/Y" }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        
+    </div>
+
+{% endblock content %}

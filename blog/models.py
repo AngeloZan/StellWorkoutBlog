@@ -37,6 +37,7 @@ class Post(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     category = models.CharField(max_length=25, default='nenhuma', choices=CATEGORIAS_POSTS, verbose_name='Categoria') 
     image = models.ImageField(default='post_images/default.png', upload_to=image_wrapper, verbose_name='Imagem')
+    favourite = models.ManyToManyField(Account, related_name='favourite', blank=True)
 
     def save(self, *args, **kwargs):
         # corrigindo o tamanho da imagem ao salvar

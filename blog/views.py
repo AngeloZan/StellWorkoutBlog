@@ -1,5 +1,6 @@
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.http.response import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
 from account.models import Account
@@ -20,8 +21,10 @@ def posts_view(request):
         return redirect('home')
     else:
         posts = Post.objects.order_by('-date_added')
+        favourite_posts = user.favourite.all()
         context['todos_posts'] = posts
         context['categorias'] = []
+        context['favourite_posts'] = favourite_posts
 
         for categoria, verbose_name in CATEGORIAS_POSTS:
             if categoria != 'nenhuma':
@@ -102,3 +105,32 @@ def unsubscribe_view(request, uidb64, token):
         return redirect('home')
 
     return render(request, 'blog/unsubscribe_failed.html', status=401)
+
+
+def favourite_post_view(request, id):
+    post = get_object_or_404(Post, id=id)
+    if post.favourite.filter(id=request.user.id).exists():
+        post.favourite.remove(request.user)
+        messages.success(request, 'Post removido dos favoritos.')
+    else:
+        post.favourite.add(request.user)
+        messages.success(request, 'Post adicionado aos favoritos.')
+
+    return redirect('home')
+
+def favourite_posts_view(request):
+    context = {}
+
+    user = request.user
+
+    if not user.is_authenticated:
+        return redirect('home')
+
+    posts = user.favourite.all()
+    posts_mtx = posts_matrix(posts)
+    num_posts = len(posts)
+    context['num_posts'] = num_posts
+    context['posts_mtx'] = posts_mtx
+
+    return render(request, 'blog/favourite_posts.html', context)
+
