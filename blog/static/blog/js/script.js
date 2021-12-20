@@ -12,23 +12,43 @@ $(document).ready(function(){
 
     var favouriteClicked = false;
 
-    $('.favourite-button').on('click', function() {
+    $('.favourite-button').on('mousedown', function() {
         favouriteClicked = true;
     });
 
-    $('.post-card').on('click', function() {
-        if (! favouriteClicked) {
-            var link = $(this).find('.card-title').find('.post-link').attr('href');
-            var domain = window.location.protocol + '//' + window.location.host;
-            var win = window.open(`${domain}${link}`)
-            if (win) {
-                window.focus()
-            } else {
-                alert('Por favor permita popups neste site.')
-            }
-        } 
+    $(window).on('mouseup', function() {
+        favouriteClicked = false;
     });
+
+    $('.post-card').each(function() {
+        this.addEventListener('mousedown', () => {
+            this.addEventListener('mousemove', flagged);
+        });
+        this.addEventListener('mouseup', (e) => {
+            if (! this.isScrolled) {
+                if (! favouriteClicked) {
+                    var link = $(this).find('.card-title').find('.post-link').attr('href');
+                    var domain = window.location.protocol + '//' + window.location.host;
+                    var win = window.open(`${domain}${link}`)
+                    if (win) {
+                        window.focus()
+                    } 
+                } 
+            }
+            this.isScrolled = false;
+            this.removeEventListener('mousemove', flagged)
+        })
+    });
+
+    
 });
+
+function flagged () {
+    this.isScrolled = true;
+};
+
+
+
 
 $('.owl-carousel').owlCarousel({
     items:8,

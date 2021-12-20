@@ -8,26 +8,28 @@
 {% block content %}
     <div class="container content-container">
         <h3>Todos</h3>
-        <div class="owl-carousel owl-theme posts-carousel">
-            {% for post in todos_posts %}
-                <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">
-                    <div class="right top favourite-button">
-                        <a href="{% url 'favourite_post' id=post.id %}" class="fill-div">
-                            {% if  post in favourite_posts %}
-                                <i class="material-icons pink-text">bookmark</i>
-                            {% else %}
-                                <i class="material-icons grey-text">bookmark</i>
-                            {% endif %}
-                        </a>
+        <div class="carousel-wrap">
+            <div class="owl-carousel owl-theme posts-carousel">
+                {% for post in todos_posts %}
+                    <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">
+                        <div class="right top favourite-button">
+                            <a href="{% url 'favourite_post' id=post.id %}" class="fill-div">
+                                {% if  post in favourite_posts %}
+                                    <i class="material-icons pink-text">bookmark</i>
+                                {% else %}
+                                    <i class="material-icons grey-text">bookmark</i>
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator fill-div"><a href="{{ post.file.url }}" target="_blank" class="post-link fill-div"><h5>{{ post.title }}</h4></a></span>
+                        </div>
+                        <div class="card-reveal" style="background-color: rgba(0, 0, 0, 0.6); color: white;">
+                            <p>{{ post.intro }}</p>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <span class="card-title activator fill-div"><a href="{{ post.file.url }}" target="_blank" class="post-link fill-div"><h5>{{ post.title }}</h4></a></span>
-                    </div>
-                    <div class="card-reveal" style="background-color: rgba(0, 0, 0, 0.6); color: white;">
-                        <p>{{ post.intro }}</p>
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
 
         {% for categoria, verbose_name, posts_categoria in categorias %}
