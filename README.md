@@ -3,7 +3,7 @@ Blog do StellWorkout
 
 TO-DO List
 
-- [ ] Remove file from DB when the post is deleted
+- [x] Remove file from DB when the post is deleted
 - [x] Email verification
 - [x] Password recovery system
 - [x] Clickable cards

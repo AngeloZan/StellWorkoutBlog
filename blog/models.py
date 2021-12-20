@@ -54,6 +54,11 @@ class Post(models.Model):
         img.thumbnail(output_size)
         img.save(self.image.path)
 
+    def delete(self, using=None, keep_parents=False):
+        self.file.storage.delete(self.file.name)
+        self.image.storage.delete(self.image.name)
+        super().delete()
+
     def __str__(self):
         return self.title
 
