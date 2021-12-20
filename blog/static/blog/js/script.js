@@ -1,5 +1,15 @@
 $(document).ready(function(){
     $(".owl-carousel").owlCarousel();
+
+    $(document).on('mouseenter.hover-reveal','.hover-reveal', function (e){
+        $(this).find('.card-reveal').css({ height: '60%', transform: 'translateY(-100%)', paddingTop: "0px", paddingBottom: "5px" });
+        $(this).find('.card-reveal').fadeIn(250);
+    });
+  
+    // Make Reveal animate down and display none when mouseleave
+    $(document).on('mouseleave.hover-reveal','.hover-reveal', function (e){
+        $(this).find('.card-reveal').fadeOut(250);
+    });
 });
 
 $('.owl-carousel').owlCarousel({
