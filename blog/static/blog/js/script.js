@@ -2,7 +2,7 @@ $(document).ready(function(){
     $(".owl-carousel").owlCarousel();
 
     $(document).on('mouseenter.hover-reveal','.hover-reveal', function (e){
-        $(this).find('.card-reveal').css({ height: '60%', transform: 'translateY(-100%)', paddingTop: "0px", paddingBottom: "5px" });
+        $(this).find('.card-reveal').css({ overflowY: 'hidden', height: '60%', transform: 'translateY(-100%)', paddingTop: "0px", paddingBottom: "5px" });
         $(this).find('.card-reveal').fadeIn(250);
     });
   
@@ -40,6 +40,10 @@ $(document).ready(function(){
         })
     });
 });
+
+function isOverflown(element) {
+    return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}
 
 $('.favourite-button').on('click', function() {
     var id = $(this).find('.post-id').text();
