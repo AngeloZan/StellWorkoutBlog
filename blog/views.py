@@ -113,12 +113,10 @@ def favourite_post_view(request, id):
     post = get_object_or_404(Post, id=id)
     if post.favourite.filter(id=request.user.id).exists():
         post.favourite.remove(request.user)
-        messages.success(request, 'Post removido dos favoritos.')
     else:
         post.favourite.add(request.user)
-        messages.success(request, 'Post adicionado aos favoritos.')
 
-    return redirect('home')
+    return HttpResponse('')
 
 def favourite_posts_view(request):
     context = {}

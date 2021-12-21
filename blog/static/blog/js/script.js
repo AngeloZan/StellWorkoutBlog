@@ -39,15 +39,21 @@ $(document).ready(function(){
             this.removeEventListener('mousemove', flagged)
         })
     });
+});
 
-    
+$('.favourite-button').on('click', function() {
+    $(this).find('.material-icons').toggleClass('saved');
+    var domain = window.location.protocol + '//' + window.location.host;
+    var id = $(this).find('.post-id').text();
+    $.ajax({
+        type: 'GET',
+        url: `${domain}/${id}/favourite-post/`
+    });
 });
 
 function flagged () {
     this.isScrolled = true;
 };
-
-
 
 
 $('.owl-carousel').owlCarousel({

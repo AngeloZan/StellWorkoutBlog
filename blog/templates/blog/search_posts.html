@@ -19,13 +19,12 @@
                             <div class="col s6 m3 l3">
                                 <div class="card hoverable post-card hover-reveal" style="background-image: url({{ post.image.url }});">
                                     <div class="right top favourite-button">
-                                        <a href="{% url 'favourite_post' id=post.id %}" class="fill-div">
-                                            {% if  post in favourite_posts %}
-                                                <i class="material-icons pink-text">bookmark</i>
-                                            {% else %}
-                                                <i class="material-icons grey-text">bookmark</i>
-                                            {% endif %}
-                                        </a>
+                                        {% if  post in favourite_posts %}
+                                            <i class="material-icons saved">bookmark</i>
+                                        {% else %}
+                                            <i class="material-icons">bookmark</i>
+                                        {% endif %}
+                                        <span class="post-id" style="display: none;">{{ post.id }}</span>
                                     </div>
                                     <div class="card-content">
                                         <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>

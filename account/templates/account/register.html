@@ -35,7 +35,9 @@
                             </div>
                         {% endif %}
                         <button class="btn-large grey lighten-2 waves-effect waves-dark" style="width:100%">Enviar</button>
-                        <p class="helper-text"><b> Já possui conta? <a href="{% url 'login' %}">Entrar</a></b></p>
+                        <div class="helper-text-wrapper">
+                            <p class="helper-text"><b> Já possui conta? <a href="{% url 'login' %}">Entrar</a></b></p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -44,7 +46,6 @@
 
     <style>
         body {
-            /*background-image: url('../../static/account/img/form_background.jpg');*/
             background-repeat: no-repeat;
             background-size: cover;
         }

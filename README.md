@@ -16,4 +16,4 @@ TO-DO List
 - [ ] Password reset email template
 - [ ] Password reset fail template
 - [ ] Password reset form failed template
-- [ ] Properly redirect when adding or removing post from favourites
+- [x] Properly redirect when adding or removing post from favourites
