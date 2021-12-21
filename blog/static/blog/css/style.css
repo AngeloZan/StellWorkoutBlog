@@ -62,7 +62,7 @@ body {
 
 .favourite-button {
     position: absolute;
-    top: -5px;
+    top: -6px;
     right: 10px;
     z-index: 3;
 }
@@ -85,6 +85,9 @@ a.fill-div {
     color: red;
 }
 
+.favourite-button i {
+    font-size: 28px;
+}
 
 @media only screen and (max-width: 600px) {
     .blog-grid-row {
