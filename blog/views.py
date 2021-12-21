@@ -7,6 +7,7 @@ from account.models import Account
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from .utils import generate_token
+from django.http import Http404
 
 from .utils import posts_matrix, email_notification
 from .models import Post, CATEGORIAS_POSTS
@@ -135,4 +136,39 @@ def favourite_posts_view(request):
     context['posts_mtx'] = posts_mtx
 
     return render(request, 'blog/favourite_posts.html', context)
+
+
+def posts_categoria_view(request, categoria):
+    context = {}
+
+    user = request.user
+
+    if not user.is_authenticated:
+        return redirect('home')
+    else:
+        if not categoria == 'todos':
+            categoria_name = categoria.replace('-', '_')
+            try:
+                categoria_verbose = CATEGORIAS_POSTS[[name for name, verbose in CATEGORIAS_POSTS].index(categoria_name)][1]
+            except:
+                raise Http404
+
+            posts = Post.objects.filter(category=categoria)
+        else:
+            categoria_name = 'todos'
+            categoria_verbose = 'Todos'
+            posts = Post.objects.all()
+            
+        favourite_posts = user.favourite.all()
+        posts_mtx = posts_matrix(posts)
+        context['posts_mtx'] = posts_mtx
+        context['categoria_verbose'] = categoria_verbose
+        context['favourite_posts'] = favourite_posts
+        context['num_posts'] = len(posts)
+        
+        return render(request, 'blog/posts_categoria.html', context)
+
+
+    
+
 

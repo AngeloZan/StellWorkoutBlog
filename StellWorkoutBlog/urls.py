@@ -46,6 +46,7 @@ from blog.views import (
     unsubscribe_view,
     favourite_post_view,
     favourite_posts_view,
+    posts_categoria_view,
 )
 
 urlpatterns = [
@@ -67,6 +68,7 @@ urlpatterns = [
     path('mudar-senha-redefinir/<uidb64>/<token>', password_reset_new_pass_form, name='password_reset_new_pass'),
     path('<id>/favourite-post/', favourite_post_view, name='favourite_post'),
     path('favourite-posts/', favourite_posts_view, name='favourite_posts'),
+    path('posts/<categoria>', posts_categoria_view, name='posts_categoria'),
 ]
 
 if settings.DEBUG:

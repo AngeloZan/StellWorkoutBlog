@@ -8,7 +8,7 @@
 {% block content %}
 
     <div class="container content-container">
-        <h3>Todos</h3>
+        <h3><a href="{% url 'posts_categoria' categoria='todos' %}" style="color: inherit;">Todos</a></h3>
         <div class="carousel-wrap">
             <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in todos_posts %}
@@ -33,7 +33,9 @@
         </div>
 
         {% for categoria, verbose_name, posts_categoria in categorias %}
-            <h3>{{ verbose_name }}</h3>
+            
+            <h3><a href="{% url 'posts_categoria' categoria=categoria %}" style="color: inherit;">{{ verbose_name }}</a></h3>
+            
             <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in posts_categoria %}
                     <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">

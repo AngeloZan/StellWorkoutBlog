@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container content-container">
+        {% if not num_posts > 0 %}
+            <h5>Ainda não existem posts da categoria <strong>"{{ categoria_verbose }}".</strong></h5>
+        {% else %}
+            <h3>{{ categoria_verbose }}</h3><br>
+            {% for line in posts_mtx %}
+                <div class="row blog-grid-row">
+                    {% for post in line %}
+                        <div class="col s6 m3 l3">
+                            <div class="card hoverable post-card hover-reveal" style="background-image: url({{ post.image.url }});">
+                                <div class="right top favourite-button">
+                                    {% if  post in favourite_posts %}
+                                        <i class="material-icons saved">bookmark</i>
+                                    {% else %}
+                                        <i class="material-icons">bookmark</i>
+                                    {% endif %}
+                                    <span class="post-id" style="display: none;">{{ post.id }}</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
+                                </div>
+                                <div class="card-reveal" style="background-color: rgba(0, 0, 0, 0.6); color: white;">
+                                    <p>{{ post.intro }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+
+    <script src="{% static 'blog/js/script.js' %}"></script>
+
+{% endblock content %}
