@@ -42,9 +42,13 @@ $(document).ready(function(){
 });
 
 $('.favourite-button').on('click', function() {
-    $(this).find('.material-icons').toggleClass('saved');
-    var domain = window.location.protocol + '//' + window.location.host;
     var id = $(this).find('.post-id').text();
+    var elements = document.querySelectorAll(`#favourite_button_${id}`)
+   
+    for (var element of elements) {
+        $(element).find('.material-icons').toggleClass('saved');
+    }
+    var domain = window.location.protocol + '//' + window.location.host;
     $.ajax({
         type: 'GET',
         url: `${domain}/${id}/favourite-post/`

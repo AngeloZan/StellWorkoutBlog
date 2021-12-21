@@ -18,7 +18,7 @@
                         {% for post in line %}
                             <div class="col s6 m3 l3">
                                 <div class="card hoverable post-card hover-reveal" style="background-image: url({{ post.image.url }});">
-                                    <div class="right top favourite-button">
+                                    <div class="right top favourite-button" id="favourite_button_{{ post.id }}">
                                         {% if  post in favourite_posts %}
                                             <i class="material-icons saved">bookmark</i>
                                         {% else %}

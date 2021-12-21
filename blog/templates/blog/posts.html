@@ -13,7 +13,7 @@
             <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in todos_posts %}
                     <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">
-                        <div class="right top favourite-button">
+                        <div class="right top favourite-button" id="favourite_button_{{ post.id }}">
                             {% if  post in favourite_posts %}
                                 <i class="material-icons saved">bookmark</i>
                             {% else %}
@@ -39,7 +39,7 @@
             <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in posts_categoria %}
                     <div class="card hoverable post-card hover-reveal" data-merge="2" style="background-image: url({{ post.image.url }});">
-                        <div class="right top favourite-button">
+                        <div class="right top favourite-button" id="favourite_button_{{ post.id }}">
                             {% if  post in favourite_posts %}
                                 <i class="material-icons saved">bookmark</i>
                             {% else %}
