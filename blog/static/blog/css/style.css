@@ -26,6 +26,10 @@ body {
     color: inherit;
 }
 
+.post-link h5 {
+    font-size: 20px;
+}
+
 .post-card {
     background-size: cover;
     border-top-right-radius: 0.8em;
@@ -45,11 +49,11 @@ body {
 }
 
 .post-card .card-title {
-    color: white;
-}
-
-.post-link h5 {
-    font-size: 18px;
+    color: var(--sec-font-color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.1em;
 }
 
 .owl-stage {
@@ -75,22 +79,18 @@ a.fill-div {
     z-index: 4;
 }
 
-.post-card h5 {
-    font-weight: 600;
-}
-
 .card .card-reveal {
     padding: 10px;
     padding-bottom: 0px;
-}
-
-.card-reveal {
     z-index: 2;
     height: 60%;
     border-bottom-right-radius: 0.8em;
     overflow-y: hidden;
-    line-height: 1.2em;
-    font-size: 15px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: var(--sec-font-color);
+    letter-spacing: 0.1em;
 }
 
 .card-reveal:before {
@@ -103,12 +103,28 @@ a.fill-div {
     background: linear-gradient(rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.4));
 }
 
-.saved {
-    color: red;
+.post-card i {
+    color: #D0D0D0;
+}
+
+.post-card .saved {
+    color: #E8544F;
 }
 
 .favourite-button i {
     font-size: 28px;
+}
+
+.titulo-categoria {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--font-color);
+    letter-spacing: 0.15em;
+}
+
+.titulo-categoria a {
+    color: var(--font-color);
 }
 
 h3 a:hover {

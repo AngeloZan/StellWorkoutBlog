@@ -8,7 +8,7 @@
 {% block content %}
 
     <div class="container content-container">
-        <h3><a href="{% url 'posts_categoria' categoria='todos' %}" style="color: inherit;">Todos</a></h3>
+        <h3 class="titulo-categoria"><a href="{% url 'posts_categoria' categoria='todos' %}">Todos</a></h3>
         <div class="carousel-wrap">
             <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in todos_posts %}
@@ -29,7 +29,7 @@
                         <div class="card-content">
                             <span class="card-title activator fill-div"><a href="{{ post.file.url }}" target="_blank" class="post-link fill-div"><h5>{{ post.title }}</h4></a></span>
                         </div>
-                        <div class="card-reveal" style="background-color: rgba(41, 41, 41, 0.6); color: white;">
+                        <div class="card-reveal" style="background-color: rgba(41, 41, 41, 0.6);">
                             <p>{{ post.intro }}</p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
 
         {% for categoria, verbose_name, posts_categoria in categorias %}
             
-            <h3><a href="{% url 'posts_categoria' categoria=categoria %}" style="color: inherit;">{{ verbose_name }}</a></h3>
+            <h3 class="titulo-categoria"><a href="{% url 'posts_categoria' categoria=categoria %}">{{ verbose_name }}</a></h3>
             
             <div class="owl-carousel owl-theme posts-carousel">
                 {% for post in posts_categoria %}
@@ -60,7 +60,7 @@
                         <div class="card-content">
                             <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
                         </div>
-                        <div class="card-reveal" style="background-color: rgba(41, 41, 41, 0.6); color: white;">
+                        <div class="card-reveal" style="background-color: rgba(41, 41, 41, 0.6);">
                             <p>{{ post.intro }}</p>
                         </div>
                     </div>

@@ -1,7 +1,9 @@
 :root {
     --primary-color: #302AE6;
     --secondary-color: #536390;
-    --font-color: #424242;
+    --font-color: #292929;
+    --sec-font-color: #fff;
+    --font-highlight-color: #E8544F;
     --bg-color: #fff;
     --heading-color: #292922;
     --post-card-bg: #fff;
@@ -11,6 +13,8 @@
     --primary-color: #302AE6;
     --secondary-color: #536390;
     --font-color: #e1e1ff;
+    --sec-font-color: #fff;
+    --font-highlight-color: #E8544F;
     --bg-color: #121212;
     --heading-color: #292922;
     --post-card-bg: #fff;
@@ -20,6 +24,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
 }
 
 main {
@@ -98,7 +103,7 @@ nav ul a:hover,
 #menu-icon:hover,
 .sidenav li>a:hover,
 .dropdown-content li:hover {
-    color: rgb(189, 0, 0);
+    color: var(--font-highlight-color);
     background-color: rgba(0, 0, 0, 0);
 }
 
