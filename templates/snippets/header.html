@@ -52,23 +52,23 @@
 </script>
 
 <ul id="dropdown1" class="dropdown-content">
-    <li><a href="{% url 'favourite_posts' %}" class="black-text">
-        <i class="material-icons black-text">bookmark</i> Favoritos
+    <li><a href="{% url 'favourite_posts' %}">
+        <i class="material-icons">bookmark</i> Favoritos
     </a></li>
-    <li><a href="{% url 'change_password' %}" class="black-text">Alterar Senha</a></li>
-    <li><a href="{% url 'my_data' %}" class="black-text">Meus Dados</a></li>
-    <li><a href="{% url 'logout' %}" class="black-text">Sair</a></li>
-    <li><a href="{% url 'del_user' %}" class="black-text">Excluir Conta</a></li>
+    <li><a href="{% url 'change_password' %}">Alterar Senha</a></li>
+    <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
+    <li><a href="{% url 'logout' %}">Sair</a></li>
+    <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
-    <li><a href="{% url 'favourite_posts' %}" class="black-text">
-        <i class="material-icons black-text">bookmark</i> Favoritos
+    <li><a href="{% url 'favourite_posts' %}">
+        <i class="material-icons">bookmark</i> Favoritos
     </a></li>
-    <li><a href="{% url 'change_password' %}" class="black-text">Alterar Senha</a></li>
-    <li><a href="{% url 'my_data' %}" class="black-text">Meus Dados</a></li>
-    <li><a href="{% url 'logout' %}" class="black-text">Sair</a></li>
-    <li><a href="{% url 'del_user' %}" class="black-text">Excluir Conta</a></li>
+    <li><a href="{% url 'change_password' %}">Alterar Senha</a></li>
+    <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
+    <li><a href="{% url 'logout' %}">Sair</a></li>
+    <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
 </ul>
 
 <nav>
@@ -76,32 +76,32 @@
         <div class="container">
             <a href="{% url 'home' %}" class="brand-logo"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
             <a href="#" class="sidenav-trigger" data-target="mobile-nav" id="menu-icon">
-                <i class="material-icons black-text">menu</i>
+                <i class="material-icons" id="menu-icon">menu</i>
             </a>
             {% if not user.is_authenticated %}
                 <!--USUARIO SEM CADASTRO-->
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{% url 'home' %}" class="link-nav black-text">Home</a></li>
-                    <li><a href="{% url 'register' %}" class="link-nav black-text">Cadastre-se</a></li>
-                    <li><a href="{% url 'login' %}" class="link-nav black-text">Entrar</a></li>
+                    <li><a href="{% url 'home' %}" class="link-nav">Home</a></li>
+                    <li><a href="{% url 'register' %}" class="link-nav">Cadastre-se</a></li>
+                    <li><a href="{% url 'login' %}" class="link-nav">Entrar</a></li>
                 </ul>
             {% else %}
                 {% if user.is_admin %}
                     <!--USUARIO ADMIN-->
                     <ul id="comp-menu" class="right hide-on-med-and-down">
-                        <li><a href="{% url 'admin:index' %}" class="black-text">Administração</a></li>
-                        <li><a href="{% url 'novo_post' %}" class="black-text">Novo Post</a></li>
-                        <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons black-text">account_circle</i></a></li>
+                        <li><a href="{% url 'admin:index' %}">Administração</a></li>
+                        <li><a href="{% url 'novo_post' %}">Novo Post</a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons">account_circle</i></a></li>
                     </ul>
                     <ul class="right">
-                        <li><a href="#" id="search-icon"><i class="material-icons black-text">search</i></a></li>
+                        <li><a href="#" id="search-icon"><i class="material-icons">search</i></a></li>
                     </ul>
                     <div class="left" style="width: 100%;">
                         <form method="POST" action="{% url 'search_posts' %}">
                             {% csrf_token %}
                             <div class="input-field" style="display: none;" id="search-div">
                                 <input type="search" id="search-txt" style="height: max-content;" placeholder="Pesquise por um post" name="searched">
-                                <label for="search" class="label-icon"><i class="material-icons black-text">search</i></label>
+                                <label for="search" class="label-icon"><i class="material-icons">search</i></label>
                                 <i class="material-icons" id="close-icon">close</i>
                             </div>
                         </form>
@@ -110,17 +110,17 @@
                     <!--USUARIO CADASTRADO COMUM-->
                     
                     <ul id="comp-menu" class="right hide-on-med-and-down">
-                        <li><a class="dropdown-trigger black-text" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons black-text">account_circle</i></a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons">account_circle</i></a></li>
                     </ul>
                     <ul class="right">
-                        <li><a href="#" id="search-icon"><i class="material-icons black-text">search</i></a></li>
+                        <li><a href="#" id="search-icon"><i class="material-icons">search</i></a></li>
                     </ul>
                     <div class="left" style="width: 100%;">
                         <form method="POST" action="{% url 'search_posts' %}">
                             {% csrf_token %}
                             <div class="input-field" style="display: none;" id="search-div">
                                 <input type="search" id="search-txt" style="height: max-content;" placeholder="Pesquise por um post" name="searched">
-                                <label for="search" class="label-icon"><i class="material-icons black-text">search</i></label>
+                                <label for="search" class="label-icon"><i class="material-icons">search</i></label>
                                 <i class="material-icons" id="close-icon">close</i>
                             </div>
                         </form>
@@ -139,21 +139,21 @@
     {% if not user.is_authenticated %}
         <!--USUARIO SEM CADASTRO-->
         <ul id="nav-mobile">
-            <li><a href="{% url 'home' %}" class="link-nav black-text">Home</a></li>
-            <li><a href="{% url 'register' %}" class="link-nav black-text">Cadastre-se</a></li>
-            <li><a href="{% url 'login' %}" class="link-nav black-text">Entrar</a></li>
+            <li><a href="{% url 'home' %}" class="link-nav">Home</a></li>
+            <li><a href="{% url 'register' %}" class="link-nav">Cadastre-se</a></li>
+            <li><a href="{% url 'login' %}" class="link-nav">Entrar</a></li>
         </ul>
     {% else %}
         {% if user.is_admin %}
             <!--USUARIO ADMIN-->
             <ul id="nav-mobile">
-                <li><a href="{% url 'admin:index' %}" class="black-text">Administração</a></li>
-                <li><a href="{% url 'novo_post' %}" class="black-text">Novo Post</a></li>
+                <li><a href="{% url 'admin:index' %}">Administração</a></li>
+                <li><a href="{% url 'novo_post' %}">Novo Post</a></li>
             </ul>
         {% else %}
             <!--USUARIO CADASTRADO COMUM-->
             <ul id="nav-mobile" style="width: 100%;">
-                <li class="right" style="width: 100%;"><a class="dropdown-trigger black-text" href="#!" data-target="dropdown2" style="width: 100%; text-align: center;"><i class="material-icons black-text">account_circle</i></a></li>
+                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; text-align: center;"><i class="material-icons">account_circle</i></a></li>
             </ul>
         {% endif %}
     {% endif %}

@@ -36,11 +36,6 @@ nav #logo {
     margin-bottom: 8px;
 }
 
-li .black-text {
-    color: black;
-    font-weight: 500;
-}
-
 .error-message-field {
     color: #cc0000;
     margin-top: -20px;
@@ -87,8 +82,23 @@ li .black-text {
     background-color: red;
 }
 
-.link-nav {
+nav ul a, 
+.dropdown-content ul a,
+.sidenav ul a {
     text-transform: uppercase;
+    color: black;
+    font-weight: 500;
+}
+
+#menu-icon {
+    color: black;
+}
+
+nav ul a:hover,
+#menu-icon:hover,
+.sidenav li>a:hover {
+    color: rgb(189, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 @media only screen and (max-width: 600px) {

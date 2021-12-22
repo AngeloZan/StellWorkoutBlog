@@ -17,3 +17,11 @@ TO-DO List
 - [ ] Password reset fail template
 - [ ] Password reset form failed template
 - [x] Properly redirect when adding or removing post from favourites
+
+Reunião 21/12/2021:
+- [x] Bold on hover on links (posts page)
+- [ ] Fix links on login page
+- [x] Fix nav on external home page
+- [ ] More than one category per post
+- [ ] Fix input layout on forms
+- [ ] Responsive external home page
