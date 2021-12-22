@@ -17,7 +17,12 @@
                     {% for post in line %}
                     <div class="col s6 m3 l3">
                         <div class="card hoverable post-card hover-reveal" style="background-image: url({{ post.image.url }});">
-                            <div class="right top favourite-button" id="favourite_button_{{ post.id }}">
+                            <div class="right top favourite-button"
+                            id="favourite_button_{{ post.id }}"
+                            style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" 
+                            unselectable="on"
+                            onselectstart="return false;" 
+                            onmousedown="return false;">
                                 {% if  post in favourite_posts %}
                                     <i class="material-icons saved">bookmark</i>
                                 {% else %}
@@ -28,7 +33,7 @@
                             <div class="card-content">
                                 <span class="card-title activator"><a href="{{ post.file.url }}" target="_blank" class="post-link"><h5>{{ post.title }}</h4></a></span>
                             </div>
-                            <div class="card-reveal" style="background-color: rgba(0, 0, 0, 0.6); color: white;">
+                            <div class="card-reveal" style="background-color: rgba(41, 41, 41, 0.6); color: white;">
                                 <p>{{ post.intro }}</p>
                             </div>
                         </div>

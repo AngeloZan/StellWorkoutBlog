@@ -3,11 +3,11 @@ $(document).ready(function(){
 
     $(document).on('mouseenter.hover-reveal','.hover-reveal', function (e){
         $(this).find('.card-reveal').css({ overflowY: 'hidden', height: '60%', transform: 'translateY(-100%)', paddingTop: "0px", paddingBottom: "5px" });
-        $(this).find('.card-reveal').fadeIn(250);
+        $(this).find('.card-reveal').stop().fadeIn(300);
     });
   
     $(document).on('mouseleave.hover-reveal','.hover-reveal', function (e){
-        $(this).find('.card-reveal').fadeOut(250);
+        $(this).find('.card-reveal').stop().fadeOut(150);
     });
 
     var favouriteClicked = false;
@@ -51,6 +51,13 @@ $('.favourite-button').on('click', function() {
    
     for (var element of elements) {
         $(element).find('.material-icons').toggleClass('saved');
+        element.animate([
+            { transform: 'translateY(-6px)' },
+            { transform: 'translateY(0px)' }
+        ], {
+            duration: 150,
+            iterations: 1
+        });
     }
     var domain = window.location.protocol + '//' + window.location.host;
     $.ajax({

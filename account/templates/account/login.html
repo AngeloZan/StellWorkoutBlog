@@ -35,7 +35,7 @@
                         {% endif %}
                         <button class="btn-large grey lighten-2 waves-effect waves-dark" style="width:100%">Entrar</button>
                         <div class="helper-text-wrapper">
-                            <p class="helper-text"><b>Ainda não possui uma conta? <a href="{% url 'register' %}">Cadastre-se</a></b></p>
+                            <p class="helper-text">Ainda não possui uma conta? <a href="{% url 'register' %}"><b>Cadastre-se</b></a></p>
                             <p class="helper-text"><a href="{% url 'password_reset' %}"><b>Esqueci minha senha</b></a></p>
                         </div>
                     </form>
@@ -43,4 +43,10 @@
             </div>
         </div>
     </div>
+    <style>
+        body {
+            background-image: url('../../static/account/img/form_background.jpg');
+            background-size: cover;
+        }
+    </style>
 {% endblock content %}

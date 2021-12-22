@@ -40,7 +40,8 @@ body {
     overflow: hidden;
     position: absolute;
     top: 0;
-    left: 0; 
+    left: 0;
+    padding-top: 0px;
 }
 
 .post-card .card-title {
@@ -74,6 +75,10 @@ a.fill-div {
     z-index: 4;
 }
 
+.post-card h5 {
+    font-weight: 600;
+}
+
 .card .card-reveal {
     padding: 10px;
     padding-bottom: 0px;
@@ -87,7 +92,6 @@ a.fill-div {
     line-height: 1.2em;
     font-size: 15px;
 }
-
 
 .card-reveal:before {
     content: '';
@@ -109,8 +113,7 @@ a.fill-div {
     font-size: 28px;
 }
 h3 a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 0.06em;
+    font-weight: 500;
 }
 
 @media only screen and (max-width: 600px) {

@@ -8,10 +8,29 @@
 
 {% block content %}
 
-<main>
     <div class="container">
-        <h2>Imagine uma página home para quem ainda não tem cadastro</h2>
+        
     </div>
-</main>
+    <style>
+        body {
+            background-image: url('../../static/pages/img/home_background.png');
+            background-size: cover;
+        }
+        nav {
+            box-shadow: none;
+            border-bottom: none;
+        }
+        #nav-mobile {
+            padding-left: 2em;
+            background-color: red;
+        }
+        footer {
+            display: none;
+        }
+        .nav-wrapper .container ul {
+            padding-left: 2em;
+        }
+    </style>
+
 
 {% endblock content %}

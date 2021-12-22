@@ -147,7 +147,7 @@ STATICFILES_DIRS = [
 ]
 
 # Email stuff
-TEST_EMAIL = False
+TEST_EMAIL = True
 
 if TEST_EMAIL:
     # informacoes armazenadas em variaveis de ambiente

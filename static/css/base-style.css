@@ -87,6 +87,10 @@ li .black-text {
     background-color: red;
 }
 
+.link-nav {
+    text-transform: uppercase;
+}
+
 @media only screen and (max-width: 600px) {
     #menu-icon {
         display: block;
