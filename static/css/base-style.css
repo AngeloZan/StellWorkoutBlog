@@ -96,9 +96,18 @@ nav ul a,
 
 nav ul a:hover,
 #menu-icon:hover,
-.sidenav li>a:hover {
+.sidenav li>a:hover,
+.dropdown-content li:hover {
     color: rgb(189, 0, 0);
     background-color: rgba(0, 0, 0, 0);
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: black;
+}
+
+.sidenav li>a>i.material-icons {
+    color: inherit;
 }
 
 @media only screen and (max-width: 600px) {

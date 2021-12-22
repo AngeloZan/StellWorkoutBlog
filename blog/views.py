@@ -10,7 +10,7 @@ from .utils import generate_token
 from django.http import Http404
 
 from .utils import posts_matrix, email_notification
-from .models import Post, CATEGORIAS_POSTS
+from .models import Post, Category
 from .forms import CreatePostForm
 
 def posts_view(request):
@@ -27,11 +27,12 @@ def posts_view(request):
         context['categorias'] = []
         context['favourite_posts'] = favourite_posts
 
-        for categoria, verbose_name in CATEGORIAS_POSTS:
-            if categoria != 'nenhuma':
-                posts_categoria = posts.filter(category=categoria)
-                if posts_categoria:
-                    context['categorias'].append((categoria, verbose_name, posts_categoria))
+        categorias = Category.objects.all()
+
+        for categoria in categorias:
+            posts_categoria = categoria.posts.all()
+            if posts_categoria:
+                context['categorias'].append((categoria.name, categoria.readable_name, posts_categoria))
         
         return render(request, 'blog/posts.html', context)
 
@@ -53,6 +54,7 @@ def create_post_view(request):
         obj = form_novo_post.save(commit=False)
         obj.user = user
         obj.save()
+        form_novo_post.save_m2m()
         messages.success(request, f'O post foi enviado com sucesso!')
 
         if request.POST.get('notification') and ((not settings.DEBUG) or settings.TEST_EMAIL):
@@ -148,14 +150,10 @@ def posts_categoria_view(request, categoria):
     else:
         if not categoria == 'todos':
             categoria_name = categoria.replace('-', '_')
-            try:
-                categoria_verbose = CATEGORIAS_POSTS[[name for name, verbose in CATEGORIAS_POSTS].index(categoria_name)][1]
-            except:
-                raise Http404
-
-            posts = Post.objects.filter(category=categoria)
+            categoria_obj = get_object_or_404(Category, name=categoria_name)
+            categoria_verbose = categoria_obj.readable_name
+            posts = categoria_obj.posts.all()
         else:
-            categoria_name = 'todos'
             categoria_verbose = 'Todos'
             posts = Post.objects.all()
             
