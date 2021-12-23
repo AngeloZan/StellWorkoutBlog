@@ -1,1 +1,20 @@
-<h3>Algo deu errado, por favor solicite outro link de verificação.</h3>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container content-container">
+        <h5>Link expirado. Sua conta possivelmente já foi ativada através deste link.</h5>
+    </div>
+
+    <style>
+        .big-footer {
+            display: none;
+        }
+    </style>
+
+{% endblock content %}

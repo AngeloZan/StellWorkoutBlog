@@ -32,7 +32,7 @@ def posts_view(request):
         for categoria in categorias:
             posts_categoria = categoria.posts.all()
             if posts_categoria:
-                context['categorias'].append((categoria.name, categoria.readable_name, posts_categoria))
+                context['categorias'].append((categoria.name.replace('_', '-'), categoria.readable_name, posts_categoria))
         
         return render(request, 'blog/posts.html', context)
 

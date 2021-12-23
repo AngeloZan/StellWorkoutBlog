@@ -10,12 +10,12 @@ TO-DO List
 - [ ] Footer
 - [ ] Email template for new post notification
 - [ ] Email template for email verification
-- [ ] Unsubscribe failed template
-- [ ] Activate failed template
+- [x] Unsubscribe failed template
+- [x] Activate failed template
 - [x] Overwrite error messages
 - [ ] Password reset email template
-- [ ] Password reset fail template
-- [ ] Password reset form failed template
+- [x] Password reset fail template
+- [x] Password reset form failed template
 - [x] Properly redirect when adding or removing post from favourites
 
 Reunião 21/12/2021:
