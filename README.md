@@ -23,5 +23,7 @@ Reunião 21/12/2021:
 - [x] Fix links on login page
 - [x] Fix nav on external home page
 - [x] More than one category per post
-- [ ] Fix input layout on forms
+- [x] Fix input layout on forms
 - [ ] Responsive external home page
+
+- [ ] Adaptar forms para tema escuro

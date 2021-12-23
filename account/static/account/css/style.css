@@ -8,11 +8,6 @@
     color: #cc0000;
 }
 
-nav {
-    box-shadow: none;
-    border-bottom: none;
-}
-
 .form-container {
     padding-top: 10pt;
 }
@@ -20,7 +15,7 @@ nav {
 .form-card {
     border: none;
     box-shadow: none;
-    color: #424242;
+    color: var(--font-color);
     background-color: rgba(0, 0, 0, 0);
 }
 
@@ -65,14 +60,20 @@ nav {
 .form-card-form .input-field input[type=text]:focus + label,
 .form-card-form .input-field input[type=password]:focus + label,
 .form-card-form .input-field input[type=email]:focus + label {
-    color: #616161;
+    color: var(--font-color);
 }
 
 .form-card-form .input-field input[type=text]:focus,
 .form-card-form .input-field input[type=password]:focus,
 .form-card-form .input-field input[type=email]:focus {
-    border-bottom: 1px solid #616161;
+    border-bottom: 1px solid var(--font-color);
     box-shadow: 0 1px 0 0 #616161;
+}
+
+.input-field>input[type]:-webkit-autofill:not(.browser-default):not([type="search"])+label,
+.input-field>input[type=date]:not(.browser-default)+label, .input-field>input[type=time]:not(.browser-default)+label {
+    transform: translateY(-16px) scale(0.8);
+    color: var(--font-color);
 }
 
 .form-card button {

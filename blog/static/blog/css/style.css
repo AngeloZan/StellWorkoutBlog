@@ -27,7 +27,7 @@ body {
 }
 
 .post-link h5 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .post-card {
@@ -38,7 +38,9 @@ body {
     padding-top: 144.79%;
     position: relative;
     cursor: pointer;
+    padding-left: 10px;
 }
+
 
 .post-card .card-content {
     overflow: hidden;
@@ -46,13 +48,13 @@ body {
     top: 0;
     left: 0;
     padding-top: 0px;
+    padding-left: 10px;
 }
 
 .post-card .card-title {
     color: var(--sec-font-color);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 20px;
     letter-spacing: 0.1em;
 }
 
@@ -133,6 +135,27 @@ h3 a:hover {
 
 .search-result b {
     font-weight: 600;
+}
+
+.form-card {
+    color: black;
+}
+
+.owl-carousel .owl-dots .active span {
+    width:10px;
+    height:10px;
+    margin:5px 7px;
+    background: var(--font-highlight-color) !important;
+    display:block;
+    -webkit-backface-visibility:visible;
+    -webkit-transition:opacity 200ms ease;
+    -moz-transition:opacity 200ms ease;
+    -ms-transition:opacity 200ms ease;
+    -o-transition:opacity 200ms ease;
+    transition:opacity 200ms ease;
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    border-radius:30px;
 }
 
 @media only screen and (max-width: 600px) {
