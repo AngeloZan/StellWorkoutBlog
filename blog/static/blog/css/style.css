@@ -128,7 +128,7 @@ a.fill-div {
 }
 
 h3 a:hover {
-    text-shadow: 0 0 .9px #333, 0 0 .9px #333;
+    text-shadow: 0 0 .9px var(--font-color), 0 0 .9px var(--font-color);
 }
 
 .search-result b {

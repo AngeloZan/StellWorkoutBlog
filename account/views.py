@@ -18,6 +18,7 @@ from django.contrib import messages
 import os
 from django.utils.html import strip_tags
 from django.contrib.auth.forms import SetPasswordForm
+from django.http.response import HttpResponse
 
 def registration_view(request):
     context = {}
@@ -271,3 +272,12 @@ def password_reset_new_pass_form(request, uidb64, token):
     return render(request, 'account/password_reset_fail.html', status=401)
 
 
+def toggle_theme_view(request):
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('home')
+    else:
+        user.dark_mode = not user.dark_mode
+        user.save()
+
+    return HttpResponse('')

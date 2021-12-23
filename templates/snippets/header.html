@@ -59,6 +59,20 @@
     <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}">Sair</a></li>
     <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
+        <div class="theme-switch-wrapper switch center">
+            <label class="theme-switch">
+                {% if user.is_authenticated %}
+                    {% if user.dark_mode %}
+                        <input type="checkbox" id="theme-switch-checkbox-1" checked>
+                    {% else %}
+                        <input type="checkbox" id="theme-switch-checkbox-1">
+                    {% endif %}
+                {% else %}
+                    <input type="checkbox" id="theme-switch-checkbox-1">
+                {% endif %}
+                <span class="lever"></span>
+            </label>
+        </div>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
@@ -69,12 +83,32 @@
     <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}">Sair</a></li>
     <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
+    <div class="theme-switch-wrapper switch">
+        <label class="theme-switch">
+            {% if user.is_authenticated %}
+                {% if user.dark_mode %}
+                    <input type="checkbox" id="theme-switch-checkbox-2" checked>
+                {% else %}
+                    <input type="checkbox" id="theme-switch-checkbox-2">
+                {% endif %}
+            {% else %}
+                <input type="checkbox" id="theme-switch-checkbox-2">
+            {% endif %}
+            <span class="lever"></span>
+        </label>
+    </div>
 </ul>
 
 <nav>
     <div class="nav-wrapper">
         <div class="container">
-            <a href="{% url 'home' %}" class="brand-logo"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+            {% if user.is_authenticated and user.dark_mode %}
+                <a href="{% url 'home' %}" class="brand-logo" id="white-logo-a"><img src="{% static 'img/logo_texto_branca.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+                <a href="{% url 'home' %}" class="brand-logo" id="black-logo-a" style="display: none;"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+            {% else %}
+                <a href="{% url 'home' %}" class="brand-logo" id="black-logo-a"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+                <a href="{% url 'home' %}" class="brand-logo" id="white-logo-a" style="display: none;"><img src="{% static 'img/logo_texto_branca.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+            {% endif %}
             <a href="#" class="sidenav-trigger" data-target="mobile-nav" id="menu-icon">
                 <i class="material-icons" id="menu-icon">menu</i>
             </a>
@@ -90,8 +124,8 @@
                     <!--USUARIO ADMIN-->
                     <ul id="comp-menu" class="right hide-on-med-and-down">
                         <li><a href="{% url 'novo_post' %}">Novo Post</a></li>
-                        <li><a href="{% url 'favourite_posts' %}">
-                            <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark</i>
+                        <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
+                            <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                         </a></li>
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons">account_circle</i></a></li>
                     </ul>
@@ -112,8 +146,8 @@
                     <!--USUARIO CADASTRADO COMUM-->
                     
                     <ul id="comp-menu" class="right hide-on-med-and-down">
-                        <li><a href="{% url 'favourite_posts' %}">
-                            <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark</i> 
+                        <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
+                            <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i> 
                         </a></li>
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons">account_circle</i></a></li>
                     </ul>
@@ -153,18 +187,18 @@
             <!--USUARIO ADMIN-->
             <ul id="nav-mobile">
                 <li><a href="{% url 'novo_post' %}">Novo Post</a></li>
-                <li><a href="{% url 'favourite_posts' %}">
-                    <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark</i>
+                <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon" style="padding-left: 50%;">
+                    <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
-                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; text-align: center;"><i class="material-icons">account_circle</i></a></li>
+                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; padding-left: 50%;"><i class="material-icons">account_circle</i></a></li>
             </ul>
         {% else %}
             <!--USUARIO CADASTRADO COMUM-->
             <ul id="nav-mobile" style="width: 100%;">
-                <li><a href="{% url 'favourite_posts' %}">
-                    <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark</i>
+                <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon" style="padding-left: 50%;">
+                    <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
-                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; text-align: center;"><i class="material-icons">account_circle</i></a></li>
+                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; padding-left: 50%;"><i class="material-icons">account_circle</i></a></li>
             </ul>
         {% endif %}
     {% endif %}

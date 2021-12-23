@@ -24,7 +24,20 @@
     {% endblock head %}
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <input type="hidden" value="{{ user.dark_mode }}" id="preset_dark">
+    {% else %}
+        <input type="hidden" value="False" id="preset_dark">
+    {% endif %}
+    
     {% include 'snippets/header.html' %}
+    
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
+        if (toggleSwitch.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 
     {% if messages %}
         {% for message in messages %}

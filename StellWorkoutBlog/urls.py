@@ -37,6 +37,7 @@ from account.views import (
     del_user_view,
     password_reset_form_view,
     password_reset_new_pass_form,
+    toggle_theme_view,
 )
 
 from blog.views import (
@@ -69,6 +70,7 @@ urlpatterns = [
     path('<id>/favourite-post/', favourite_post_view, name='favourite_post'),
     path('favourite-posts/', favourite_posts_view, name='favourite_posts'),
     path('posts/<categoria>', posts_categoria_view, name='posts_categoria'),
+    path('toggle-theme/', toggle_theme_view, name='toggle_theme'),
 ]
 
 if settings.DEBUG:
