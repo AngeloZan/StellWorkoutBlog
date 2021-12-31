@@ -8,17 +8,30 @@
 
 {% block content %}
 
-    <div class="container">
-        
+    <div class="owl-carousel owl-theme full-page">
+        <div class="item" id="light-back">
+            
+        </div>
+        <div class="item" id="dark-back">
+            <img src="{% static 'pages/img/neon.png' %}" class="center" style="width: 550px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);;">
+            <div class="txt" id="left-txt">
+                <div class="title"><h5>O Que É?</h5></div>
+                <p>O site é uma plataforma com diversos conteúdos sobre o ramo fitness e Calistenia.</p>
+            </div>
+            <div class="txt" id="right-txt">
+                <div class="title"><h5>Grátis</h5></div>
+                <p>Totalmente grátis, porque nosso objetivo é que você crie hábitos saudáveis de uma maneira fácil.</p>
+            </div>
+        </div>
     </div>
     <style>
-        body {
-            background-image: url('../../static/pages/img/home_background.png');
-            background-size: cover;
-        }
         nav {
             box-shadow: none;
             border-bottom: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 10;
         }
         footer {
             display: none;
@@ -28,6 +41,8 @@
             padding-left: 4em;
         }
     </style>
+
+    <script src="{% static 'pages/js/script.js' %}"></script>
 
 
 {% endblock content %}
