@@ -27,3 +27,5 @@ Reunião 21/12/2021:
 - [ ] Responsive external home page
 
 - [ ] Adaptar forms para tema escuro
+
+- [ ] Cores nav interior (hover)

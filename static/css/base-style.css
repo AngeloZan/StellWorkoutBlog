@@ -10,6 +10,7 @@
     --logo-texto: url(../img/logo_texto.png);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    --link-hover: #D0D0D0;
 }
 
 [data-theme="dark"] {
@@ -24,6 +25,7 @@
     --logo-texto: url(../img/logo_texto_branca.png);
     --shadow-color: rgba(255, 255, 255, 0.3);
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 90%), 0 6px 20px 0 rgb(0 0 0 / 86%);
+    --link-hover: #292929;
 }
 
 .hoverable:hover {

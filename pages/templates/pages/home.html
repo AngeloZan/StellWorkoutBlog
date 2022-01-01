@@ -25,6 +25,9 @@
         </div>
     </div>
     <style>
+        body {
+            overflow-x: hidden;
+        }
         nav {
             box-shadow: none;
             border-bottom: none;
@@ -33,12 +36,28 @@
             left: 0px;
             z-index: 10;
         }
-        footer {
-            display: none;
+        nav li {
+            text-align: right;
+            padding-right: 0px;
+        }
+        nav li a {
+            text-align: right;
+            padding-right: 0px;
+            padding-left: 30px;
         }
         .nav-wrapper .container {
             width: 80%;
             padding-left: 4em;
+            padding-left: 0px;
+        }
+        .page-footer {
+            background-color: var(--bg-color);
+            width: 100vw;
+            z-index: 200;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin: 0;
         }
     </style>
 
