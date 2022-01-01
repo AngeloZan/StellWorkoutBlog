@@ -14,13 +14,19 @@
         </div>
         <div class="item" id="dark-back">
             <img src="{% static 'pages/img/neon.png' %}" class="center" style="width: 550px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);;">
-            <div class="txt" id="left-txt">
-                <div class="title"><h5>O Que É?</h5></div>
-                <p>O site é uma plataforma com diversos conteúdos sobre o ramo fitness e Calistenia.</p>
-            </div>
-            <div class="txt" id="right-txt">
-                <div class="title"><h5>Grátis</h5></div>
-                <p>Totalmente grátis, porque nosso objetivo é que você crie hábitos saudáveis de uma maneira fácil.</p>
+            <div class="home-content">
+                <div class="content-wrapper">
+                    <div class="container center">
+                        <div class="txt left" id="left-txt">
+                            <div class="title"><h5>O Que É?</h5></div>
+                            <p>O site é uma plataforma com diversos conteúdos sobre o ramo fitness e Calistenia.</p>
+                        </div>
+                        <div class="txt right" id="right-txt">
+                            <div class="title"><h5>Grátis</h5></div>
+                            <p>Totalmente grátis, porque nosso objetivo é que você crie hábitos saudáveis de uma maneira fácil.</p>
+                        </div>
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
@@ -39,6 +45,7 @@
         nav li {
             text-align: right;
             padding-right: 0px;
+            margin-right: 0px;
         }
         nav li a {
             text-align: right;
@@ -47,8 +54,6 @@
         }
         .nav-wrapper .container {
             width: 80%;
-            padding-left: 4em;
-            padding-left: 0px;
         }
         .page-footer {
             background-color: var(--bg-color);
@@ -62,6 +67,5 @@
     </style>
 
     <script src="{% static 'pages/js/script.js' %}"></script>
-
 
 {% endblock content %}

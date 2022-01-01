@@ -28,4 +28,4 @@ Reunião 21/12/2021:
 
 - [ ] Adaptar forms para tema escuro
 
-- [ ] Cores nav interior (hover)
+- [x] Cores nav interior (hover)

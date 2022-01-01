@@ -38,7 +38,19 @@ $(document).ready(function() {
     $('.bookmark-icon').on('mouseleave', function() {
         $(this).find('i').text('bookmark_border')
     });
+
+    //highlight current page link on navbar
+    $('nav a').each(function(){
+        if ($(this).prop('href') == window.location.href) {
+            $(this).addClass('highlight-link');
+        }
+    });
+
+    $('.bookmark-icon.highlight-link').each(function() {
+        $(this).find('i').text('bookmark')
+    });
 });
+
 
 
 

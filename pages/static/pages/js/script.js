@@ -64,7 +64,7 @@ function toggleTheme() {
             }, 1500);
             setTimeout(() => {
                 $('#right-txt').css({ opacity: '1' })
-            }, 1700);
+            }, 1800);
         };
     } else {
         console.log('else')
@@ -74,11 +74,6 @@ function toggleTheme() {
     }
     owl.trigger('stop.owl.autoplay');
 }
-
-$("nav a").live("click", function() {
-    $("a").removeClass("highlightLink");
-    $(this).addClass("highlightLink");
-});
 
 
 

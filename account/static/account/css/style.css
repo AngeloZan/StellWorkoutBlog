@@ -1,7 +1,9 @@
 .helper-text {
     padding-top: 3pt;
-    font-size: 15px;
+    font-size: 14px;
     text-align: center;
+    letter-spacing: 0.15em;
+    color: var(--form-bt-color);
 }
 
 .non-field-error {
@@ -32,6 +34,7 @@
 .form-card .card-action h3 {
     font-size: 40px;
     font-weight: 500;
+    color: var(--font-color) !important;
 }
 
 .form-card .input-field {
@@ -42,8 +45,11 @@
 .form-card-form .input-field input[type=password],
 .form-card-form .input-field input[type=email] {
     border-bottom: 1px solid rgba(0, 0, 0, 0);
-    background-color: #eeeeee;
-    color: #616161;
+    background-color: var(--form-input-bg);
+    color: var(--form-input-color);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    font-size: 15px;
     width: calc(100% - 10pt);
     padding-left: 5pt;
     padding-right: 5pt;
@@ -52,34 +58,36 @@
 
 .form-card-form .input-field label {
     padding-left: 5pt;
-    color: #616161;
-    font-weight: 500;
-    letter-spacing: 2pt;
+    color: var(--form-input-color);
+    font-weight: 400;
+    letter-spacing: 0.15em;
 }
 
 .form-card-form .input-field input[type=text]:focus + label,
 .form-card-form .input-field input[type=password]:focus + label,
 .form-card-form .input-field input[type=email]:focus + label {
-    color: var(--font-color);
+    color: var(--form-input-color);
 }
 
 .form-card-form .input-field input[type=text]:focus,
 .form-card-form .input-field input[type=password]:focus,
 .form-card-form .input-field input[type=email]:focus {
-    border-bottom: 1px solid var(--font-color);
-    box-shadow: 0 1px 0 0 #616161;
+    border-bottom: 1px solid var(--form-input-color);
+    box-shadow: 0 1px 0 0 var(--form-input-color);
 }
 
 .input-field>input[type]:-webkit-autofill:not(.browser-default):not([type="search"])+label,
 .input-field>input[type=date]:not(.browser-default)+label, .input-field>input[type=time]:not(.browser-default)+label {
     transform: translateY(-16px) scale(0.8);
-    color: var(--font-color);
+    color: var(--form-input-color);
 }
 
 .form-card button {
-    color: #212121;
-    font-weight: 500;
-    letter-spacing: 2pt;
+    color: var(--form-bt-color);
+    background-color: var(--form-bt-bg) !important;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    font-size: 15px;
     border-radius: 1.2em/0.2em;
 }
 .helper-text-wrapper {
@@ -87,5 +95,11 @@
 }
 
 .helper-text-wrapper a {
-    color: #b71c1c;
+    color: #E8544F;
+    font-weight: 600;
+}
+
+#esqueceu-a-senha {
+    color: inherit;
+    font-weight: inherit;
 }

@@ -11,6 +11,10 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     --link-hover: #D0D0D0;
+    --form-input-bg: rgba(232, 230, 230, 0.4);
+    --form-input-color: #A2A2A2;
+    --form-bt-color: #4E4E4E;
+    --form-bt-bg: #E8E6E6;
 }
 
 [data-theme="dark"] {
@@ -26,6 +30,10 @@
     --shadow-color: rgba(255, 255, 255, 0.3);
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 90%), 0 6px 20px 0 rgb(0 0 0 / 86%);
     --link-hover: #292929;
+    --form-input-bg: rgba(232, 230, 230, 0.4);
+    --form-input-color: #A2A2A2;
+    --form-bt-color: #4E4E4E;
+    --form-bt-bg: #E8E6E6;
 }
 
 .hoverable:hover {
@@ -163,6 +171,27 @@ nav ul a:hover,
 
 .sidenav li>a>i.material-icons {
     color: inherit;
+}
+
+nav li a {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+}
+
+nav li a:hover {
+    color: var(--link-hover) !important;
+}
+
+.highlight-link {
+    color: #E8544F !important;
+}
+
+.bookmark-icon:hover {
+    color: var(--font-color) !important;
+}
+
+.bookmark-icon.highlight-link {
+    color: var(--font-color) !important;
 }
 
 @media only screen and (max-width: 600px) {
