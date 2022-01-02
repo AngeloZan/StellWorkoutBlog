@@ -2,32 +2,69 @@
 
 <footer class="page-footer">
     <div class="container big-footer">
-        <div class="center" style="width: 100%;">
-            <a href="{% url 'home' %}" class="brand-logo"><img src="{% static 'img/logo.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo-footer"></a>
-            <p class="be-the-best">Be The Best</p>
-        </div>
         <div class="row">
-            <div class="col l6 s12">
-                <p>
-                    Estamos aqui para te ajudar a SER O MELHOR. <br>
-                    Por meio da Calistenia, nós podemos mudar sua saúde e seu corpo para melhor. <br>
-                    Alcance seus objetivos com a gente. <br>
-                    Acompanhe nossos vídeos para todos os níveis e objetivos. <br>
-                    Depois, conte-nos sobre os resultados, porque amamos resultados!
-                </p>
+            <div class="col s6 m2 l2">
+                <img src="{% static 'img/logo_somente_texto_branca.png' %}" alt="Logo Stell">
             </div>
-            <div class="col l4 offset-l2 s12 valign-wrapper center-align">
-                <ul class="links-social" style="width: 100%;">
-                    <li><a href="https://www.instagram.com/stellworkout/" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.youtube.com/channel/UC1a3h09g_djN94d2X_kvsAA?sub_confirmation=1" target="_blank">YouTube</a></li>
-                    <li><a href="https://pin.it/5XGxPJS" target="_blank">Pinterest</a></li>
+            <div class="col s6 m2 l2">
+                <h5>Empresa</h5>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Stell Wear</a></li>
+                    <li><a href="#">Patrocínio</a></li>
                 </ul>
             </div>
+            <div class="col s6 m2 l2">
+                <h5>Informações</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Termos e Condições</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="col s6 m2 l2" id="redes">
+                <h5 class="center">Siga-nos</h5>
+                <div class="row">
+                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2"><a href="#"><i class="material-icons">email</i></a></div>
+                    <div class="col s4 m4 l4"><a href="#"><i class="material-icons">email</i></a></div>
+                </div>
+                <div class="row">
+                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2"><a href="#"><i class="material-icons">email</i></a></div>
+                    <div class="col s4 m4 l4"><a href="#"><i class="material-icons">email</i></a></div>
+                </div>
+                <div class="row">
+                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2"><a href="#"><i class="material-icons">email</i></a></div>
+                    <div class="col s4 m4 l4"><a href="#"><i class="material-icons">email</i></a></div>
+                </div>        
+            </div>
+            <div class="col s12 m4 l4">
+                <h5>Sugestões</h5>
+                <form method="POST" class="footer-form col s12 m12 l12">
+                    <div class="input-field col s12 m12 l12">
+                        <input type="text" id="nome" name="nome" class="validate">
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="input-field col s12 m12 l12">
+                        <input type="email" id="email" name="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s12 m12 l12">
+                        <textarea id="mensagem" name="mensagem" class="materialize-textarea"></textarea>
+                        <label for="mensagem">Mensagem</label>
+                    </div>
+                </form>
+            </div>
+            
         </div>
     </div>
-    <div class="footer-copyright">
+    <div class="footer-copyright row">
         <div class="container center">
-            © 2021 StellWorkout
+            <div class="col s12 m6 l6 left">
+                <span class="left">Copyright&copy; 2022 | Stell Inc.</span>
+            </div>
+            <div class="col s12 m6 l6 right">
+                <span class="right">(42) 99090-9090 - contato@stellworkout.com</span>
+            </div>
         </div>
     </div>
 </footer>

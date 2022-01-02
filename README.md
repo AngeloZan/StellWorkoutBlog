@@ -29,3 +29,5 @@ Reunião 21/12/2021:
 - [ ] Adaptar forms para tema escuro
 
 - [x] Cores nav interior (hover)
+
+- [ ] Links footer

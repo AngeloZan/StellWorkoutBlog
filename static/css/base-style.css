@@ -90,39 +90,39 @@ nav #logo {
     padding-top: 0px;
 }
 
-.page-footer {
-    background-color: rgba(0, 0, 0, 0);
-    color: var(--font-color);
-    margin-top: 20pt;
+.page-footer .container {
+    width: 80% !important;
 }
 
-.page-footer h {
-    color: #5c5758;
+.page-footer {
+    background-color: black !important;
+    color: white;
+    padding-top: 3.5em;
+}
+
+#redes .col a i {
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .page-footer a {
     text-decoration: none;
     color: inherit;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    font-weight: 300;
 }
 
-.page-footer .footer-copyright {
-    color: #8c8889;
+.page-footer h5 {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
 }
 
-.page-footer #logo-footer {
-    height: 50px;
-    border-radius: 50px;
-    border: solid black 1px;
-    vertical-align: middle;
-    margin-top: 0px;
-}
-
-.links-social li {
-    height: 2em;
-}
-
-.be-the-best {
-    letter-spacing: 1px;
+.footer-copyright {
+    font-weight: 200;
+    font-size: 9px;
 }
 
 .fadeout-gradient {
