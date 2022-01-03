@@ -9,7 +9,7 @@ from django.utils.encoding import force_bytes, force_text
 from .utils import generate_token
 from django.http import Http404
 
-from .utils import posts_matrix, email_notification
+from .utils import posts_matrix, email_notification, feedback_email
 from .models import Post, Category
 from .forms import CreatePostForm
 
@@ -167,6 +167,20 @@ def posts_categoria_view(request, categoria):
         return render(request, 'blog/posts_categoria.html', context)
 
 
+def feedback_view(request):
+    context = {}
     
+    if request.method == "POST":
+        nome = request.POST.get('nome', False)
+        email = request.POST.get('email', False)
+        mensagem = request.POST.get('mensagem', False)
+
+        if (not settings.DEBUG) or settings.TEST_EMAIL:
+            feedback_email(nome, email, mensagem)
+
+        messages.success(request, f'Sua mensagem foi enviada!')
+        return redirect('home')
+    else:
+        return redirect('home')
 
 

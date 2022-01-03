@@ -1,9 +1,7 @@
-from decimal import Context
 from account.models import Account
-from django.core.mail import send_mass_mail, send_mail, get_connection, EmailMultiAlternatives
+from django.core.mail import send_mail, get_connection, EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.contrib.sites.shortcuts import get_current_site
 from account.utils import generate_token
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
@@ -72,3 +70,13 @@ def email_notification(post, domain):
         mails += ((subject, msg_plain, msg_html, sender, [user.email]),)
 
     send_mass_html_mail(mails, fail_silently=True)
+
+
+def feedback_email(nome, email, mensagem):
+    subject = 'Feedback enviado por {}'.format(nome)
+    sender = settings.FEEDBACK_EMAIL_SENDER
+    destinatarios = [FEEDBACK_EMAIL_RECEIVER]
+
+    message = '''Nome: {nome}\nContato: {email}\nMensagem:\n\n{mensagem}\n'''.format(nome=nome, email=email, mensagem=mensagem)
+
+    send_mail(subject, message, sender, destinatarios, fail_silently=True)

@@ -48,6 +48,7 @@ from blog.views import (
     favourite_post_view,
     favourite_posts_view,
     posts_categoria_view,
+    feedback_view,
 )
 
 urlpatterns = [
@@ -71,6 +72,7 @@ urlpatterns = [
     path('favourite-posts/', favourite_posts_view, name='favourite_posts'),
     path('posts/<categoria>', posts_categoria_view, name='posts_categoria'),
     path('toggle-theme/', toggle_theme_view, name='toggle_theme'),
+    path('feedback/', feedback_view, name='feedback'),
 ]
 
 if settings.DEBUG:

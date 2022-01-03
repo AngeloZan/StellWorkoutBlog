@@ -14,7 +14,7 @@ body {
     margin-top: 20pt;
 }
 
-.input-field {
+.form-card-form .input-field {
     margin: 0px;
 }
 
@@ -145,7 +145,6 @@ h3 a:hover {
     width:10px;
     height:10px;
     margin:5px 7px;
-    background: var(--font-highlight-color) !important;
     display:block;
     -webkit-backface-visibility:visible;
     -webkit-transition:opacity 200ms ease;

@@ -36,7 +36,9 @@ $(document).ready(function() {
     });
 
     $('.bookmark-icon').on('mouseleave', function() {
-        $(this).find('i').text('bookmark_border')
+        if (! ($(this).prop('href') == window.location.href)) {
+            $(this).find('i').text('bookmark_border')
+        }
     });
 
     //highlight current page link on navbar

@@ -59,20 +59,20 @@
     <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}">Sair</a></li>
     <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
-        <div class="theme-switch-wrapper switch center">
-            <label class="theme-switch">
-                {% if user.is_authenticated %}
-                    {% if user.dark_mode %}
-                        <input type="checkbox" id="theme-switch-checkbox-1" checked>
-                    {% else %}
-                        <input type="checkbox" id="theme-switch-checkbox-1">
-                    {% endif %}
+    <div class="theme-switch-wrapper switch center">
+        <label class="theme-switch">
+            {% if user.is_authenticated %}
+                {% if user.dark_mode %}
+                    <input type="checkbox" id="theme-switch-checkbox-1" checked>
                 {% else %}
                     <input type="checkbox" id="theme-switch-checkbox-1">
                 {% endif %}
-                <span class="lever"></span>
-            </label>
-        </div>
+            {% else %}
+                <input type="checkbox" id="theme-switch-checkbox-1">
+            {% endif %}
+            <span class="lever"></span>
+        </label>
+    </div>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">

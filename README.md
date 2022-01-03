@@ -30,4 +30,4 @@ Reunião 21/12/2021:
 
 - [x] Cores nav interior (hover)
 
-- [ ] Links footer
+- [ ] Links telegram e sopotify - footer

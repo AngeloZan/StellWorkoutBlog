@@ -100,6 +100,69 @@ nav #logo {
     padding-top: 3.5em;
 }
 
+
+.page-footer form {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.page-footer form .input-field {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.page-footer form .input-field {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.page-footer form .input-field input[type=text],
+.page-footer form .input-field input[type=password],
+.page-footer form .input-field input[type=email],
+.page-footer form .input-field textarea {
+    color: white;
+    font-size: 14px;
+    margin: 0px !important;
+    width: 100% !important;
+}
+
+.page-footer form .input-field label {
+    font-size: 14px;
+}
+
+.page-footer form .input-field input[type=text]:focus + label,
+.page-footer form .input-field input[type=password]:focus + label,
+.page-footer form .input-field input[type=email]:focus + label,
+.page-footer form .input-field textarea:focus + label {
+    color: white;
+}
+
+.page-footer form .input-field input[type=text]:focus,
+.page-footer form .input-field input[type=password]:focus,
+.page-footer form .input-field input[type=email]:focus,
+.page-footer form .input-field textarea:focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+.input-field>input[type]:-webkit-autofill:not(.browser-default):not([type="search"])+label,
+.input-field>input[type=date]:not(.browser-default)+label, .input-field>input[type=time]:not(.browser-default)+label {
+    color: white;
+}
+
+.page-footer form button {
+    color: white !important;
+    background-color: #121212 !important;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    border-radius: 1.2em/0.2em;
+}
+
 #redes .col a i {
     margin-left: 50%;
     transform: translateX(-50%);

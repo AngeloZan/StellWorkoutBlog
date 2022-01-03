@@ -23,35 +23,34 @@
                 </ul>
             </div>
             <div class="col s6 m2 l2" id="redes">
-                <h5 class="center">Siga-nos</h5>
+                <h5 class="center" style="margin-bottom: 1.5em !important;">Siga-nos</h5>
                 <div class="row">
-                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2"><a href="#"><i class="material-icons">email</i></a></div>
-                    <div class="col s4 m4 l4"><a href="#"><i class="material-icons">email</i></a></div>
+                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2 center"><a href="https://www.instagram.com/stellworkout/" target="_blank"><img src="{% static 'img/icon_instagram.png' %}" alt="Ícone Instagram"></a></div>
+                    <div class="col s4 m4 l4 center"><a href="https://www.youtube.com/channel/UC1a3h09g_djN94d2X_kvsAA" target="_blank"><img src="{% static 'img/icon_youtube.png' %}" alt="Ícone YouTube"></a></div>
                 </div>
                 <div class="row">
-                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2"><a href="#"><i class="material-icons">email</i></a></div>
-                    <div class="col s4 m4 l4"><a href="#"><i class="material-icons">email</i></a></div>
+                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2 center"><a href="https://pin.it/2RXbtCM" target="_blank"><img src="{% static 'img/icon_pinterest.png' %}" alt="Ícone Pinterest"></a></div>
+                    <div class="col s4 m4 l4 center"><a href="#"><img src="{% static 'img/icon_telegram.png' %}" alt="Ícone Telegram"></a></div>
                 </div>
                 <div class="row">
-                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2"><a href="#"><i class="material-icons">email</i></a></div>
-                    <div class="col s4 m4 l4"><a href="#"><i class="material-icons">email</i></a></div>
+                    <div class="col s4 m4 l4 offset-s2 offset-m2 offset-l2 center"><a href="http://vsco.co/stellworkout" target="_blank"><img src="{% static 'img/icon_vsco.png' %}" alt="Ícone Vsco"></a></div>
+                    <div class="col s4 m4 l4 center"><a href="#"><img src="{% static 'img/icon_spotify.png' %}" alt="Ícone Spotify"></a></div>
                 </div>        
             </div>
             <div class="col s12 m4 l4">
-                <h5>Sugestões</h5>
-                <form method="POST" class="footer-form col s12 m12 l12">
+                <form action="{% url 'feedback' %}" method="POST" class="footer-form col s12 m12 l12">
+                    {% csrf_token %}
+                    <h5>Sugestões</h5>
                     <div class="input-field col s12 m12 l12">
-                        <input type="text" id="nome" name="nome" class="validate">
-                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome" required>
                     </div>
                     <div class="input-field col s12 m12 l12">
-                        <input type="email" id="email" name="email" class="validate">
-                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
                     </div>
                     <div class="input-field col s12 m12 l12">
-                        <textarea id="mensagem" name="mensagem" class="materialize-textarea"></textarea>
-                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" class="materialize-textarea" required placeholder="Mensagem"></textarea>
                     </div>
+                    <button class="btn-small waves-effect waves-dark" style="width:100%">Enviar</button>
                 </form>
             </div>
             
