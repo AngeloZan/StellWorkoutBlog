@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'pages.apps.PagesConfig',
     'django_cleanup.apps.CleanupConfig',
+    'phonenumber_field',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -167,4 +169,6 @@ if TEST_EMAIL:
     FEEDBACK_EMAIL_SENDER = EMAIL_HOST_USER
     FEEDBACK_EMAIL_RECEIVER = EMAIL_HOST_USER
 
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
 
+PHONENUMBER_DEFAULT_REGION = 'BR'

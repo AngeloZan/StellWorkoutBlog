@@ -5,6 +5,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate
+from phonenumber_field.modelfields import PhoneNumberField
 
 from account.models import Account, Profile
 
@@ -45,9 +46,10 @@ class AccountAuthenticationForm(forms.ModelForm):
 
 
 class AccountUpdateForm(forms.ModelForm):
+    phone = PhoneNumberField()
     class Meta:
         model = Account
-        fields = ['username', 'email']
+        fields = ['username', 'name', 'email', 'phone', 'country', 'gender']
 
 class PasswordChangeFormCustom(PasswordChangeForm):
     def __init__(self, *args, **kwargs):
