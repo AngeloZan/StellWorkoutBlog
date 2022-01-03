@@ -7,7 +7,7 @@ TO-DO List
 - [x] Email verification
 - [x] Password recovery system
 - [x] Clickable cards
-- [ ] Footer
+- [x] Footer
 - [ ] Email template for new post notification
 - [ ] Email template for email verification
 - [x] Unsubscribe failed template

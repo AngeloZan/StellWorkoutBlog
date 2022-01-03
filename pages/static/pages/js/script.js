@@ -52,7 +52,6 @@ function toggleTheme() {
     var logo_preta = document.querySelector('#black-logo-a');
 
     if (document.documentElement.getAttribute('data-theme') != 'dark') {
-        console.log('aqui')
         document.documentElement.setAttribute('data-theme', 'dark');
         logo_branca.style.display = logo_preta.style.display;
         logo_preta.style.display = 'none';

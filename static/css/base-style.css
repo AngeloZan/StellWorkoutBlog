@@ -186,11 +186,7 @@ nav #logo {
 .footer-copyright {
     font-weight: 200;
     font-size: 9px;
-}
-
-.fadeout-gradient {
-    position: absolute;
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .sidenav {
@@ -260,6 +256,13 @@ nav li a:hover {
 @media only screen and (max-width: 600px) {
     #menu-icon {
         display: block;
+    }
+    #redes h5 {
+        text-align: left !important;
+    }
+    #redes {
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
 }
 
