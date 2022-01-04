@@ -19,6 +19,7 @@ import os
 from django.utils.html import strip_tags
 from django.contrib.auth.forms import SetPasswordForm
 from django.http.response import HttpResponse
+from django.urls import reverse
 
 def registration_view(request):
     context = {}
@@ -272,16 +273,79 @@ def toggle_theme_view(request):
 def profile_view(request):
     context = {}
 
+    current_hash = ''
+
     user = request.user
 
     if not user.is_authenticated:
         return redirect('home')
 
-    my_data_form = AccountUpdateForm(instance=user)
-    change_password_form = PasswordChangeFormCustom(user)
+    if request.POST:
+        data = request.POST
 
+        my_data_form = AccountUpdateForm(instance=user)
+        change_password_form = PasswordChangeFormCustom(user)
+
+        if 'username' in data.keys():
+            current_hash = 'editar-perfil'
+            my_data_form = AccountUpdateForm(request.POST, instance=user)
+
+            if my_data_form.is_valid():
+                my_data_form.save()
+                messages.success(request, f'Sua conta foi atualizada!')
+                return redirect(reverse('profile') + '#{}'.format(current_hash))
+        
+        elif 'old_password' in data.keys():
+            current_hash = 'alterar-senha'
+            change_password_form = PasswordChangeFormCustom(request.user, request.POST)
+            if change_password_form.is_valid():
+                user = change_password_form.save()
+                update_session_auth_hash(request, user)  # Important!
+                list(messages.get_messages(request))
+                messages.success(request, 'Sua senha foi atualizada com sucesso!')
+                return redirect(reverse('profile') + '#{}'.format(current_hash))
+
+
+    else:
+        my_data_form = AccountUpdateForm(instance=user)
+        change_password_form = PasswordChangeFormCustom(user)
+    
+    notificacoes = user.notificacoes.split(', ')
+
+    context['notificacoes'] = notificacoes
     context['my_data_form'] = my_data_form
     context['change_password_form'] = change_password_form
+    context['current_hash'] = current_hash
+    context['user'] = user
 
     return render(request, 'account/profile.html', context)
+
+
+def notifications_view(request):
+    context = {}
+
+    user = request.user
+
+    if (not request.POST) or (not user.is_authenticated):
+        return redirect('home')
+
+    data = request.POST
+    notificacoes = []
+
+    if data.get('novos-posts'):
+        user.subscriber = True
+    if data.get('novos-cursos'):
+        notificacoes.append('novos-cursos')
+    if data.get('emails-promocoes'):
+        notificacoes.append('emails-promocoes')
+    if data.get('emails-feedback'):
+        notificacoes.append('emails-feedback')
+
+    user.notificacoes = ', '.join(notificacoes)
+    user.save()
+
+    print(data)
+
+    return HttpResponse('')
+    
 

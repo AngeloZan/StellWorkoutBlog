@@ -38,6 +38,7 @@ from account.views import (
     password_reset_new_pass_form,
     toggle_theme_view,
     profile_view,
+    notifications_view,
 )
 
 from blog.views import (
@@ -73,6 +74,7 @@ urlpatterns = [
     path('toggle-theme/', toggle_theme_view, name='toggle_theme'),
     path('feedback/', feedback_view, name='feedback'),
     path('perfil/', profile_view, name='profile'),
+    path('notificacoes/', notifications_view, name='notificacoes'),
 ]
 
 if settings.DEBUG:

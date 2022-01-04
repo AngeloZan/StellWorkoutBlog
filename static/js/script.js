@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     //highlight current page link on navbar
     $('nav a').each(function(){
-        if ($(this).prop('href') == window.location.href) {
+        if (($(this).prop('href') == window.location.href) && (! ($(this).attr('href') == '#'))) {
             $(this).addClass('highlight-link');
         }
     });
@@ -61,6 +61,8 @@ $(document).ready(function() {
     $('.bookmark-icon.highlight-link').each(function() {
         $(this).find('i').text('bookmark')
     });
+
+    $('.modal').modal();
 });
 
 

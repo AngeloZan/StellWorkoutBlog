@@ -8,22 +8,35 @@
 
 {% block content %}
 
-    <div class="container">
+    {% if current_hash %}
+        <span style="display: none;" id="initial-hash">{{ current_hash }}</span>
+    {% endif %}
+
+    <div class="container profile-page-container">
         <h3>Configurações</h3>
 
         <div class="row">
             <div class="col s12 m3 l3 profile-sidenav">
                 <ul>
-                    <li class="active"><a href="#" id="editar-perfil-trigger">Editar Perfil</a></li>
-                    <li><a href="#" id="notificacoes-trigger">Notificações</a></li>
-                    <li><a href="#" id="alterar-senha-trigger">Alterar Senha</a></li>
-                    <li><a href="#" id="ajuda-trigger">Ajuda</a></li>
-                    <li><a href="{% url 'logout' %}"><i class="material-icons inline-icon">exit_to_app</i> Sair</a></li>
+                    <li class="active"><a href="#editar-perfil" id="editar-perfil-trigger">Editar Perfil</a></li>
+                    <li><a href="#notificacoes" id="notificacoes-trigger">Notificações</a></li>
+                    <li><a href="#alterar-senha" id="alterar-senha-trigger">Alterar Senha</a></li>
+                    <li><a href="#ajuda" id="ajuda-trigger">Ajuda</a></li>
+                    <li id="sair"><a class="modal-trigger" href="#modal-sair"><i class="material-icons inline-icon">exit_to_app</i> Sair</a></li>
                 </ul>
+            </div>
+            <div id="modal-sair" class="modal">
+                <div class="modal-content center">
+                    <h5>Sair?</h5>
+                    <ul>
+                        <li><a href="#" class="modal-close">Cancelar</a></li>
+                        <li><a href="{% url 'logout' %}">Sair</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="col s12 m9 l9 center hide-on-small-only profile-forms-container">
                 <div class="row active" id="editar-perfil">
-                    <form action="{% url 'my_data' %}">
+                    <form action="#" class="form-card-form" method="POST">
                         {% csrf_token %}
                         <div class="row">
                             <div class="input-field col s12 m10 l5 offset-m1 offset-l1">
@@ -73,13 +86,96 @@
                                 {% endfor %}
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col s12 m5 l5 offset-m1 offset-l1">
+                                <button class="btn-small waves-effect waves-dark" style="width:100%">Confirmar</button>
+                            </div>
+                            <div class="col hide-on-small-only m6 l6"></div>
+                        </div>
                     </form>
                 </div>
                 <div class="row" id="notificacoes">
-                    <h5>Form Notificações</h5>
+                    <form action="{% url 'notificacoes' %}" class="form-card-form" method="POST" id="notificacoes-form">
+                        {% csrf_token %}
+                        <p class="checkbox-block">
+                            <label>
+                                <input type="checkbox" name="novos-posts" id="novos-posts" class="cb-notificacoes filled-in"
+                                {% if user.subscriber %}checked{% endif %}
+                                >
+                                <span>
+                                    <span class="label-title">Emails de novos posts</span><br>
+                                    Receba notificações de novos e-books.
+                                </span>
+                            </label>
+                        </p>
+                        <p class="checkbox-block">
+                            <label>
+                                <input type="checkbox" name="novos-cursos" id="novos-cursos" class="cb-notificacoes filled-in"
+                                {% if 'novos-cursos' in notificacoes %}checked{% endif %}
+                                >
+                                <span>
+                                    <span class="label-title">Emails de novos cursos</span><br>
+                                    Garanta sua vaga em novos cursos antes do lançamento.
+                                </span>
+                            </label>
+                        </p>
+                        <p class="checkbox-block">
+                            <label>
+                                <input type="checkbox" name="emails-promocoes" id="emails-promocoes" class="cb-notificacoes filled-in"
+                                {% if 'emails-promocoes' in notificacoes %}checked{% endif %}
+                                >
+                                <span>
+                                    <span class="label-title">Emails de promoções</span><br>
+                                    Ganhe promoções da Stell Wear e cursos.
+                                </span>
+                            </label>
+                        </p>
+                        <p class="checkbox-block">
+                            <label>
+                                <input type="checkbox" name="emails-feedback" id="emails-feedback" class="cb-notificacoes filled-in"
+                                {% if 'emails-feedback' in notificacoes %}checked{% endif %}
+                                >
+                                <span>
+                                    <span class="label-title">Emails de feedback</span><br>
+                                    Forneça feedbacks para melhorarmos nosso serviço.
+                                </span>
+                            </label>
+                        </p>
+                    </form>
                 </div>
                 <div class="row" id="alterar-senha">
-                    <h5>Form Alterar Senha</h5>
+                    <form action="#" class="form-card-form" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="input-field col s12 m10 l6 offset-m1 offset-l3">
+                                {{ change_password_form.old_password }}
+                                {{ change_password_form.old_password.label_tag }}
+                                {% for error in change_password_form.old_password.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="input-field col s12 m10 l6 offset-m1 offset-l3">
+                                {{ change_password_form.new_password1 }}
+                                {{ change_password_form.new_password1.label_tag }}
+                                {% for error in change_password_form.new_password1.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="input-field col s12 m10 l6 offset-m1 offset-l3">
+                                {{ change_password_form.new_password2 }}
+                                {{ change_password_form.new_password2.label_tag }}
+                                {% for error in change_password_form.new_password2.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m10 l6 offset-m1 offset-l3">
+                                <button class="btn-small waves-effect waves-dark" style="width:100%">Confirmar</button>
+                            </div>
+                            <div class="col hide-on-small-only m6 l6"></div>
+                        </div>
+                    </form>
                 </div>
                 <div class="row" id="ajuda">
                     <h5>Ajuda</h5>
@@ -89,8 +185,18 @@
     </div>
 
     <style>
+        :root {
+            --profile-background: url('../../static/account/img/form_background.jpg');
+        }
+        [data-theme="dark"] {
+            --profile-background: url('../../static/account/img/form_background_dark.jpg');
+        }
         body {
-            background-color: var(--bg-color);
+            background: var(--profile-background) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
         footer {
             display: none;

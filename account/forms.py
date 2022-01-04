@@ -52,6 +52,11 @@ class AccountUpdateForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ['username', 'name', 'email', 'date_of_birth', 'country', 'gender']
+        error_messages = {
+            'username': {
+                'unique': 'Este nome de usuário não está disponível.',
+            },
+        }
 
 class PasswordChangeFormCustom(PasswordChangeForm):
     def __init__(self, *args, **kwargs):

@@ -62,11 +62,12 @@ class Account(AbstractBaseUser):
     date_of_birth           = models.DateField(blank=True, null=True, verbose_name='nascimento')
     name                    = models.CharField(blank=True, max_length=60, verbose_name='nome')
     country                 = CountryField(blank=True, verbose_name='país')
-    gender                  = models.CharField(choices=GENDER_CHOICES, max_length=1, blank=True)
+    gender                  = models.CharField(choices=GENDER_CHOICES, max_length=1, blank=True, verbose_name='gênero')
 
     # email stuff
     confirmed               = models.BooleanField(default=False)
     subscriber              = models.BooleanField(default=False)
+    notificacoes            = models.CharField(default='', max_length=200)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

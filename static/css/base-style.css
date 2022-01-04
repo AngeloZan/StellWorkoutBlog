@@ -30,10 +30,10 @@
     --shadow-color: rgba(255, 255, 255, 0.3);
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 90%), 0 6px 20px 0 rgb(0 0 0 / 86%);
     --link-hover: #292929;
-    --form-input-bg: rgba(232, 230, 230, 0.4);
+    --form-input-bg: rgba(41, 41, 41, 0.4);
     --form-input-color: #A2A2A2;
-    --form-bt-color: #4E4E4E;
-    --form-bt-bg: #E8E6E6;
+    --form-bt-color: #E3E3E3;
+    --form-bt-bg: #121212;
 }
 
 .hoverable:hover {
@@ -48,7 +48,7 @@
 }
 
 #search-txt {
-    background-color: var(--bg-color);
+    background-color: rgba(0, 0, 0, 0);
     color: var(--font-color);
 }
 
