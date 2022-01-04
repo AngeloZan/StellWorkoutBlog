@@ -32,12 +32,12 @@ from account.views import (
     logout_view,
     my_data_view,
     activate_account_view,
-    metas_view,
     change_password_view,
     del_user_view,
     password_reset_form_view,
     password_reset_new_pass_form,
     toggle_theme_view,
+    profile_view,
 )
 
 from blog.views import (
@@ -58,7 +58,6 @@ urlpatterns = [
     path('logout/', logout_view, name="logout"),
     path('login/', login_view, name="login"),
     path('dados/', my_data_view, name="my_data"),
-    path('metas/', metas_view, name='metas'),
     path('excluir-conta/', del_user_view, name='del_user'),
     path('activate/<uidb64>/<token>', activate_account_view, name='activate'),
     path('alterar-senha/', change_password_view, name='change_password'),
@@ -73,6 +72,7 @@ urlpatterns = [
     path('posts/<categoria>', posts_categoria_view, name='posts_categoria'),
     path('toggle-theme/', toggle_theme_view, name='toggle_theme'),
     path('feedback/', feedback_view, name='feedback'),
+    path('perfil/', profile_view, name='profile'),
 ]
 
 if settings.DEBUG:

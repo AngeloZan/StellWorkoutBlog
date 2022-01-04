@@ -253,6 +253,12 @@ nav li a:hover {
     color: var(--font-color) !important;
 }
 
+.icon-profile {
+    height: 24px;
+    margin: 0px;
+    vertical-align: middle;
+}
+
 @media only screen and (max-width: 600px) {
     #menu-icon {
         display: block;

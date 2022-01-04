@@ -59,20 +59,6 @@
     <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}">Sair</a></li>
     <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
-    <div class="theme-switch-wrapper switch center">
-        <label class="theme-switch">
-            {% if user.is_authenticated %}
-                {% if user.dark_mode %}
-                    <input type="checkbox" id="theme-switch-checkbox-1" checked>
-                {% else %}
-                    <input type="checkbox" id="theme-switch-checkbox-1">
-                {% endif %}
-            {% else %}
-                <input type="checkbox" id="theme-switch-checkbox-1">
-            {% endif %}
-            <span class="lever"></span>
-        </label>
-    </div>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
@@ -83,20 +69,6 @@
     <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
     <li><a href="{% url 'logout' %}">Sair</a></li>
     <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
-    <div class="theme-switch-wrapper switch">
-        <label class="theme-switch">
-            {% if user.is_authenticated %}
-                {% if user.dark_mode %}
-                    <input type="checkbox" id="theme-switch-checkbox-2" checked>
-                {% else %}
-                    <input type="checkbox" id="theme-switch-checkbox-2">
-                {% endif %}
-            {% else %}
-                <input type="checkbox" id="theme-switch-checkbox-2">
-            {% endif %}
-            <span class="lever"></span>
-        </label>
-    </div>
 </ul>
 
 <nav>
@@ -127,7 +99,15 @@
                         <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
                             <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                         </a></li>
-                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons">account_circle</i></a></li>
+                        <li>
+                            {% if user.dark_mode %}
+                                <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                                <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                            {% else %}
+                                <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                                <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                            {% endif %}
+                        </li>
                     </ul>
                     <ul class="right">
                         <li><a href="#" id="search-icon"><i class="material-icons">search</i></a></li>
@@ -149,7 +129,15 @@
                         <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
                             <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i> 
                         </a></li>
-                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="width: 140pt; text-align: center;"><i class="material-icons">account_circle</i></a></li>
+                        <li>
+                            {% if user.dark_mode %}
+                                <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                                <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                            {% else %}
+                                <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                                <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                            {% endif %}
+                        </li>
                     </ul>
                     <ul class="right">
                         <li><a href="#" id="search-icon"><i class="material-icons">search</i></a></li>
@@ -190,7 +178,15 @@
                 <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon" style="padding-left: 50%;">
                     <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
-                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; padding-left: 50%;"><i class="material-icons">account_circle</i></a></li>
+                <li>
+                    {% if user.dark_mode %}
+                        <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                        <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                    {% else %}
+                        <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                        <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                    {% endif %}
+                </li>
             </ul>
         {% else %}
             <!--USUARIO CADASTRADO COMUM-->
@@ -198,7 +194,15 @@
                 <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon" style="padding-left: 50%;">
                     <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
-                <li class="right" style="width: 100%;"><a class="dropdown-trigger" href="#!" data-target="dropdown2" style="width: 100%; padding-left: 50%;"><i class="material-icons">account_circle</i></a></li>
+                <li>
+                    {% if user.dark_mode %}
+                        <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                        <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                    {% else %}
+                        <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
+                        <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
+                    {% endif %}
+                </li>
             </ul>
         {% endif %}
     {% endif %}

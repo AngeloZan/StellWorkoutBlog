@@ -86,13 +86,17 @@ $('.owl-carousel').owlCarousel({
             margin:15,
             items:4,
         },
-        600:{
+        728:{
             margin:20,
             items:6,
         },
         1000:{
-            items:8,
-            mergeFit:false
+            items:6,
+            margin:20
+        },
+        1200:{
+            mergeFit:false,
+            items:8
         }
     }
 })

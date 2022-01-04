@@ -137,20 +137,6 @@ def my_data_view(request):
     return render(request, 'account/my_data.html', context)
 
 
-def metas_view(request):
-    context = {}
-
-    user = request.user
-
-    if not user.is_authenticated:
-        return redirect('login')
-    
-    if request.POST:
-        return redirect('home') # temporário
-    else:
-        return render(request, 'account/metas.html', context)
-
-
 def change_password_view(request):
 
     if not request.user.is_authenticated:
@@ -281,3 +267,21 @@ def toggle_theme_view(request):
         user.save()
 
     return HttpResponse('')
+
+
+def profile_view(request):
+    context = {}
+
+    user = request.user
+
+    if not user.is_authenticated:
+        return redirect('home')
+
+    my_data_form = AccountUpdateForm(instance=user)
+    change_password_form = PasswordChangeFormCustom(user)
+
+    context['my_data_form'] = my_data_form
+    context['change_password_form'] = change_password_form
+
+    return render(request, 'account/profile.html', context)
+

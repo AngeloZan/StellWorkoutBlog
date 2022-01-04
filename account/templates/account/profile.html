@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+    <div class="container">
+        <h3>Configurações</h3>
+
+        <div class="row">
+            <div class="col s12 m3 l3 profile-sidenav">
+                <ul>
+                    <li class="active"><a href="#" id="editar-perfil-trigger">Editar Perfil</a></li>
+                    <li><a href="#" id="notificacoes-trigger">Notificações</a></li>
+                    <li><a href="#" id="alterar-senha-trigger">Alterar Senha</a></li>
+                    <li><a href="#" id="ajuda-trigger">Ajuda</a></li>
+                    <li><a href="{% url 'logout' %}"><i class="material-icons inline-icon">exit_to_app</i> Sair</a></li>
+                </ul>
+            </div>
+            <div class="col s12 m9 l9 center hide-on-small-only profile-forms-container">
+                <div class="row active" id="editar-perfil">
+                    <form action="{% url 'my_data' %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="input-field col s12 m10 l5 offset-m1 offset-l1">
+                                {{ my_data_form.username }}
+                                {{ my_data_form.username.label_tag }}
+                                {% for error in my_data_form.username.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="input-field col s12 m10 l5 offset-m1">
+                                {{ my_data_form.name }}
+                                {{ my_data_form.name.label_tag }}
+                                {% for error in my_data_form.name.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m10 l5 offset-m1 offset-l1">
+                                {{ my_data_form.email }}
+                                {{ my_data_form.email.label_tag }}
+                                {% for error in my_data_form.email.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="input-field col s12 m10 l5 offset-m1">
+                                <input type="date" name="date_of_birth" id="id_date_of_birth">
+                                {{ my_data_form.date_of_birth.label_tag }}
+                                {% for error in my_data_form.date_of_birth.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m10 l5 offset-m1 offset-l1">
+                                {{ my_data_form.country }}
+                                {{ my_data_form.country.label_tag }}
+                                {% for error in my_data_form.country.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                            <div class="input-field col s12 m10 l5 offset-m1">
+                                {{ my_data_form.gender }}
+                                {{ my_data_form.gender.label_tag }}
+                                {% for error in my_data_form.gender.errors %}
+                                    <p class="error-message-field">{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row" id="notificacoes">
+                    <h5>Form Notificações</h5>
+                </div>
+                <div class="row" id="alterar-senha">
+                    <h5>Form Alterar Senha</h5>
+                </div>
+                <div class="row" id="ajuda">
+                    <h5>Ajuda</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: var(--bg-color);
+        }
+        footer {
+            display: none;
+        }
+    </style>
+
+    <script src="{% static 'account/js/script.js' %}"></script>
+{% endblock content %}

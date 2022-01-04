@@ -7,7 +7,6 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from PIL import Image
 from uuid import uuid4
 import os
-from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
 
 GENDER_CHOICES = (
@@ -60,7 +59,7 @@ class Account(AbstractBaseUser):
     is_staff                = models.BooleanField(default=False)
     is_superuser            = models.BooleanField(default=False)
     dark_mode               = models.BooleanField(default=False)
-    phone                   = PhoneNumberField(blank=True, verbose_name='telefone')
+    date_of_birth           = models.DateField(blank=True, null=True, verbose_name='nascimento')
     name                    = models.CharField(blank=True, max_length=60, verbose_name='nome')
     country                 = CountryField(blank=True, verbose_name='país')
     gender                  = models.CharField(choices=GENDER_CHOICES, max_length=1, blank=True)
