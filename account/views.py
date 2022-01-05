@@ -10,7 +10,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
-from .utils import generate_token
+from .utils import generate_token, ajuda_email
 from django.core.mail import EmailMessage, send_mail
 from django.conf import settings
 from .models import Account
@@ -347,5 +347,23 @@ def notifications_view(request):
     print(data)
 
     return HttpResponse('')
+
+
+def ajuda_view(request):
+    context = {}
+    
+    if request.method == "POST":
+        nome = request.POST.get('nome_ajuda', False)
+        email = request.POST.get('email_ajuda', False)
+        mensagem = request.POST.get('mensagem_ajuda', False)
+
+        if (not settings.DEBUG) or settings.TEST_EMAIL:
+            ajuda_email(nome, email, mensagem)
+
+        messages.success(request, f'Sua mensagem foi enviada!')
+        return redirect('home')
+    else:
+        return redirect('home')
+    
     
 

@@ -12,9 +12,12 @@
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     --link-hover: #D0D0D0;
     --form-input-bg: rgba(232, 230, 230, 0.4);
+    --form-input-bg-opaque: rgba(232, 230, 230);
     --form-input-color: #A2A2A2;
     --form-bt-color: #4E4E4E;
     --form-bt-bg: #E8E6E6;
+    --notificacoes-hl-color: #292929;
+    --notificacoes-color: #4E4E4E;
 }
 
 [data-theme="dark"] {
@@ -31,9 +34,12 @@
     --hoverable-shadow: 0 8px 17px 0 rgb(0 0 0 / 90%), 0 6px 20px 0 rgb(0 0 0 / 86%);
     --link-hover: #292929;
     --form-input-bg: rgba(41, 41, 41, 0.4);
+    --form-input-bg-opaque: rgba(41, 41, 41);
     --form-input-color: #A2A2A2;
     --form-bt-color: #E3E3E3;
     --form-bt-bg: #121212;
+    --notificacoes-hl-color: #fff;
+    --notificacoes-color: #D0D0D0;
 }
 
 .hoverable:hover {
@@ -67,6 +73,7 @@ body {
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     color: var(--font-color);
+    background-color: var(--bg-color);
 }
 
 main {
@@ -118,6 +125,10 @@ nav #logo {
 .page-footer form .input-field {
     margin-left: 0px !important;
     margin-right: 0px !important;
+}
+
+.page-footer form .input-field textarea {
+    min-height: 81px;
 }
 
 .page-footer form .input-field input[type=text],

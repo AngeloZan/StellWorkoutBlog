@@ -87,7 +87,7 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
     color: var(--font-color);
-  }
+}
 
 .form-card button {
     color: var(--form-bt-color);
@@ -220,11 +220,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-weight: 400 !important;
     letter-spacing: 0.15em;
     font-size: 13px;
+    border-radius: 1.2em/0.2em;
 }
 
 .profile-forms-container button:hover {
     background-color: var(--form-bt-color) !important;
     color: var(--form-bt-bg) !important;
+}
+
+#editar-perfil .dropdown-content {
+    background: var(--form-input-bg-opaque) !important;
+    border-radius: 1.2em/0.2em;
 }
 
 .checkbox-block {
@@ -236,26 +242,108 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-left: 5em;
 }
 
+.checkbox-block>label>span {
+    font-weight: 300;
+    color: var(--notificacoes-color);
+    font-size: 12px !important;
+    letter-spacing: 0.15em;
+}
+
 .label-title {
     font-weight: 500;
-    font-size: 18px;
-    color: var(--font-color);
+    font-size: 15px !important;
+    color: var(--notificacoes-hl-color);
 }
 
 [type="checkbox"].filled-in:checked+span:not(.lever):before{
     border-right: 3px solid var(--bg-color);
     border-bottom: 3px solid var(--bg-color);
+    -webkit-transform: rotateZ(37deg) scale(0.9);
+    transform: rotateZ(37deg) scale(0.9) translateY(-1px);
 }
 
 [type="checkbox"].filled-in:checked+span:not(.lever):after{
     border: 2px solid var(--font-color);
     background-color: var(--font-color);
+    transform: scale(0.9);
 }
 
 [type="checkbox"].filled-in.tabbed:checked:focus+span:not(.lever):after{
     background-color: var(--font-color);
     border-color: var(--font-color);
-} 
+    transform: scale(0.9);
+}
+
+#ajuda form {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#ajuda form h5 {
+    font-weight: 500;
+    color: var(--notificacoes-hl-color);
+    letter-spacing: 0.15em;
+    font-size: 15px;
+    margin-bottom: 2em;
+}
+
+#ajuda .telefone {
+    font-weight: 300;
+    color: var(--notificacoes-color);
+    font-size: 11px !important;
+    margin-top: 2em;
+    padding-bottom: 5em !important;
+}
+
+#ajuda form .input-field {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#ajuda form textarea {
+    min-height: 81px;
+}
+
+#ajuda form .input-field input[type=text],
+#ajuda form .input-field input[type=password],
+#ajuda form .input-field input[type=email],
+#ajuda form .input-field textarea {
+    color: var(--notificacoes-color);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    margin: 0px !important;
+    width: 100% !important;
+}
+
+#ajuda form .input-field label {
+    font-size: 14px;
+}
+
+#ajuda form .input-field input[type=text]:focus + label,
+#ajuda form .input-field input[type=password]:focus + label,
+#ajuda form .input-field input[type=email]:focus + label,
+#ajuda form .input-field textarea:focus + label {
+    color: var(--notificacoes-color);
+}
+
+#ajuda form .input-field input[type=text]:focus,
+#ajuda form .input-field input[type=password]:focus,
+#ajuda form .input-field input[type=email]:focus,
+#ajuda form .input-field textarea:focus {
+    border-bottom: 1px solid var(--notificacoes-hl-color);
+    box-shadow: 0 1px 1px -1px var(--notificacoes-hl-color);
+}
+
+#ajuda .input-field>input[type]:-webkit-autofill:not(.browser-default):not([type="search"])+label,
+#ajuda .input-field>input[type=date]:not(.browser-default)+label, .input-field>input[type=time]:not(.browser-default)+label {
+    color: var(--notificacoes-hl-color);
+}
+
 
 
 @media only screen and (max-width: 1000px) {

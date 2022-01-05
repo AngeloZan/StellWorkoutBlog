@@ -63,7 +63,7 @@
                                 {% endfor %}
                             </div>
                             <div class="input-field col s12 m10 l5 offset-m1">
-                                <input type="date" name="date_of_birth" id="id_date_of_birth">
+                                {{ my_data_form.date_of_birth }}
                                 {{ my_data_form.date_of_birth.label_tag }}
                                 {% for error in my_data_form.date_of_birth.errors %}
                                     <p class="error-message-field">{{ error }}</p>
@@ -178,7 +178,25 @@
                     </form>
                 </div>
                 <div class="row" id="ajuda">
-                    <h5>Ajuda</h5>
+                    <form action="{% url 'ajuda' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="col s12 m10 l6 offset-m1 offset-l3 left">
+                            <h5 class="left">Como podemos ajudar você?</h5>
+                            <div class="input-field">
+                                <input type="text" id="nome_ajuda" name="nome_ajuda" placeholder="Nome" required>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" id="email_ajuda" name="email_ajuda" placeholder="Email" required>
+                            </div>
+                            <div class="input-field">
+                                <textarea id="mensagem_ajuda" name="mensagem_ajuda" class="materialize-textarea" required placeholder="Mensagem"></textarea>
+                            </div>
+                            <button class="btn-small waves-effect waves-dark" style="width: 100%;">Enviar</button>
+                        </div>   
+                    </form>
+                    <div class="col s12 right">
+                        <span class="right telefone">(42) 99990-9070</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,7 +210,7 @@
             --profile-background: url('../../static/account/img/form_background_dark.jpg');
         }
         body {
-            background: var(--profile-background) no-repeat center center fixed;
+            background: var(--bg-color) var(--profile-background) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;

@@ -75,7 +75,7 @@ def email_notification(post, domain):
 def feedback_email(nome, email, mensagem):
     subject = 'Feedback enviado por {}'.format(nome)
     sender = settings.FEEDBACK_EMAIL_SENDER
-    destinatarios = [FEEDBACK_EMAIL_RECEIVER]
+    destinatarios = [settings.FEEDBACK_EMAIL_RECEIVER]
 
     message = '''Nome: {nome}\nContato: {email}\nMensagem:\n\n{mensagem}\n'''.format(nome=nome, email=email, mensagem=mensagem)
 

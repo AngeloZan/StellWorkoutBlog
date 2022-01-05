@@ -39,6 +39,7 @@ from account.views import (
     toggle_theme_view,
     profile_view,
     notifications_view,
+    ajuda_view,
 )
 
 from blog.views import (
@@ -75,6 +76,7 @@ urlpatterns = [
     path('feedback/', feedback_view, name='feedback'),
     path('perfil/', profile_view, name='profile'),
     path('notificacoes/', notifications_view, name='notificacoes'),
+    path('ajuda/', ajuda_view, name='ajuda'),
 ]
 
 if settings.DEBUG:

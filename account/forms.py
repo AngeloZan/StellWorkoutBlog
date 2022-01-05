@@ -5,6 +5,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate
+import datetime
 
 from account.models import Account, Profile
 
@@ -48,6 +49,16 @@ class AccountUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault('label_suffix', '')
         super(AccountUpdateForm, self).__init__(*args, **kwargs)
+    
+    date_of_birth = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                'type': 'date',
+            },
+            format='%Y-%m-%d'
+            ),
+        input_formats=['%Y-%m-%d'],
+    )
 
     class Meta:
         model = Account
