@@ -10,13 +10,9 @@
     <div class="container content-container">
         {% if searched %}
             {% if not num_posts > 0 %}
-                <div class="search-result">
-                    <i><h5>Não foram encontrados resultados para <b>"{{ searched }}".</b></h5></i>
-                </div>
+                <i><h5 class="search-result">Não foram encontrados resultados para <b>"{{ searched }}".</b></h5></i>
             {% else %}
-                <div class="search-result">
-                    <i><h5>{% if not num_posts == 1 %}Foram encontrados{% else %}Foi encontrado{% endif %} {{ num_posts }} resultado{% if not num_posts == 1 %}s{% endif %} para <b>"{{ searched }}"</b>:</h5></i>
-                </div><br>
+                <i><h5 class="search-result">{% if not num_posts == 1 %}Foram encontrados{% else %}Foi encontrado{% endif %} {{ num_posts }} resultado{% if not num_posts == 1 %}s{% endif %} para <b>"{{ searched }}"</b>:</h5></i><br>
                 {% for line in posts_mtx %}
                     <div class="row blog-grid-row">
                         {% for post in line %}

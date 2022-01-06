@@ -137,6 +137,10 @@ h3 a:hover {
     font-weight: 600;
 }
 
+.search-result {
+    margin-bottom: 1.5em;
+}
+
 .form-card {
     color: black;
 }
@@ -156,6 +160,8 @@ h3 a:hover {
     -moz-border-radius:30px;
     border-radius:30px;
 }
+
+
 
 @media only screen and (max-width: 600px) {
     .blog-grid-row {

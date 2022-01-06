@@ -36,6 +36,6 @@ Reunião 21/12/2021:
 - [ ] Link esqueci minha senha em alterar senha (?)
 - [ ] Arrumar o dropdown no sidenav
 - [ ] Responsividade da página de configurações
-- [ ] Import js properly
-- [ ] Bug - hover na pagina search_posts
+- [x] Import js properly
+- [x] Bug - hover na pagina search_posts
 - [ ] Bug - footer por cima do conteúdo na página de profile

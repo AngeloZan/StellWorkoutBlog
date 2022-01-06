@@ -1,56 +1,5 @@
 {% load static %}
 
-<script>
-    $(document).ready(function(e){
-
-        var inMobile = false;
-
-        $('.sidenav').sidenav();
-        $(".dropdown-trigger").dropdown();
-
-        $("#search-icon").click(function(e) {
-
-            if($("#menu-icon").is(":visible")) {
-                inMobile = true;
-            } else {
-                inMobile = false;
-            }
-
-            $("#search-icon").hide();
-            $("#logo").hide();
-            if(inMobile) {
-                $("#menu-icon").css("display", "none");
-            } else {
-                $("#comp-menu").hide();
-            }
-            $("#search-div").fadeIn();
-            $("#search-txt").focus();
-        });
-
-        $("#close-icon").click(function(e) {
-            $("#search-div").hide();
-            $("#search-icon").fadeIn();
-            $("#logo").fadeIn();
-            if(inMobile) {
-                $("#menu-icon").css("display", "unset");
-            } else {
-                $("#comp-menu").fadeIn();
-            }
-        });
-
-        $("#search-txt").blur(function(e) {
-            $("#search-div").hide();
-            $("#search-icon").fadeIn();
-            $("#logo").fadeIn();
-            if(inMobile) {
-                $("#menu-icon").fadeIn();
-            } else {
-                $("#comp-menu").fadeIn();
-            }
-        })
-    });
-</script>
-
 <ul id="dropdown1" class="dropdown-content">
     {% if user.is_admin %}
         <li><a href="{% url 'admin:index' %}">Administração</a></li>

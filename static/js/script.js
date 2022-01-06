@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function(e) {
     $('select').formSelect();
 
     // dark theme stuff
@@ -65,6 +65,52 @@ $(document).ready(function() {
         coverTrigger: false,
         alignment: 'right'
     });
+
+    //navbar stuff
+    var inMobile = false;
+    $('.sidenav').sidenav();
+    $(".dropdown-trigger").dropdown();
+
+    $("#search-icon").click(function(e) {
+
+        if($("#menu-icon").is(":visible")) {
+            inMobile = true;
+        } else {
+            inMobile = false;
+        }
+
+        $("#search-icon").hide();
+        $("#logo").hide();
+        if(inMobile) {
+            $("#menu-icon").css("display", "none");
+        } else {
+            $("#comp-menu").hide();
+        }
+        $("#search-div").fadeIn();
+        $("#search-txt").focus();
+    });
+
+    $("#close-icon").click(function(e) {
+        $("#search-div").hide();
+        $("#search-icon").fadeIn();
+        $("#logo").fadeIn();
+        if(inMobile) {
+            $("#menu-icon").css("display", "unset");
+        } else {
+            $("#comp-menu").fadeIn();
+        }
+    });
+
+    $("#search-txt").blur(function(e) {
+        $("#search-div").hide();
+        $("#search-icon").fadeIn();
+        $("#logo").fadeIn();
+        if(inMobile) {
+            $("#menu-icon").fadeIn();
+        } else {
+            $("#comp-menu").fadeIn();
+        }
+    })
 });
 
 $('.toggle-theme-link').click(function(e) {
