@@ -279,6 +279,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-bottom: 5em !important;
 }
 
+#editar-perfil .link-excluir {
+    font-weight: 300;
+    color: var(--notificacoes-color);
+    letter-spacing: 0.15em;
+    font-size: 11px !important;
+    margin-top: 2em;
+    padding-bottom: 5em !important;
+}
+
 #ajuda form .input-field {
     margin-left: 0px !important;
     margin-right: 0px !important;
