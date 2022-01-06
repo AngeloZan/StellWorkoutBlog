@@ -55,20 +55,26 @@
     {% if user.is_admin %}
         <li><a href="{% url 'admin:index' %}">Administração</a></li>
     {% endif %}
-    <li><a href="{% url 'change_password' %}">Alterar Senha</a></li>
-    <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
-    <li><a href="{% url 'logout' %}">Sair</a></li>
-    <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
+    <li><a href="{% url 'profile' %}"><i class="my-custom-icons-settings"></i>Configurações</a></li>
+    {% if user.dark_mode %}
+        <li><a href="#!" class="toggle-theme-link"><i class="my-custom-icons-moon"></i>Tema</a></li>
+    {% else %}
+        <li><a href="#!" class="toggle-theme-link"><i class="my-custom-icons-sun"></i>Tema</a></li>
+    {% endif %}
+    <li><a class="modal-trigger" href="#modal-sair"><i class="my-custom-icons-logout"></i>Sair</a></li>
 </ul>
 
 <ul id="dropdown2" class="dropdown-content">
     {% if user.is_admin %}
         <li><a href="{% url 'admin:index' %}">Administração</a></li>
     {% endif %}
-    <li><a href="{% url 'change_password' %}">Alterar Senha</a></li>
-    <li><a href="{% url 'my_data' %}">Meus Dados</a></li>
-    <li><a href="{% url 'logout' %}">Sair</a></li>
-    <li><a href="{% url 'del_user' %}">Excluir Conta</a></li>
+    <li><a href="{% url 'profile' %}"><i class="my-custom-icons-settings"></i>Configurações</a></li>
+    {% if user.dark_mode %}
+        <li><a href="#!" class="toggle-theme-link"><i class="my-custom-icons-moon"></i>Tema</a></li>
+    {% else %}
+        <li><a href="#!" class="toggle-theme-link"><i class="my-custom-icons-sun"></i>Tema</a></li>
+    {% endif %}
+    <li><a class="modal-trigger" href="#modal-sair"><i class="my-custom-icons-logout"></i>Sair</a></li>
 </ul>
 
 <nav>
@@ -100,13 +106,7 @@
                             <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                         </a></li>
                         <li>
-                            {% if user.dark_mode %}
-                                <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                                <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                            {% else %}
-                                <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                                <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                            {% endif %}
+                            <a href="#!" class="dropdown-trigger" data-target="dropdown1"><i class="my-custom-icons-profile"></i></a>
                         </li>
                     </ul>
                     <ul class="right">
@@ -130,13 +130,7 @@
                             <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i> 
                         </a></li>
                         <li>
-                            {% if user.dark_mode %}
-                                <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                                <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                            {% else %}
-                                <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                                <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                            {% endif %}
+                            <a href="#!" class="dropdown-trigger" data-target="dropdown1"><i class="my-custom-icons-profile"></i></a>
                         </li>
                     </ul>
                     <ul class="right">
@@ -179,13 +173,7 @@
                     <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
                 <li>
-                    {% if user.dark_mode %}
-                        <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                        <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                    {% else %}
-                        <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                        <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                    {% endif %}
+                    <a href="#!" class="dropdown-trigger" data-target="dropdown2"><i class="my-custom-icons-profile"></i></a>
                 </li>
             </ul>
         {% else %}
@@ -195,18 +183,19 @@
                     <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
                 <li>
-                    {% if user.dark_mode %}
-                        <a href="{% url 'profile' %}" id="profile-black" style="display: none;"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                        <a href="{% url 'profile' %}" id="profile-white"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                    {% else %}
-                        <a href="{% url 'profile' %}" id="profile-black"><img class="icon-profile" src="{% static 'img/profile.png' %}" alt="Ícone Perfil"></a>
-                        <a href="{% url 'profile' %}" id="profile-white" style="display: none;"><img class="icon-profile" src="{% static 'img/profile_white.png' %}" alt="Ícone Perfil"></a>
-                    {% endif %}
+                    <a href="#!" class="dropdown-trigger" data-target="dropdown2"><i class="my-custom-icons-profile"></i></a>
                 </li>
             </ul>
         {% endif %}
     {% endif %}
 </ul>
+
+<script>
+    var toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
+    if (toggleSwitch.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
 
 
 

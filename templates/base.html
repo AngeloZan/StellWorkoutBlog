@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}"/>
     <link type="text/css" rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}"/>
     <link type="text/css" rel="stylesheet" href="{% static 'css/base-style.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/my_font.css' %}"/>
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +30,40 @@
     {% else %}
         <input type="hidden" value="False" id="preset_dark">
     {% endif %}
+
+    <div class="container" style="display: none;">
+        <div class="theme-switch-wrapper switch center">
+            <label class="theme-switch">
+                {% if user.is_authenticated %}
+                    {% if user.dark_mode %}
+                        <input type="checkbox" id="theme-switch-checkbox-1" checked>
+                    {% else %}
+                        <input type="checkbox" id="theme-switch-checkbox-1">
+                    {% endif %}
+                {% else %}
+                    <input type="checkbox" id="theme-switch-checkbox-1">
+                {% endif %}
+                <span class="lever"></span> Dark Theme
+            </label>
+        </div>
+    </div>
+
+    <div id="modal-sair" class="modal">
+        <div class="modal-content center">
+            <h5>Sair?</h5>
+            <ul>
+                <li><a href="#" class="modal-close">Cancelar</a></li>
+                <li><a href="{% url 'logout' %}">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
+        if (toggleSwitch.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
     
     {% include 'snippets/header.html' %}
 
@@ -46,33 +81,7 @@
         {% endfor %}
     {% endif %}
 
-    <main>
-        {% if request.user.is_authenticated %}
-            <div class="container" style="margin-top: 2em;">
-                <div class="theme-switch-wrapper switch center">
-                    <label class="theme-switch">
-                        {% if user.is_authenticated %}
-                            {% if user.dark_mode %}
-                                <input type="checkbox" id="theme-switch-checkbox-1" checked>
-                            {% else %}
-                                <input type="checkbox" id="theme-switch-checkbox-1">
-                            {% endif %}
-                        {% else %}
-                            <input type="checkbox" id="theme-switch-checkbox-1">
-                        {% endif %}
-                        <span class="lever"></span> Dark Theme
-                    </label>
-                </div>
-            </div>
-
-            <script>
-                const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]')
-                if (toggleSwitch.checked) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                }
-            </script>
-        {% endif %}
-        
+    <main>       
         {% block content %}
 
         {% endblock content %}

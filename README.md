@@ -31,3 +31,8 @@ Reunião 21/12/2021:
 - [x] Cores nav interior (hover)
 
 - [ ] Links telegram e sopotify - footer
+
+- [ ] Link excluir conta em editar perfil
+- [ ] Link esqueci minha senha em alterar senha
+- [ ] Arrumar o dropdown no sidenav
+- [ ] Responsividade da página de configurações

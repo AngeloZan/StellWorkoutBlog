@@ -151,25 +151,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 #sair .inline-icon {
-    font-size: 23px !important;
-}
-
-#modal-sair {
-    width: 300px !important;
-    background-color: var(--bg-color) !important;
-    color: var(--font-color) !important;
-}
-
-#modal-sair a {
-    color: inherit !important;
-    text-transform: none !important;
-}
-
-#modal-sair ul li {
-    display: inline-block;
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-top: 1em;
+    font-size: 20px !important;
 }
 
 .profile-forms-container {

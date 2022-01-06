@@ -2,11 +2,9 @@ $(document).ready(function() {
     $('select').formSelect();
 
     // dark theme stuff
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    var toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     var logo_branca = document.querySelector('#white-logo-a');
     var logo_preta = document.querySelector('#black-logo-a');
-    var account_branco = document.querySelectorAll('#profile-white')
-    var account_preto = document.querySelectorAll('#profile-black')
 
     $('.theme-switch input[type="checkbox"]').each(function() {
         var checkbox = this;
@@ -18,10 +16,10 @@ $(document).ready(function() {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 logo_branca.style.display = logo_preta.style.display;
                 logo_preta.style.display = 'none';
-                for (var i=0; i<account_preto.length; i++) {
-                    account_branco[i].style.display = logo_branca.style.display;
-                    account_preto[i].style.display = 'none';
-                };
+                // mostrar lua
+                $('.toggle-theme-link').find('i').removeClass('my-custom-icons-sun');
+                $('.toggle-theme-link').find('i').addClass('my-custom-icons-moon');
+
             } else {
                 for (element of document.querySelectorAll('.theme-switch input[type="checkbox"]')) {
                     element.checked = false;
@@ -29,10 +27,9 @@ $(document).ready(function() {
                 document.documentElement.setAttribute('data-theme', 'light');
                 logo_preta.style.display = logo_branca.style.display;
                 logo_branca.style.display = 'none';
-                for (var i=0; i<account_preto.length; i++) {
-                    account_preto[i].style.display = logo_preta.style.display;
-                    account_branco[i].style.display = 'none';
-                };
+                // mostrar sol
+                $('.toggle-theme-link').find('i').removeClass('my-custom-icons-moon');
+                $('.toggle-theme-link').find('i').addClass('my-custom-icons-sun');
             }
             $.ajax({
                 type: 'GET',
@@ -53,7 +50,7 @@ $(document).ready(function() {
 
     //highlight current page link on navbar
     $('nav a').each(function(){
-        if (($(this).prop('href') == window.location.href) && (! ($(this).attr('href') == '#'))) {
+        if (($(this).prop('href') == window.location.href) && (! ($(this).attr('href') == '#')) && (! ($(this).attr('href') == '#!'))) {
             $(this).addClass('highlight-link');
         }
     });
@@ -63,7 +60,17 @@ $(document).ready(function() {
     });
 
     $('.modal').modal();
+
+    $(".dropdown-trigger").dropdown({
+        coverTrigger: false,
+        alignment: 'right'
+    });
 });
+
+$('.toggle-theme-link').click(function(e) {
+    $('.theme-switch input[type="checkbox"]').first().click();
+});
+
 
 
 

@@ -62,9 +62,8 @@
     color: var(--font-color);
 }
 
-#dropdown1, #dropdown2 {
-    background-color: var(--bg-color);
-    box-shadow: 0px 0.3px 2px var(--shadow-color);
+#dropdown1 {
+    width: 200px !important;
 }
 
 body {
@@ -248,6 +247,25 @@ nav li a {
     font-size: 14px !important;
 }
 
+nav .dropdown-content li a {
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    letter-spacing: 0.15em !important;
+}
+
+#dropdown1, #dropdown2 {
+    background-color: var(--bg-color);
+    box-shadow: 0px 0.3px 2px var(--shadow-color);
+    font-weight: 500 !important;
+}
+
+#dropdown1 li i,
+#dropdown2 li i {
+    font-size: 19px !important;
+    color: inherit !important;
+    margin-right: 5pt;
+}
+
 nav li a:hover {
     color: var(--link-hover) !important;
 }
@@ -268,6 +286,24 @@ nav li a:hover {
     height: 24px;
     margin: 0px;
     vertical-align: middle;
+}
+
+#modal-sair {
+    width: 300px !important;
+    background-color: var(--bg-color) !important;
+    color: var(--font-color) !important;
+}
+
+#modal-sair a {
+    color: inherit !important;
+    text-transform: none !important;
+}
+
+#modal-sair ul li {
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
 }
 
 @media only screen and (max-width: 600px) {
