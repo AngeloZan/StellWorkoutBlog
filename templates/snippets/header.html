@@ -54,6 +54,7 @@
 <ul id="dropdown1" class="dropdown-content">
     {% if user.is_admin %}
         <li><a href="{% url 'admin:index' %}">Administração</a></li>
+        <li><a href="{% url 'novo_post' %}"><i class="material-icons">add</i>Novo Post</a></li>
     {% endif %}
     <li><a href="{% url 'profile' %}"><i class="my-custom-icons-settings"></i>Configurações</a></li>
     {% if user.dark_mode %}
@@ -67,6 +68,7 @@
 <ul id="dropdown2" class="dropdown-content">
     {% if user.is_admin %}
         <li><a href="{% url 'admin:index' %}">Administração</a></li>
+        <li><a href="{% url 'novo_post' %}"><i class="material-icons">add</i>Novo Post</a></li>
     {% endif %}
     <li><a href="{% url 'profile' %}"><i class="my-custom-icons-settings"></i>Configurações</a></li>
     {% if user.dark_mode %}
@@ -101,7 +103,6 @@
                 {% if user.is_admin %}
                     <!--USUARIO ADMIN-->
                     <ul id="comp-menu" class="right hide-on-med-and-down">
-                        <li><a href="{% url 'novo_post' %}">Novo Post</a></li>
                         <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
                             <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                         </a></li>
@@ -168,8 +169,7 @@
         {% if user.is_admin %}
             <!--USUARIO ADMIN-->
             <ul id="nav-mobile">
-                <li><a href="{% url 'novo_post' %}">Novo Post</a></li>
-                <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon" style="padding-left: 50%;">
+                <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
                     <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
                 <li>
@@ -179,7 +179,7 @@
         {% else %}
             <!--USUARIO CADASTRADO COMUM-->
             <ul id="nav-mobile" style="width: 100%;">
-                <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon" style="padding-left: 50%;">
+                <li><a href="{% url 'favourite_posts' %}" class="bookmark-icon">
                     <i class="material-icons" style="display: inline-block; vertical-align: -6px;">bookmark_border</i>
                 </a></li>
                 <li>

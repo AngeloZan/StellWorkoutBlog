@@ -32,7 +32,10 @@ Reunião 21/12/2021:
 
 - [ ] Links telegram e sopotify - footer
 
-- [ ] Link excluir conta em editar perfil
-- [ ] Link esqueci minha senha em alterar senha
+- [x] Link excluir conta em editar perfil
+- [ ] Link esqueci minha senha em alterar senha (?)
 - [ ] Arrumar o dropdown no sidenav
 - [ ] Responsividade da página de configurações
+- [ ] Import js properly
+- [ ] Bug - hover na pagina search_posts
+- [ ] Bug - footer por cima do conteúdo na página de profile

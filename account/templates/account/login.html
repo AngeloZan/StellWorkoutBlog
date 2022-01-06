@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="row form-container">
-        <div class="col s12 m6 offset-m3">
+        <div class="col s12 m8 l6 offset-l3 offset-m2">
             <div class="card form-card">
                 <div class="card-action">
                     <h3>Login</h3>
@@ -35,10 +35,10 @@
                         {% endif %}
                         <button class="btn-large waves-effect waves-dark" style="width:100%">Entrar</button>
                         <div class="helper-text-wrapper row">
-                            <div class="col s12 m6 l6">
-                                <p class="helper-text left"><a href="{% url 'password_reset' %}" id="esqueceu-a-senha">Esqueceu a senha?</a></p>
+                            <div class="col s6 m6 l6 left left-align">
+                                <p class="helper-text left left-align" id="esqueceu-a-senha-helper-text"><a href="{% url 'password_reset' %}" class="left-align" id="esqueceu-a-senha">Esqueceu a senha?</a></p>
                             </div>
-                            <div class="col s12 m6 l6">
+                            <div class="col s6 m6 l6">
                                 <p class="helper-text right"><a href="{% url 'register' %}">Cadastre-se</a></p>
                             </div>
                         </div>
@@ -51,9 +51,6 @@
         body {
             background-image: url('../../static/account/img/form_background.jpg');
             background-size: cover;
-        }
-        footer {
-            display: none;
         }
     </style>
 {% endblock content %}

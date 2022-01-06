@@ -61,7 +61,7 @@ $(document).ready(function() {
 
     $('.modal').modal();
 
-    $(".dropdown-trigger").dropdown({
+    $("nav .dropdown-trigger").dropdown({
         coverTrigger: false,
         alignment: 'right'
     });

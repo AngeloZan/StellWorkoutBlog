@@ -105,6 +105,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .helper-text-wrapper a {
     color: #E8544F;
     font-weight: 600;
+    font-size: 14px !important;
+    text-align: center;
+    letter-spacing: 0.15em;
+    padding: 0px !important;
+    margin-top: 0px !important;
+    box-sizing: content-box;
+}
+
+.helper-text-wrapper #esqueceu-a-senha {
+    text-align: left !important;
+}
+
+#esqueceu-a-senha-helper-text {
+    text-align: left;
+}
+
+.helper-text-wrapper button {
+    background-color: rgba(0, 0, 0, 0) !important;
+    text-transform: none;
+    border: none;
+    box-shadow: none !important;
+    font-size: 14px !important;
+    font-weight: 600;
 }
 
 #esqueceu-a-senha {

@@ -35,6 +35,7 @@ owl.owlCarousel({
     merge:false,
     margin:0,
     mouseDrag:false,
+    touchDrag:false,
     transitionStyle: "fade",
     animateIn:'fadeIn',
     animateOut:'fadeOut',

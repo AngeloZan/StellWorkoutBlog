@@ -53,6 +53,14 @@
     display: inline-block;
 }
 
+input {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+button {
+    font-family: 'Poppins', sans-serif !important;
+}
+
 #search-txt {
     background-color: rgba(0, 0, 0, 0);
     color: var(--font-color);
@@ -195,7 +203,18 @@ nav #logo {
 
 .footer-copyright {
     font-weight: 200;
-    font-size: 9px;
+    font-size: 11px;
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.page-footer-copyright-only {
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: var(--notificacoes-hl-color) !important;
+}
+
+.footer-copyright-only {
+    font-weight: 400;
+    font-size: 11px;
     background-color: rgba(0, 0, 0, 0) !important;
 }
 
@@ -203,23 +222,27 @@ nav #logo {
     background-color: var(--bg-color);
     text-align: right;
     width: auto;
-    min-width: 200px;
+    min-width: 250px;
 }
 
-.sidenav li>a {
+.sidenav>ul>li>a {
     text-align: center;
 }
 
-.sidenav a i {
-    transform: translateX(-50%);
+.sidenav>ul>li>a>i {
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+    color: inherit !important;
+    font-size: 22px !important;
 }
 
-nav ul a, 
+nav ul a,
+.sidenav a,
 .dropdown-content ul a,
 .sidenav ul a {
     text-transform: uppercase;
-    color: var(--font-color);
-    font-weight: 500;
+    color: var(--font-color) !important;
+    font-weight: 500 !important;
 }
 
 #menu-icon {
@@ -242,12 +265,14 @@ nav ul a:hover,
     color: inherit;
 }
 
-nav li a {
+nav li a,
+.sidenav li a {
     font-weight: 500 !important;
     font-size: 14px !important;
 }
 
-nav .dropdown-content li a {
+nav .dropdown-content li a, 
+.sidenav .dropdown-content li a{
     font-weight: 500 !important;
     font-size: 12px !important;
     letter-spacing: 0.15em !important;
@@ -266,7 +291,8 @@ nav .dropdown-content li a {
     margin-right: 5pt;
 }
 
-nav li a:hover {
+nav li a:hover,
+.sidenav li a:hover {
     color: var(--link-hover) !important;
 }
 
