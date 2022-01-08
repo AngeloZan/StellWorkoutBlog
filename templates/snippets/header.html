@@ -32,11 +32,11 @@
     <div class="nav-wrapper">
         <div class="container">
             {% if user.is_authenticated and user.dark_mode %}
-                <a href="{% url 'home' %}" class="brand-logo" id="white-logo-a"><img src="{% static 'img/logo_texto_branca.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
-                <a href="{% url 'home' %}" class="brand-logo" id="black-logo-a" style="display: none;"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+                <a href="{% url 'home' %}" class="brand-logo" id="white-logo-a"><img src="{% static 'img/logo_texto_branca.png' %}" alt="Logo StellWorkout" class="responsive-img logo-nav" id="logo"></a>
+                <a href="{% url 'home' %}" class="brand-logo" id="black-logo-a" style="display: none;"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img logo-nav" id="logo"></a>
             {% else %}
-                <a href="{% url 'home' %}" class="brand-logo" id="black-logo-a"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
-                <a href="{% url 'home' %}" class="brand-logo" id="white-logo-a" style="display: none;"><img src="{% static 'img/logo_texto_branca.png' %}" alt="Logo StellWorkout" class="responsive-img" id="logo"></a>
+                <a href="{% url 'home' %}" class="brand-logo" id="black-logo-a"><img src="{% static 'img/logo_texto.png' %}" alt="Logo StellWorkout" class="responsive-img logo-nav" id="logo"></a>
+                <a href="{% url 'home' %}" class="brand-logo" id="white-logo-a" style="display: none;"><img src="{% static 'img/logo_texto_branca.png' %}" alt="Logo StellWorkout" class="responsive-img logo-nav" id="logo"></a>
             {% endif %}
             <a href="#" class="sidenav-trigger" data-target="mobile-nav" id="menu-icon">
                 <i class="material-icons" id="menu-icon">menu</i>

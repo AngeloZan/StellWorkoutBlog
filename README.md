@@ -34,8 +34,10 @@ Reunião 21/12/2021:
 
 - [x] Link excluir conta em editar perfil
 - [ ] Link esqueci minha senha em alterar senha (?)
-- [ ] Arrumar o dropdown no sidenav
+- [x] Arrumar o dropdown no sidenav
 - [ ] Responsividade da página de configurações
 - [x] Import js properly
 - [x] Bug - hover na pagina search_posts
 - [ ] Bug - footer por cima do conteúdo na página de profile
+- [x] Bug - logo não some ao clicar na lupa após trocar o tema
+

@@ -89,3 +89,17 @@
     width: 80%;
 }
 
+@media (hover: none) {
+    .home-content>.content-wrapper>.container>.txt,
+    .home-content>.content-wrapper>.container>.txt>p,
+    .home-content>.content-wrapper>.container>.txt>.title {
+        visibility: visible;
+        opacity: 1 !important;
+        color: var(--font-color) !important;
+    }
+
+    .txt {
+        height: 50vh !important;
+    }
+}
+

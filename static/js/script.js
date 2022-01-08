@@ -61,15 +61,14 @@ $(document).ready(function(e) {
 
     $('.modal').modal();
 
-    $("nav .dropdown-trigger").dropdown({
-        coverTrigger: false,
-        alignment: 'right'
-    });
-
     //navbar stuff
     var inMobile = false;
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown();
+    $("nav .dropdown-trigger").dropdown({
+        coverTrigger: false,
+        alignment: 'right'
+    });
 
     $("#search-icon").click(function(e) {
 
@@ -80,7 +79,9 @@ $(document).ready(function(e) {
         }
 
         $("#search-icon").hide();
-        $("#logo").hide();
+        var activeLogo = $('.logo-nav:visible');
+        activeLogo.addClass('previous-active-logo');
+        activeLogo.hide();
         if(inMobile) {
             $("#menu-icon").css("display", "none");
         } else {
@@ -93,7 +94,9 @@ $(document).ready(function(e) {
     $("#close-icon").click(function(e) {
         $("#search-div").hide();
         $("#search-icon").fadeIn();
-        $("#logo").fadeIn();
+        var previousActiveLogo = $(".previous-active-logo").first();
+        previousActiveLogo.fadeIn();
+        previousActiveLogo.removeClass('previous-active-logo');
         if(inMobile) {
             $("#menu-icon").css("display", "unset");
         } else {
@@ -104,7 +107,9 @@ $(document).ready(function(e) {
     $("#search-txt").blur(function(e) {
         $("#search-div").hide();
         $("#search-icon").fadeIn();
-        $("#logo").fadeIn();
+        var previousActiveLogo = $(".previous-active-logo").first();
+        previousActiveLogo.fadeIn();
+        previousActiveLogo.removeClass('previous-active-logo');
         if(inMobile) {
             $("#menu-icon").fadeIn();
         } else {
