@@ -13,8 +13,8 @@
                 <div class="card-action">
                     <h3>Excluir Conta</h3>
                 </div>
-                <div class="card-content">
-                    <h4>Tem certeza?</h4>
+                <div class="card-content" id="form-exclusao">
+                    <h5>Tem certeza?</h5>
                     <p>Esta ação é irreversível! Após digitar a sua senha e clicar em "Excluir Conta", todos os dados da sua conta serão apagados.</p><br>
                     <form action="" method="post" class="form-card-form" autocomplete="off">
                         {% csrf_token %}
@@ -47,8 +47,18 @@
     </div>
 
     <style>
+        :root {
+            --profile-background: url('../../static/account/img/form_background.jpg');
+        }
+        [data-theme="dark"] {
+            --profile-background: url('../../static/account/img/form_background_dark.jpg');
+        }
         body {
-            background-color: var(--bg-color);
+            background: var(--bg-color) var(--profile-background) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
 {% endblock content %}

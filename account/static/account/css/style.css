@@ -358,6 +358,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: var(--notificacoes-hl-color);
 }
 
+#form-exclusao p {
+    font-weight: 300 !important;
+    margin-bottom: 1.5em;
+}
+
 
 
 @media only screen and (max-width: 1000px) {

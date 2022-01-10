@@ -361,7 +361,8 @@ def ajuda_view(request):
             ajuda_email(nome, email, mensagem)
 
         messages.success(request, f'Sua mensagem foi enviada!')
-        return redirect('home')
+        return redirect(request.META.get('HTTP_REFERER'))
+
     else:
         return redirect('home')
     

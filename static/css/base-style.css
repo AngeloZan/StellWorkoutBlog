@@ -315,7 +315,7 @@ nav li a:hover,
 }
 
 #modal-sair {
-    width: 300px !important;
+    width: 350px !important;
     background-color: var(--bg-color) !important;
     color: var(--font-color) !important;
 }
@@ -332,6 +332,25 @@ nav li a:hover,
     margin-top: 1em;
 }
 
+#modal-sair .btn-small {
+    background-color: var(--form-bt-bg);
+    color: var(--form-bt-color);
+    font-weight: 400 !important;
+    letter-spacing: 0.15em;
+    font-size: 13px;
+    border-radius: 1.2em/0.2em;
+    width: 105px;
+    margin: 0;
+}
+
+#logo-container-footer {
+    margin-bottom: 2em;
+}
+
+.page-footer>container>row>col>ul>li>a {
+    line-height: 5px;
+}
+
 @media only screen and (max-width: 600px) {
     #menu-icon {
         display: block;
@@ -343,5 +362,8 @@ nav li a:hover,
         margin-top: 2em;
         margin-bottom: 2em;
     }
+    #logo-container-footer {
+        text-align: center;
+    }    
 }
 
