@@ -26,16 +26,16 @@ Reunião 21/12/2021:
 - [x] Fix input layout on forms
 - [ ] Responsive external home page
 
-- [ ] Adaptar forms para tema escuro
+- [x] Adaptar forms para tema escuro
 
 - [x] Cores nav interior (hover)
 
 - [ ] Links telegram e sopotify - footer
 
 - [x] Link excluir conta em editar perfil
-- [ ] Link esqueci minha senha em alterar senha (?)
+- [x] Link esqueci minha senha em alterar senha (?)
 - [x] Arrumar o dropdown no sidenav
-- [ ] Responsividade da página de configurações
+- [x] Responsividade da página de configurações
 - [x] Import js properly
 - [x] Bug - hover na pagina search_posts
 - [ ] Bug - footer por cima do conteúdo na página de profile
