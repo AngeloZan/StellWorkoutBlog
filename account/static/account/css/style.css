@@ -28,7 +28,8 @@
     letter-spacing: 6pt;
     box-shadow: none;
     border: none;
-    height: 70pt;
+    padding-bottom: 0px;
+    height: auto;
 }
 
 .form-card .card-action h3 {

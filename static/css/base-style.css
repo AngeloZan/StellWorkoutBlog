@@ -347,8 +347,9 @@ nav li a:hover,
     margin-bottom: 2em;
 }
 
-.page-footer>container>row>col>ul>li>a {
-    line-height: 5px;
+.page-footer>.container>.row>.col>ul>li {
+    line-height: 10px !important;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
