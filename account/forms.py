@@ -59,6 +59,7 @@ class AccountUpdateForm(forms.ModelForm):
             ),
         input_formats=['%Y-%m-%d'],
         label='Nascimento',
+        required=False
     )
 
     class Meta:
