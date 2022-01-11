@@ -66,7 +66,7 @@ class Account(AbstractBaseUser):
 
     # email stuff
     confirmed               = models.BooleanField(default=False)
-    subscriber              = models.BooleanField(default=False)
+    subscriber              = models.BooleanField(default=True)
     notificacoes            = models.CharField(default='', max_length=200)
 
     USERNAME_FIELD = 'email'
