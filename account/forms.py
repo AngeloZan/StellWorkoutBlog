@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import authenticate
 import datetime
 
-from account.models import Account, Profile
+from account.models import Account
 
 class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):

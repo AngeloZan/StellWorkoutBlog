@@ -102,3 +102,4 @@ GitHub.sublime-settings
 
 treinos/management/commands/treinos_db_in_excel.xlsx
 treinos/management/commands/modelos_copia_planilha_inteira.xlsx
+datadump.json

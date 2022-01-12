@@ -88,33 +88,5 @@ class Account(AbstractBaseUser):
         verbose_name_plural = 'contas'
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(Account, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to=wrapper)
 
-    def __str__(self):
-        return 'Perfil do(a) {}'.format(self.user.username)
-
-    def save(self, *args, **kwargs):
-        super().save()
-
-        img = Image.open(self.image.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
-
-    class Meta:
-        verbose_name = 'perfil'
-        verbose_name_plural = 'perfis'
-
-class Goals(models.Model):
-    user = models.OneToOneField(Account, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return 'Metas do(a) {}'.format(self.user.username)
-    
-    class Meta:
-        verbose_name = 'metas'
 
