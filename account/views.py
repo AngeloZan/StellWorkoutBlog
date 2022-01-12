@@ -201,28 +201,23 @@ def password_reset_form_view(request):
         registered_user = Account.objects.filter(email=email)
 
         if registered_user:
-            if registered_user[0].confirmed:
-                # mandar email
-                if (not settings.DEBUG) or settings.TEST_EMAIL:
-                    current_site = get_current_site(request)
-                    email_subject = 'Recuperação de senha'
-                    msg_html = render_to_string('account/password_reset_email.html',
-                    {
-                        'user': registered_user[0],
-                        'domain': current_site.domain,
-                        'uid': urlsafe_base64_encode(force_bytes(registered_user[0].pk)),
-                        'token': generate_token.make_token(registered_user[0])
-                    })
-                    msg_plain = strip_tags(msg_html)
+            # mandar email
+            if (not settings.DEBUG) or settings.TEST_EMAIL:
+                current_site = get_current_site(request)
+                email_subject = 'Recuperação de senha'
+                msg_html = render_to_string('account/password_reset_email.html',
+                {
+                    'user': registered_user[0],
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(registered_user[0].pk)),
+                    'token': generate_token.make_token(registered_user[0])
+                })
+                msg_plain = strip_tags(msg_html)
 
-                    send_mail(email_subject, msg_plain, settings.RESET_PASSWORD_EMAIL, [email], html_message=msg_html)
+                send_mail(email_subject, msg_plain, settings.RESET_PASSWORD_EMAIL, [email], html_message=msg_html)
 
-                messages.success(request, f'Enviamos um email para {email}, verifique também a sua caixa de spam.')
-                return redirect('home')
-            else:
-                # redirecionar e informar que o email não é verificado
-                context['user_exists'] = True
-                return render(request, 'account/password_reset_form_failed.html', context)
+            messages.success(request, f'Enviamos um email para {email}, verifique também a sua caixa de spam.')
+            return redirect('home')
 
         else:
             # redirecionar e informar que o email não foi encontrado no BD
