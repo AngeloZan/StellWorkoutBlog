@@ -6,7 +6,7 @@ import os
 import uuid
 
 POST_IMAGE_ASPECT_RATIO = 1.4479 # height / width
-POST_IMAGE_MAX_WIDTH = 250 # largura max da imagem do post (em px)
+POST_IMAGE_MAX_WIDTH = 350 # largura max da imagem do post (em px)
 
 def wrapper(instance, filename):
     # wrapper para o arquivo (pdf) do post
