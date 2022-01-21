@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'phonenumber_field',
     'django_countries',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [

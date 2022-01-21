@@ -8,7 +8,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text
 from .utils import generate_token
 from django.http import Http404
-
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from .utils import posts_matrix, email_notification, feedback_email
 from .models import Post, Category
 from .forms import CreatePostForm
@@ -80,9 +80,13 @@ def search_posts_view(request):
         searched = request.POST.get('searched', False)
         context['searched'] = searched
 
-        posts_title = Post.objects.filter(title__contains=searched)
-        posts_intro = Post.objects.filter(intro__contains=searched)
-        posts = posts_title | posts_intro
+        query = SearchQuery(searched)
+        vector = SearchVector('title', 'intro')
+
+        posts = Post.objects.annotate(
+            search=vector,
+        ).filter(search=query)
+
         num_posts = len(posts)
         posts_mtx = posts_matrix(posts)
         favourite_posts = user.favourite.all()
