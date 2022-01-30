@@ -38,7 +38,7 @@ else:
     SECRET_KEY = env('SECRET_KEY')
 
 
-ALLOWED_HOSTS = ['*'] #MUDAR
+ALLOWED_HOSTS = ['stellworkout.com', 'www.stellworkout.com']
 
 
 # Application definition
