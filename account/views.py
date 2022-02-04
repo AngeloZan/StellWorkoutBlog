@@ -31,7 +31,7 @@ def registration_view(request):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
 
-            if (not settings.DEBUG) or settings.TEST_EMAIL:
+            if (not settings.DEBUG) or settings.SEND_MAILS:
                 # enviando email de confirmacao
                 user.save()
 
@@ -202,7 +202,7 @@ def password_reset_form_view(request):
 
         if registered_user:
             # mandar email
-            if (not settings.DEBUG) or settings.TEST_EMAIL:
+            if (not settings.DEBUG) or settings.SEND_MAILS:
                 current_site = get_current_site(request)
                 email_subject = 'Recuperação de senha'
                 msg_html = render_to_string('account/password_reset_email.html',
@@ -352,7 +352,7 @@ def ajuda_view(request):
         email = request.POST.get('email_ajuda', False)
         mensagem = request.POST.get('mensagem_ajuda', False)
 
-        if (not settings.DEBUG) or settings.TEST_EMAIL:
+        if (not settings.DEBUG) or settings.SEND_MAILS:
             ajuda_email(nome, email, mensagem)
 
         messages.success(request, f'Sua mensagem foi enviada!')

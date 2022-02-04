@@ -57,7 +57,7 @@ def create_post_view(request):
         form_novo_post.save_m2m()
         messages.success(request, f'O post foi enviado com sucesso!')
 
-        if request.POST.get('notification') and ((not settings.DEBUG) or settings.TEST_EMAIL):
+        if request.POST.get('notification') and ((not settings.DEBUG) or settings.SEND_MAILS):
             domain = get_current_site(request)
             email_notification(obj, domain) # mandando email com notificação
 
@@ -179,7 +179,7 @@ def feedback_view(request):
         email = request.POST.get('email', False)
         mensagem = request.POST.get('mensagem', False)
 
-        if (not settings.DEBUG) or settings.TEST_EMAIL:
+        if (not settings.DEBUG) or settings.SEND_MAILS:
             feedback_email(nome, email, mensagem)
 
         messages.success(request, f'Sua mensagem foi enviada!')
