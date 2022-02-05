@@ -37,8 +37,8 @@ if DEBUG:
 else:
     SECRET_KEY = env('SECRET_KEY')
 
-
-ALLOWED_HOSTS = ['stellworkout.com', 'www.stellworkout.com']
+if not DEBUG:
+    ALLOWED_HOSTS = ['stellworkout.com', 'www.stellworkout.com']
 
 
 # Application definition
@@ -145,7 +145,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "/static/")
+else:
+    STATICFILES_DIRS = (os.path.join('static'),)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -174,12 +177,13 @@ AJUDA_EMAIL_RECEIVER = EMAIL_HOST_USER
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'BR'
 
-# HTTPS settings
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
+if not DEBUG:
+    # HTTPS settings
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
 
-# HSTS settings
-SECURE_HSTS_SECONDS = 31536000 # 1 yr
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    # HSTS settings
+    SECURE_HSTS_SECONDS = 31536000 # 1 yr
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
