@@ -146,7 +146,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "/static/")
+    STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 else:
     STATICFILES_DIRS = (os.path.join('static'),)
 
@@ -177,7 +177,10 @@ AJUDA_EMAIL_RECEIVER = EMAIL_HOST_USER
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'BR'
 
-if not DEBUG:
+# SSL stuff
+SSL = False # true when using a ssl certificate
+
+if SSL:
     # HTTPS settings
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
