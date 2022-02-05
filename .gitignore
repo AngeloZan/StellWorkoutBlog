@@ -4,8 +4,14 @@
 *.pyc
 __pycache__
 db.sqlite3
-media
+media/post_images/*
+media/profile_pics/*
+media/posts
 static
+
+# Default media
+!media/post_images/default.png
+!media/profile_pics/default.jpg
 
 # Backup files # 
 *.bak 
