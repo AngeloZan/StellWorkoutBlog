@@ -12,4 +12,39 @@ def home_view(request):
     else:
         return redirect('posts')
 
-        
+
+def sobre_view(request):
+    context = {}
+
+    return render(request, 'pages/construction.html', context)
+
+
+def stell_wear_view(request):
+    context = {}
+
+    return render(request, 'pages/construction.html', context)
+
+
+def patrocinio_view(request):
+    context = {}
+
+    return render(request, 'pages/construction.html', context)
+
+
+def faq_view(request):
+    context = {}
+
+    return render(request, 'pages/construction.html', context)
+
+
+def termos_e_condicoes_view(request):
+    context = {}
+
+    return render(request, 'pages/construction.html', context)
+
+
+def politica_de_privacidade_view(request):
+    context = {}
+
+    return render(request, 'pages/construction.html', context)
+

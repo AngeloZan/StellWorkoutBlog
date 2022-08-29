@@ -23,6 +23,12 @@ admin.site.site_header = 'Administração StellWorkout'
 
 from pages.views import (
     home_view,
+    sobre_view,
+    stell_wear_view,
+    patrocinio_view,
+    faq_view,
+    termos_e_condicoes_view,
+    politica_de_privacidade_view,
 )
 
 from account.views import (
@@ -77,6 +83,12 @@ urlpatterns = [
     path('perfil/', profile_view, name='profile'),
     path('notificacoes/', notifications_view, name='notificacoes'),
     path('ajuda/', ajuda_view, name='ajuda'),
+    path('sobre/', sobre_view, name='sobre'),
+    path('stell-wear/', stell_wear_view, name='stell_wear'),
+    path('patrocinio/', patrocinio_view, name='patrocinio'),
+    path('faq/', faq_view, name='faq'),
+    path('termos-e-condicoes/', termos_e_condicoes_view, name='termos_e_condicoes'),
+    path('politica-de-privacidade/', politica_de_privacidade_view, name='politica_de_privacidade'),
 ]
 
 if settings.DEBUG:

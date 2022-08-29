@@ -1,9 +1,24 @@
 {% autoescape off %}
 
-Olá {{ user.username }},
-Por favor confirme o seu endereço de E-mail clicando no link abaixo!
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-http://{{ domain }}{% url 'activate'  uidb64=uid token=token %}
+<style>
+    h3 {
+        text-align: center;
+    }
+    .email-wrapper {
+        text-align: center;
+        max-width: 85%;
+        margin: auto;
+        border: solid 1px black;
+        font-family: 'Poppins';
+    }
+</style>
 
+<div class="email-wrapper">
+    <h3>Olá {{ user.username }},</h3>
+    <p>Por favor confirme o seu endereço de E-mail clicando no link abaixo!</p>
+    <p>http://{{ domain }}{% url 'activate'  uidb64=uid token=token %}</p>
+</div>
 
 {% endautoescape %}
