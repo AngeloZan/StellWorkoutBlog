@@ -12,6 +12,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from .utils import generate_token, ajuda_email
 from django.core.mail import EmailMessage, send_mail
+from django.core import mail
 from django.conf import settings
 from .models import Account
 from django.contrib import messages
@@ -44,15 +45,9 @@ def registration_view(request):
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                     'token': generate_token.make_token(user)
                 })
+                plain_message = strip_tags(message)
 
-                email_message = EmailMessage(
-                    email_subject,
-                    message,
-                    settings.CONFIRMATION_FROM_EMAIL,
-                    [email]
-                )
-
-                email_message.send()
+                mail.send_mail(email_subject, plain_message, settings.CONFIRMATION_FROM_EMAIL, [email], html_message=message)
 
             login(request, account)
 

@@ -154,7 +154,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Email stuff
-SEND_MAILS = False
+SEND_MAILS = True
 
 # informacoes armazenadas em variaveis de ambiente
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
