@@ -48,7 +48,10 @@ def registration_view(request):
                 plain_message = strip_tags(message)
 
                 mail.send_mail(email_subject, plain_message, settings.CONFIRMATION_FROM_EMAIL, [email], html_message=message)
-
+            
+            # redirecionar para uma página que explique
+            # que o usuário deve verificar o email
+            
             login(request, account)
 
             return redirect('home')
@@ -104,7 +107,7 @@ def activate_account_view(request, uidb64, token):
         user.subscriber = True
         user.save()
         messages.success(request, f'Email verificado com sucesso!')
-        return redirect('home')
+        return redirect('login')
 
     return render(request, 'account/activate_failed.html', status=401)
 
@@ -160,7 +163,8 @@ def del_user_view(request):
     if not user.is_authenticated:
         return redirect('login')
 
-    user_old_pic_file = user.profile.image.path
+    # user_old_pic_file = user.profile.image.path
+    # linha acima desativada temporariamente 
 
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
@@ -170,8 +174,9 @@ def del_user_view(request):
             u = authenticate(email=email, password=password)
 
             if u:
-                if not user_old_pic_file.endswith('media/default.jpg'):
-                    os.remove(user_old_pic_file)
+                # if not user_old_pic_file.endswith('media/default.jpg'):
+                    # os.remove(user_old_pic_file)
+                # linhas acima desativadas temporariamente
                 u.delete()
                 messages.info(request, 'Sua conta foi excluída, até a próxima!')
                 return redirect('home')
