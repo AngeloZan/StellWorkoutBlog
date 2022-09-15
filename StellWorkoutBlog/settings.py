@@ -154,7 +154,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Email stuff
-SEND_MAILS = True
+SEND_MAILS = env('SEND_MAILS')
 
 # informacoes armazenadas em variaveis de ambiente
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -178,7 +178,7 @@ PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'BR'
 
 # SSL stuff
-SSL = False # true when using a ssl certificate
+SSL = env('SSL') # true when using a ssl certificate
 
 if SSL:
     # HTTPS settings
