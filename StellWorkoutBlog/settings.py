@@ -40,6 +40,9 @@ else:
 if not DEBUG:
     ALLOWED_HOSTS = ['stellworkout.com', 'www.stellworkout.com']
 
+else:
+    ALLOWED_HOSTS = []
+
 
 # Application definition
 
