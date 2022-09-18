@@ -193,3 +193,14 @@ if SSL:
     SECURE_HSTS_SECONDS = 31536000 # 1 yr
     SECURE_HSTS_PRELOAD = True
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+else:
+    CORS_REPLACE_HTTPS_REFERER      = False
+    HOST_SCHEME                     = "http://"
+    SECURE_PROXY_SSL_HEADER         = None
+    SECURE_SSL_REDIRECT             = False
+    SESSION_COOKIE_SECURE           = False
+    CSRF_COOKIE_SECURE              = False
+    SECURE_HSTS_SECONDS             = None
+    SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
+    SECURE_FRAME_DENY               = False
