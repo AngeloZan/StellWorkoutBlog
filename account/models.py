@@ -12,6 +12,7 @@ from django_countries.fields import CountryField
 GENDER_CHOICES = (
     ('M', 'Masculino'),
     ('F', 'Feminino'),
+    ('O', 'Prefiro não dizer'),
 )
 
 def wrapper(instance, filename):
